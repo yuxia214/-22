@@ -35,8 +35,8 @@ tmp/
 *.ckpt
 *.bin
 *.h5
-models/
-pretrained_models/
+
+
 weights/
 
 # 数据 / 特征文件

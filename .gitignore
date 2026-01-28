@@ -59,3 +59,4 @@ build/
 *.egg-info/
 pip-wheel-metadata/
 .cache/
+.autodl/autopanel.monitor.db

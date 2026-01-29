@@ -220,10 +220,7 @@ if __name__ == '__main__':
 
             epoch_store = {}
             
-            ## 设置当前epoch（用于MISA模型的课程学习）
-            if hasattr(model, 'set_epoch'):
-                model.set_epoch(epoch)
-
+       
             ## training and validation
             train_results = train_or_eval_model(args, model, reg_loss, cls_loss, train_loader, epoch=epoch, optimizer=optimizer, train=True )
             eval_results  = train_or_eval_model(args, model, reg_loss, cls_loss, eval_loader,  epoch=epoch, optimizer=None,      train=False)

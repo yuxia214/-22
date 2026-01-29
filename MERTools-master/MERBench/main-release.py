@@ -219,7 +219,8 @@ if __name__ == '__main__':
         for epoch in range(args.epochs):
 
             epoch_store = {}
-
+   
+            
             ## training and validation
             train_results = train_or_eval_model(args, model, reg_loss, cls_loss, train_loader, epoch=epoch, optimizer=optimizer, train=True )
             eval_results  = train_or_eval_model(args, model, reg_loss, cls_loss, eval_loader,  epoch=epoch, optimizer=None,      train=False)

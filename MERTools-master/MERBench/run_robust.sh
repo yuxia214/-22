@@ -10,8 +10,11 @@
 # - 早停机制
 # ============================================
 
+# 切换到工作目录
+cd /root/autodl-tmp/MERTools-master/MERBench
+
 # 基础配置 - 使用固定优化后的超参数
-python -u main-robust.py \
+python -u /root/autodl-tmp/MERTools-master/MERBench/main-robust.py \
     --model='attention_robust' \
     --feat_type='utt' \
     --dataset='MER2023' \

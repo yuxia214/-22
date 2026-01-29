@@ -134,7 +134,7 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', type=str, default=None, help='dataset')
     parser.add_argument('--train_dataset', type=str, default=None, help='train dataset')
     parser.add_argument('--test_dataset',  type=str, default=None, help='test dataset')
-    parser.add_argument('--save_root', type=str, default='./saved', help='save prediction results and models')
+    parser.add_argument('--save_root', type=str, default='/root/autodl-tmp/MERTools-master/MERBench/saved-robust', help='save prediction results and models')
     parser.add_argument('--debug', action='store_true', default=False, help='whether use debug to limit samples')
     parser.add_argument('--savemodel', action='store_true', default=False, help='whether to save model')
     parser.add_argument('--save_iters', type=int, default=1e8, help='save models per iters')

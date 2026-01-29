@@ -40,7 +40,7 @@ tmp/
 weights/
 
 # 数据 / 特征文件
-data/
+
 dataset/
 datasets/
 *.npy

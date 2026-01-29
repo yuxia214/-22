@@ -1,59 +1,71 @@
 # *_*coding:utf-8 *_*
 import os
 import sys
+import socket
 
-# === 1. 标签文件所在目录 (保持原状) ===
-# 存放 label-6way.npz 的地方
-LABEL_ROOT = '/root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process'
+############ For LINUX ##############
 
-# === 2. 特征文件所在目录 (修改这里) ===
-# 存放 chinese-hubert-large-UTT 等文件夹的地方
-FEATURE_ROOT = '/root/autodl-tmp/features'
+# [修正1] 使用你 find 命令找到的真实绝对路径
+# 原始位置: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process
+REAL_DATA_ROOT = '/root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process'
 
+# 缺失模态增强参数
+parser.add_argument('--modal_dropout_prob', type=float, default=0.2, help='训练时随机丢弃模态的概率')
+parser.add_argument('--cross_recon_weight', type=float, default=0.5, help='跨模态重建损失权重')
 DATA_DIR = {
-    'MER2023': LABEL_ROOT,
+    'MER2023': REAL_DATA_ROOT,
 }
 
 PATH_TO_RAW_AUDIO = {
-    'MER2023': os.path.join(FEATURE_ROOT, 'audio'), # 假设原始音频也在 features 下，如果不是可不改
+    'MER2023': os.path.join(DATA_DIR['MER2023'], 'audio'),
 }
 
 PATH_TO_RAW_FACE = {
-    'MER2023': os.path.join(FEATURE_ROOT, 'openface_face'),
+    'MER2023': os.path.join(DATA_DIR['MER2023'], 'openface_face'),
 }
 
 PATH_TO_TRANSCRIPTIONS = {
-    'MER2023': os.path.join(LABEL_ROOT, 'transcription.csv'),
+    'MER2023': os.path.join(DATA_DIR['MER2023'], 'transcription.csv'),
 }
 
-# [关键修改] 让代码去 features 目录找特征
 PATH_TO_FEATURES = {
-    'MER2023': FEATURE_ROOT,
+    'MER2023': REAL_DATA_ROOT,  # 特征文件通常就在这个目录下
 }
 
-# [保持不变] 让代码去原目录找标签
+# [修正2] 确保指向真实存在的 label 文件
 PATH_TO_LABEL = {
-    'MER2023': os.path.join(LABEL_ROOT, 'label-6way.npz'),
+    'MER2023': os.path.join(REAL_DATA_ROOT, 'label-6way.npz'),
 }
 
-# === 工具路径 (Tools) ===
+# 工具路径 (指向当前项目下的 tools)
 PATH_TO_PRETRAINED_MODELS = '/root/autodl-tmp/MERTools-master/MERBench/tools'
 PATH_TO_OPENSMILE = os.path.join(PATH_TO_PRETRAINED_MODELS, 'opensmile-2.3.0')
-PATH_TO_FFMPEG = '/usr/bin/ffmpeg'
+PATH_TO_FFMPEG = '/usr/bin/ffmpeg' # AutoDL 环境通常自带 ffmpeg，或指向项目内 tools
 PATH_TO_NOISE = os.path.join(PATH_TO_PRETRAINED_MODELS, 'musan/audio-select')
 
-# === 结果保存路径 ===
-# === 结果保存路径 ===
-# [修改建议] 获取 config.py 所在的绝对目录
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# 保存路径
+SAVED_ROOT = '/root/autodl-tmp/MERTools-master/MERBench/saved'
 
-# 将保存路径强制指向当前目录下的 saved-trimodal，确保它是绝对路径
-SAVED_ROOT = os.path.join(CURRENT_DIR, 'saved-trimodal')
-
-# 下面的保持不变，它们会自动继承上面的绝对路径
-DATA_DIR_SAVE = os.path.join(SAVED_ROOT, 'data')
+# [修正3] 修改变量名，防止覆盖上面的 DATA_DIR 字典
+SAVED_DATA_DIR = os.path.join(SAVED_ROOT, 'data') 
 MODEL_DIR = os.path.join(SAVED_ROOT, 'model')
 LOG_DIR = os.path.join(SAVED_ROOT, 'log')
 PREDICTION_DIR = os.path.join(SAVED_ROOT, 'prediction')
 FUSION_DIR = os.path.join(SAVED_ROOT, 'fusion')
 SUBMISSION_DIR = os.path.join(SAVED_ROOT, 'submission')
+
+
+############ For Windows (保留备用) ##############
+DATA_DIR_Win = {
+    'MER2023': 'H:\\desktop\\Multimedia-Transformer\\MER2023-Baseline-master\\dataset-process',
+}
+
+PATH_TO_RAW_FACE_Win = {
+    'MER2023': os.path.join(DATA_DIR_Win['MER2023'], 'video'),
+}
+
+PATH_TO_FEATURES_Win = {
+    'MER2023': os.path.join(DATA_DIR_Win['MER2023'], 'features'),
+}
+
+PATH_TO_OPENFACE_Win = "H:\\desktop\\Multimedia-Transformer\\MER2023-Baseline-master\\tools\\openface_win_x64"

@@ -236,19 +236,28 @@ class AttentionRobustV2(nn.Module):
         z_t, mu_t, logvar_t, std_t = self.text_encoder(texts)
         z_v, mu_v, logvar_v, std_v = self.video_encoder(videos)
         
-        # ========== 2. 模态Dropout (可选) ==========
-        z_a_dropped, z_t_dropped, z_v_dropped = self.apply_modality_dropout(z_a, z_t, z_v)
+        # ========== 2. 模态Dropout (应用到mu上) ==========
+        # 修复：dropout必须影响融合过程，所以应用到mu上
+        mu_a_dropped, mu_t_dropped, mu_v_dropped = self.apply_modality_dropout(mu_a, mu_t, mu_v)
+        
+        # 同时对std进行调整：被dropout的模态应该有极大的不确定性
+        std_a_adj = torch.where(mu_a_dropped.abs().sum(dim=1, keepdim=True) == 0, 
+                                torch.ones_like(std_a) * 1e6, std_a)
+        std_t_adj = torch.where(mu_t_dropped.abs().sum(dim=1, keepdim=True) == 0, 
+                                torch.ones_like(std_t) * 1e6, std_t)
+        std_v_adj = torch.where(mu_v_dropped.abs().sum(dim=1, keepdim=True) == 0, 
+                                torch.ones_like(std_v) * 1e6, std_v)
         
         # ========== 3. 不确定性加权融合 → 生成代理模态 ==========
-        # 使用均值和标准差计算权重，权重 ∝ 1/σ
+        # 使用dropout后的mu和调整后的std计算权重
         proxy, weights = self.uncertainty_fusion(
-            [mu_a, mu_t, mu_v], 
-            [std_a, std_t, std_v]
+            [mu_a_dropped, mu_t_dropped, mu_v_dropped], 
+            [std_a_adj, std_t_adj, std_v_adj]
         )
         
         # ========== 4. 代理模态跨模态注意力 (可选) ==========
         if self.use_proxy_attention:
-            fused = self.proxy_attention(proxy, mu_a, mu_t, mu_v, weights)
+            fused = self.proxy_attention(proxy, mu_a_dropped, mu_t_dropped, mu_v_dropped, weights)
         else:
             fused = proxy
         
@@ -259,10 +268,10 @@ class AttentionRobustV2(nn.Module):
         
         # ========== 6. 计算辅助损失 (interloss) ==========
         if self.training:
-            # 使用dropout后的z进行重建
-            recon_a = self.audio_decoder(z_a_dropped)
-            recon_t = self.text_decoder(z_t_dropped)
-            recon_v = self.video_decoder(z_v_dropped)
+            # 使用原始z进行重建（不受dropout影响，保证重建学习完整）
+            recon_a = self.audio_decoder(z_a)
+            recon_t = self.text_decoder(z_t)
+            recon_v = self.video_decoder(z_v)
             
             interloss = self.loss_computer.compute(
                 mu_list=[mu_a, mu_t, mu_v],

@@ -43,3 +43,25 @@ Step1: build model (each folder has its own model)
 Step2: training (multiple epoches)
 epoch:1; metric:emoval; train:-0.2706; eval:-0.1309; lr:0.000500
 epoch:2; metric:emoval; train:0.1342; eval:0.3562; lr:0.000500
+epoch:3; metric:emoval; train:0.3850; eval:0.4457; lr:0.000500
+epoch:4; metric:emoval; train:0.5172; eval:0.4741; lr:0.000500
+epoch:5; metric:emoval; train:0.5751; eval:0.5077; lr:0.000500
+epoch:6; metric:emoval; train:0.6661; eval:0.5036; lr:0.000500
+epoch:7; metric:emoval; train:0.6759; eval:0.3687; lr:0.000500
+epoch:8; metric:emoval; train:0.7039; eval:0.5322; lr:0.000500
+epoch:9; metric:emoval; train:0.7388; eval:0.4833; lr:0.000500
+epoch:10; metric:emoval; train:0.7613; eval:0.4324; lr:0.000500
+epoch:11; metric:emoval; train:0.7541; eval:0.3992; lr:0.000500
+epoch:12; metric:emoval; train:0.7615; eval:0.4634; lr:0.000500
+epoch:13; metric:emoval; train:0.7962; eval:0.4692; lr:0.000500
+epoch:14; metric:emoval; train:0.7984; eval:0.5113; lr:0.000500
+epoch:15; metric:emoval; train:0.8201; eval:0.5665; lr:0.000500
+epoch:16; metric:emoval; train:0.8277; eval:0.5061; lr:0.000500
+epoch:17; metric:emoval; train:0.8474; eval:0.5108; lr:0.000500
+epoch:18; metric:emoval; train:0.8467; eval:0.5087; lr:0.000500
+epoch:19; metric:emoval; train:0.8111; eval:0.4755; lr:0.000500
+epoch:20; metric:emoval; train:0.8544; eval:0.4653; lr:0.000500
+epoch:21; metric:emoval; train:0.8666; eval:0.3198; lr:0.000500
+epoch:22; metric:emoval; train:0.8596; eval:0.4813; lr:0.000500
+epoch:23; metric:emoval; train:0.8806; eval:0.5012; lr:0.000500
+epoch:24; metric:emoval; train:0.8578; eval:0.4508; lr:0.000500

@@ -71,3 +71,32 @@ epoch:27; metric:emoval; train:0.9079; eval:0.5239; lr:0.000250
 epoch:28; metric:emoval; train:0.9085; eval:0.4954; lr:0.000250
 epoch:29; metric:emoval; train:0.9024; eval:0.5131; lr:0.000250
 epoch:30; metric:emoval; train:0.9179; eval:0.5090; lr:0.000250
+epoch:31; metric:emoval; train:0.9096; eval:0.4526; lr:0.000125
+epoch:32; metric:emoval; train:0.9253; eval:0.5316; lr:0.000125
+epoch:33; metric:emoval; train:0.9264; eval:0.5443; lr:0.000125
+epoch:34; metric:emoval; train:0.9284; eval:0.5148; lr:0.000125
+epoch:35; metric:emoval; train:0.9273; eval:0.5142; lr:0.000125
+epoch:36; metric:emoval; train:0.9123; eval:0.5218; lr:0.000125
+epoch:37; metric:emoval; train:0.9141; eval:0.5216; lr:0.000125
+epoch:38; metric:emoval; train:0.9162; eval:0.5087; lr:0.000125
+epoch:39; metric:emoval; train:0.9145; eval:0.5351; lr:0.000125
+Early stopping at epoch 39, best epoch: 9
+Step3: saving and testing on the 1 folder
+>>>>> Finish: training on the 1-th folder, best_index: 8, duration: 829.6962695121765 >>>>>
+>>>>> Cross-validation: training on the 2 folder >>>>>
+Step1: build model (each folder has its own model)
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:-0.4068; eval:-0.3862; lr:0.000500
+epoch:2; metric:emoval; train:0.0068; eval:0.2324; lr:0.000500
+epoch:3; metric:emoval; train:0.3423; eval:0.4313; lr:0.000500
+epoch:4; metric:emoval; train:0.5020; eval:0.4817; lr:0.000500
+epoch:5; metric:emoval; train:0.5756; eval:0.4946; lr:0.000500
+epoch:6; metric:emoval; train:0.6402; eval:0.4887; lr:0.000500
+epoch:7; metric:emoval; train:0.7070; eval:0.5463; lr:0.000500
+epoch:8; metric:emoval; train:0.7393; eval:0.5233; lr:0.000500
+epoch:9; metric:emoval; train:0.7623; eval:0.5373; lr:0.000500
+epoch:10; metric:emoval; train:0.7776; eval:0.4787; lr:0.000500
+epoch:11; metric:emoval; train:0.7862; eval:0.5412; lr:0.000500
+epoch:12; metric:emoval; train:0.8299; eval:0.4869; lr:0.000500

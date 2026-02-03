@@ -201,7 +201,22 @@ if __name__ == '__main__':
     parser.add_argument('--no_proxy_attention', action='store_false', dest='use_proxy_attention', help='disable proxy attention')
     parser.add_argument('--fusion_temperature', type=float, default=1.0, help='temperature for uncertainty weighted fusion')
     parser.add_argument('--num_attention_heads', type=int, default=4, help='number of attention heads for proxy attention')
-    
+
+    # V4新增参数: 对比学习
+    parser.add_argument('--use_contrastive', action='store_true', default=True, help='whether to use contrastive learning')
+    parser.add_argument('--no_contrastive', action='store_false', dest='use_contrastive', help='disable contrastive learning')
+    parser.add_argument('--contrastive_weight', type=float, default=0.1, help='contrastive loss weight')
+    parser.add_argument('--contrastive_temperature', type=float, default=0.07, help='temperature for InfoNCE loss')
+
+    # V4新增参数: 门控融合
+    parser.add_argument('--use_gated_fusion', action='store_true', default=True, help='whether to use gated uncertainty fusion')
+    parser.add_argument('--no_gated_fusion', action='store_false', dest='use_gated_fusion', help='disable gated fusion')
+    parser.add_argument('--gate_alpha', type=float, default=0.5, help='balance between uncertainty and gate weights')
+
+    # V4新增参数: Focal Loss
+    parser.add_argument('--focal_gamma', type=float, default=2.0, help='focal loss gamma parameter')
+    parser.add_argument('--label_smoothing', type=float, default=0.1, help='label smoothing factor')
+
     args = parser.parse_args()
     torch.cuda.set_device(args.gpu)
 

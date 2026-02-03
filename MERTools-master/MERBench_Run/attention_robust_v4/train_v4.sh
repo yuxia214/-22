@@ -57,6 +57,19 @@ NUM_HEADS=4
 MODALITY_DROPOUT=0.15
 WARMUP_EPOCHS=20
 
+# 对比学习参数 (V4新增)
+USE_CONTRASTIVE="--use_contrastive"
+CONTRASTIVE_WEIGHT=0.1
+CONTRASTIVE_TEMP=0.07
+
+# 门控融合参数 (V4新增)
+USE_GATED_FUSION="--use_gated_fusion"
+GATE_ALPHA=0.5
+
+# Focal Loss参数 (V4新增)
+FOCAL_GAMMA=2.0
+LABEL_SMOOTHING=0.1
+
 # 训练参数
 LR=5e-4
 L2=5e-5
@@ -99,6 +112,13 @@ python -u main-robust.py \
     --num_attention_heads=${NUM_HEADS} \
     --modality_dropout=${MODALITY_DROPOUT} \
     --modality_dropout_warmup=${WARMUP_EPOCHS} \
+    ${USE_CONTRASTIVE} \
+    --contrastive_weight=${CONTRASTIVE_WEIGHT} \
+    --contrastive_temperature=${CONTRASTIVE_TEMP} \
+    ${USE_GATED_FUSION} \
+    --gate_alpha=${GATE_ALPHA} \
+    --focal_gamma=${FOCAL_GAMMA} \
+    --label_smoothing=${LABEL_SMOOTHING} \
     --lr=${LR} \
     --l2=${L2} \
     --epochs=${EPOCHS} \

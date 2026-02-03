@@ -8,11 +8,12 @@ class get_datasets(Dataset):
     def __init__(self, args, names, labels):
 
         MODEL_DATASET_MAP = {
-            
+
             # 解析特征
             'attention': Data_Feat,
             'attention_robust': Data_Feat,  # 新增：鲁棒性attention模型
             'attention_robust_v2': Data_Feat,  # 新增：VAE版鲁棒性attention模型
+            'attention_robust_v4': Data_Feat,  # 新增：V4版鲁棒性attention模型
             'lf_dnn': Data_Feat,
             'lmf': Data_Feat,
             'misa': Data_Feat,
@@ -20,7 +21,7 @@ class get_datasets(Dataset):
             'tfn': Data_Feat,
             'mfn': Data_Feat,
             'graph_mfn': Data_Feat,
-            'ef_lstm': Data_Feat, 
+            'ef_lstm': Data_Feat,
             'mfm': Data_Feat,
             'mctn': Data_Feat,
             'mult': Data_Feat,

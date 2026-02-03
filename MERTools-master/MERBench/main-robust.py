@@ -217,6 +217,14 @@ if __name__ == '__main__':
     parser.add_argument('--focal_gamma', type=float, default=2.0, help='focal loss gamma parameter')
     parser.add_argument('--label_smoothing', type=float, default=0.1, help='label smoothing factor')
 
+    # V5新增参数: 深度编码器 + Mixup + 动态KL
+    parser.add_argument('--use_mixup', action='store_true', default=False, help='whether to use mixup augmentation')
+    parser.add_argument('--no_mixup', action='store_false', dest='use_mixup', help='disable mixup')
+    parser.add_argument('--mixup_alpha', type=float, default=0.4, help='mixup alpha parameter')
+    parser.add_argument('--use_dynamic_kl', action='store_true', default=True, help='whether to use dynamic KL scheduling')
+    parser.add_argument('--no_dynamic_kl', action='store_false', dest='use_dynamic_kl', help='disable dynamic KL')
+    parser.add_argument('--kl_warmup_epochs', type=int, default=20, help='KL warmup epochs')
+
     args = parser.parse_args()
     torch.cuda.set_device(args.gpu)
 

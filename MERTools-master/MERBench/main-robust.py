@@ -112,11 +112,11 @@ def train_or_eval_model(args, model, reg_loss, cls_loss, dataloader, dataloader_
 
         loss = interloss
         if args.output_dim1 != 0:
-            loss = loss + cls_loss(emos_out, emos)
+            loss = loss + args.emo_loss_weight * cls_loss(emos_out, emos)
             emo_probs.append(emos_out.data.cpu().numpy())
             emo_labels.append(emos.data.cpu().numpy())
         if args.output_dim2 != 0: 
-            loss = loss + reg_loss(vals_out, vals)
+            loss = loss + args.val_loss_weight * reg_loss(vals_out, vals)
             val_preds.append(vals_out.data.cpu().numpy())
             val_labels.append(vals.data.cpu().numpy())
         losses.append(loss.data.cpu().numpy())
@@ -178,6 +178,10 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type=int, default=100, metavar='E', help='number of epochs')
     parser.add_argument('--print_iters', type=int, default=1e8, help='print per-iteration')
     parser.add_argument('--gpu', default=0, type=int, help='GPU id to use')
+    parser.add_argument('--emo_loss_weight', type=float, default=1.0, help='classification loss weight')
+    parser.add_argument('--val_loss_weight', type=float, default=1.0, help='regression loss weight')
+    parser.add_argument('--reg_loss_type', type=str, default='mse', choices=['mse', 'smoothl1'], help='regression loss type')
+    parser.add_argument('--huber_beta', type=float, default=1.0, help='beta for smoothl1 regression loss')
     
     # 新增参数 - 针对模态缺失优化
     parser.add_argument('--hidden_dim', type=int, default=128, help='hidden dimension')
@@ -224,6 +228,15 @@ if __name__ == '__main__':
     parser.add_argument('--use_dynamic_kl', action='store_true', default=True, help='whether to use dynamic KL scheduling')
     parser.add_argument('--no_dynamic_kl', action='store_false', dest='use_dynamic_kl', help='disable dynamic KL')
     parser.add_argument('--kl_warmup_epochs', type=int, default=20, help='KL warmup epochs')
+
+    # V7新增参数: Emotion-Valence一致性 + 噪声增强
+    parser.add_argument('--use_valence_prior', action='store_true', default=True, help='whether to use emotion-guided valence prior')
+    parser.add_argument('--no_valence_prior', action='store_false', dest='use_valence_prior', help='disable emotion-guided valence prior')
+    parser.add_argument('--valence_consistency_weight', type=float, default=0.08, help='weight of valence consistency regularization')
+    parser.add_argument('--valence_center_reg_weight', type=float, default=0.005, help='weight of emotion-valence center regularization')
+    parser.add_argument('--feature_noise_std', type=float, default=0.02, help='std of feature noise augmentation')
+    parser.add_argument('--feature_noise_prob', type=float, default=0.3, help='probability of applying feature noise')
+    parser.add_argument('--feature_noise_warmup', type=int, default=10, help='warmup epochs before noise augmentation')
 
     args = parser.parse_args()
     torch.cuda.set_device(args.gpu)
@@ -293,7 +306,10 @@ if __name__ == '__main__':
 
         print (f'Step1: build model (each folder has its own model)')
         model = get_models(args).cuda()
-        reg_loss = MSELoss().cuda()
+        if args.reg_loss_type == 'smoothl1':
+            reg_loss = SmoothL1Loss(beta=args.huber_beta).cuda()
+        else:
+            reg_loss = MSELoss().cuda()
         cls_loss = CELoss().cuda()
 
         optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.l2)

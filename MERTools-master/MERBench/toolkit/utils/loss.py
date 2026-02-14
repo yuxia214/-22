@@ -26,3 +26,16 @@ class MSELoss(nn.Module):
         target = target.view(-1,1)
         loss = self.loss(pred, target) / len(pred)
         return loss
+
+
+class SmoothL1Loss(nn.Module):
+
+    def __init__(self, beta=1.0):
+        super(SmoothL1Loss, self).__init__()
+        self.beta = beta
+
+    def forward(self, pred, target):
+        pred = pred.view(-1, 1)
+        target = target.view(-1, 1)
+        loss = F.smooth_l1_loss(pred, target, reduction='sum', beta=self.beta) / len(pred)
+        return loss

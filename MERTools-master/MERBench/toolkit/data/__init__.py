@@ -15,6 +15,8 @@ class get_datasets(Dataset):
             'attention_robust_v2': Data_Feat,  # 新增：VAE版鲁棒性attention模型
             'attention_robust_v4': Data_Feat,  # 新增：V4版鲁棒性attention模型
             'attention_robust_v5': Data_Feat,  # 新增：V5版鲁棒性attention模型
+            'attention_robust_v6': Data_Feat,  # 新增：V6版鲁棒性attention模型
+            'attention_robust_v7': Data_Feat,  # 新增：V7版鲁棒性attention模型
             'lf_dnn': Data_Feat,
             'lmf': Data_Feat,
             'misa': Data_Feat,

@@ -40,11 +40,11 @@ tmp/
 weights/
 
 # 数据 / 特征文件
-
+biaoqian
 dataset/
 datasets/
 *.npy
-
+test video
 # 回收站与临时存档
 /.Trash-0/
 

@@ -1,0 +1,86 @@
+==== V11 group E start (repeats=2, base_seed=6407) ====
+
+===================================================================
+run_tag=e01_parallel_noise_guard seed=6407 gpu=0 batch_size=16
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/e01_parallel_noise_guard/seed6407
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=e01_parallel_noise_guard seed=6407 rc=1, continue.
+
+===================================================================
+run_tag=e02_parallel_stable seed=6407 gpu=0 batch_size=16
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/e02_parallel_stable/seed6407
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=e02_parallel_stable seed=6407 rc=1, continue.
+
+===================================================================
+run_tag=e01_parallel_noise_guard seed=6408 gpu=0 batch_size=16
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/e01_parallel_noise_guard/seed6408
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=e01_parallel_noise_guard seed=6408 rc=1, continue.
+
+===================================================================
+run_tag=e02_parallel_stable seed=6408 gpu=0 batch_size=16
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/e02_parallel_stable/seed6408
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=e02_parallel_stable seed=6408 rc=1, continue.
+runs_parsed=0
+summary_rows=0
+csv=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/summary/group_e_summary.csv
+[WARN] group E finished with failed_runs=4
+==== V11 group E done ====

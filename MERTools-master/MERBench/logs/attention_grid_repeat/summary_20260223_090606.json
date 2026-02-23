@@ -1,0 +1,41 @@
+[
+  {
+    "candidate_id": "cand03_hd256_do0.3_lr0.0001",
+    "hidden_dim": 256,
+    "dropout": 0.3,
+    "lr": 0.0001,
+    "runs_ok": 2,
+    "runs_total": 2,
+    "mean_emoval": 0.5712625,
+    "std_emoval": 0.001644023266258738,
+    "mean_f1": 0.7472000000000001,
+    "mean_acc": 0.7486,
+    "mean_val": 0.7037500000000001
+  },
+  {
+    "candidate_id": "cand01_hd128_do0.3_lr0.0001",
+    "hidden_dim": 128,
+    "dropout": 0.3,
+    "lr": 0.0001,
+    "runs_ok": 2,
+    "runs_total": 2,
+    "mean_emoval": 0.5583750000000001,
+    "std_emoval": 0.007495331880577442,
+    "mean_f1": 0.7461,
+    "mean_acc": 0.7464,
+    "mean_val": 0.7509
+  },
+  {
+    "candidate_id": "cand02_hd128_do0.4_lr0.0001",
+    "hidden_dim": 128,
+    "dropout": 0.4,
+    "lr": 0.0001,
+    "runs_ok": 2,
+    "runs_total": 2,
+    "mean_emoval": 0.5529999999999999,
+    "std_emoval": 0.005444722215136365,
+    "mean_f1": 0.75015,
+    "mean_acc": 0.7498,
+    "mean_val": 0.7886
+  }
+]

@@ -1,0 +1,86 @@
+==== V11 group G start (repeats=2, base_seed=9407) ====
+
+===================================================================
+run_tag=g11_loader2_balanced seed=9407 gpu=0 batch=12 workers=2
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/g11_loader2_balanced/seed9407
+===================================================================
+====== Params Pre-analysis =======
+args:  Namespace(audio_feature='chinese-hubert-large-UTT', batch_size=12, consistency_emo_weight=0.08, consistency_val_weight=0.05, contrastive_temperature=0.07, contrastive_weight=0.1, corruption_max_rate=0.45, corruption_warmup_epochs=25, cross_kl_weight=0.0012, dataset='MER2023', debug=False, double_mask_ratio=0.35, dropout=0.35, e2e_dim=None, e2e_name=None, early_stopping_patience=50, emo_loss_weight=1.1, epochs=140, feat_scale=1, feat_type='utt', feature_noise_prob=0.3, feature_noise_std=0.02, feature_noise_warmup=10, focal_gamma=2.0, fusion_residual_scale=0.4, fusion_temperature=0.32, gate_alpha=0.5, gpu=0, grad_clip=1.0, hidden_dim=128, huber_beta=0.8, hyper_path=None, impute_loss_weight=0.1, kl_warmup_epochs=20, kl_weight=0.0006, l2=5e-05, label_smoothing=0.1, latent_noise_std=0.02, lr=0.0004, lr_adjust='case1', lr_factor=0.5, lr_patience=12, mixup_alpha=0.4, modality_agreement_weight=0.01, modality_dropout=0.2, modality_dropout_warmup=30, model='attention_robust_v2', n_classes=None, num_attention_heads=4, num_workers=2, print_iters=100000000.0, quality_weight=0.6, recon_weight=0.012, reg_loss_type='smoothl1', reliability_temperature=1.0, save_iters=100000000.0, save_root='/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/g11_loader2_balanced/seed9407-trimodal', savemodel=False, test_dataset=None, text_feature='Baichuan-13B-Base-UTT', train_dataset=None, use_contrastive=True, use_dynamic_kl=True, use_gated_fusion=True, use_gated_uncertainty=True, use_mixup=False, use_modality_dropout=True, use_proxy_attention=True, use_vae=True, use_valence_prior=True, val_loss_weight=1.0, valence_center_reg_weight=0.005, valence_consistency_weight=0.08, video_feature='clip-vit-large-patch14-UTT', weight_consistency_weight=0.02)
+====== Reading Data =======
+train: sample number 3373
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+  0%|          | 0/3373 [00:00<?, ?it/s]  5%|▍         | 156/3373 [00:00<00:02, 1475.89it/s] 17%|█▋        | 585/3373 [00:00<00:00, 3091.24it/s] 27%|██▋       | 898/3373 [00:00<00:00, 2643.94it/s] 35%|███▍      | 1171/3373 [00:00<00:00, 2580.88it/s] 43%|████▎     | 1434/3373 [00:00<00:00, 2474.39it/s] 50%|█████     | 1688/3373 [00:00<00:00, 2492.93it/s] 58%|█████▊    | 1940/3373 [00:00<00:00, 2444.37it/s] 66%|██████▌   | 2219/3373 [00:00<00:00, 2546.94it/s] 74%|███████▎  | 2484/3373 [00:00<00:00, 2565.32it/s] 81%|████████▏ | 2742/3373 [00:01<00:00, 2536.28it/s] 89%|████████▉ | 2997/3373 [00:01<00:00, 2492.70it/s] 97%|█████████▋| 3269/3373 [00:01<00:00, 2477.67it/s]100%|██████████| 3373/3373 [00:01<00:00, 2552.65it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]  0%|          | 1/3373 [00:00<06:50,  8.21it/s]  3%|▎         | 96/3373 [00:00<00:06, 512.71it/s] 16%|█▌        | 530/3373 [00:00<00:01, 2118.73it/s] 25%|██▌       | 849/3373 [00:00<00:01, 2515.57it/s] 33%|███▎      | 1106/3373 [00:00<00:00, 2519.45it/s] 40%|████      | 1362/3373 [00:00<00:00, 2459.81it/s] 48%|████▊     | 1611/3373 [00:00<00:00, 2412.95it/s] 56%|█████▌    | 1888/3373 [00:00<00:00, 2521.10it/s] 64%|██████▎   | 2142/3373 [00:00<00:00, 2376.43it/s] 72%|███████▏  | 2438/3373 [00:01<00:00, 2533.34it/s] 80%|████████  | 2699/3373 [00:01<00:00, 2543.37it/s] 88%|████████▊ | 2960/3373 [00:01<00:00, 2549.52it/s] 95%|█████████▌| 3217/3373 [00:01<00:00, 2372.20it/s]100%|██████████| 3373/3373 [00:01<00:00, 2380.85it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]  0%|          | 11/3373 [00:00<00:30, 109.81it/s]  1%|          | 22/3373 [00:00<00:33, 100.58it/s] 16%|█▌        | 530/3373 [00:00<00:01, 2254.45it/s] 24%|██▎       | 794/3373 [00:00<00:01, 2389.27it/s] 32%|███▏      | 1069/3373 [00:00<00:00, 2510.33it/s] 39%|███▉      | 1325/3373 [00:00<00:00, 2356.48it/s] 50%|████▉     | 1676/3373 [00:00<00:00, 2710.08it/s] 58%|█████▊    | 1953/3373 [00:00<00:00, 2451.63it/s] 68%|██████▊   | 2279/3373 [00:00<00:00, 2670.52it/s] 76%|███████▌  | 2567/3373 [00:01<00:00, 2718.23it/s] 84%|████████▍ | 2845/3373 [00:01<00:00, 2594.28it/s] 92%|█████████▏| 3109/3373 [00:01<00:00, 2345.54it/s]100%|██████████| 3373/3373 [00:01<00:00, 2388.47it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test1: sample number 411
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+  0%|          | 0/411 [00:00<?, ?it/s]  0%|          | 1/411 [00:00<01:08,  5.96it/s] 28%|██▊       | 114/411 [00:00<00:00, 508.05it/s]100%|██████████| 411/411 [00:00<00:00, 1292.30it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/411 [00:00<?, ?it/s]  2%|▏         | 8/411 [00:00<00:05, 71.60it/s] 66%|██████▌   | 271/411 [00:00<00:00, 1487.50it/s]100%|██████████| 411/411 [00:00<00:00, 1705.97it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/411 [00:00<?, ?it/s]  4%|▍         | 18/411 [00:00<00:02, 168.90it/s] 36%|███▌      | 148/411 [00:00<00:00, 795.66it/s]100%|██████████| 411/411 [00:00<00:00, 1752.70it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test2: sample number 412
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/412 [00:00<?, ?it/s]  3%|▎         | 12/412 [00:00<00:05, 72.70it/s]  9%|▉         | 39/412 [00:00<00:02, 138.16it/s]100%|██████████| 412/412 [00:00<00:00, 1264.28it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/412 [00:00<?, ?it/s]  0%|          | 1/412 [00:00<00:53,  7.63it/s] 12%|█▏        | 48/412 [00:00<00:01, 234.04it/s]100%|██████████| 412/412 [00:00<00:00, 1273.18it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/412 [00:00<?, ?it/s]  5%|▍         | 19/412 [00:00<00:02, 166.01it/s] 46%|████▌     | 190/412 [00:00<00:00, 964.87it/s]100%|██████████| 412/412 [00:00<00:00, 1663.71it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test3: sample number 834
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/834 [00:00<?, ?it/s]  2%|▏         | 15/834 [00:00<00:05, 137.30it/s]  7%|▋         | 56/834 [00:00<00:03, 236.15it/s] 53%|█████▎    | 440/834 [00:00<00:00, 1582.46it/s] 77%|███████▋  | 642/834 [00:00<00:00, 1656.97it/s]100%|██████████| 834/834 [00:00<00:00, 1585.60it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/834 [00:00<?, ?it/s]  1%|          | 7/834 [00:00<00:20, 40.23it/s] 34%|███▎      | 281/834 [00:00<00:00, 1150.76it/s] 65%|██████▌   | 544/834 [00:00<00:00, 1476.65it/s]100%|██████████| 834/834 [00:00<00:00, 1678.59it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/834 [00:00<?, ?it/s]  2%|▏         | 19/834 [00:00<00:05, 161.69it/s] 20%|██        | 168/834 [00:00<00:00, 846.84it/s] 65%|██████▌   | 543/834 [00:00<00:00, 2027.60it/s]100%|██████████| 834/834 [00:00<00:00, 1927.05it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+epoch:1; metric:emoval; train:0.0593; eval:0.4254; lr:0.000400
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+epoch:2; metric:emoval; train:0.4155; eval:0.4740; lr:0.000400
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+epoch:3; metric:emoval; train:0.5102; eval:0.4650; lr:0.000400
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/root/miniconda3/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(

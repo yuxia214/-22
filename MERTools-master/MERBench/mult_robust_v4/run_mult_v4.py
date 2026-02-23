@@ -14,6 +14,7 @@ if MERBENCH_ROOT not in sys.path:
 
 import torch
 import torch.optim as optim
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from toolkit.utils.loss import *
 from toolkit.utils.metric import *
@@ -60,6 +61,7 @@ def train_or_eval_model(args, model, reg_loss, cls_loss, dataloader, epoch, opti
             emo_probs.append(emos_out.data.cpu().numpy())
             emo_labels.append(emos.data.cpu().numpy())
         if args.output_dim2 != 0: 
+            vals_out = vals_out.squeeze(-1)
             loss = loss + reg_loss(vals_out, vals)
             val_preds.append(vals_out.data.cpu().numpy())
             val_labels.append(vals.data.cpu().numpy())
@@ -129,7 +131,16 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type=int, default=100, metavar='E', help='number of epochs')
     parser.add_argument('--print_iters', type=int, default=1e8, help='print per-iteartion')
     parser.add_argument('--gpu', default=0, type=int, help='GPU id to use')
+    parser.add_argument('--metric_name', type=str, default=None, choices=['emoval', 'emo', 'val', 'loss'], help='metric for model selection')
+    parser.add_argument('--use_scheduler', action='store_true', default=True, help='use ReduceLROnPlateau scheduler')
+    parser.add_argument('--no_scheduler', action='store_false', dest='use_scheduler', help='disable ReduceLROnPlateau scheduler')
+    parser.add_argument('--lr_factor', type=float, default=0.5, help='lr decay factor for plateau scheduler')
+    parser.add_argument('--lr_patience', type=int, default=6, help='patience of plateau scheduler')
+    parser.add_argument('--min_lr', type=float, default=1e-6, help='minimum learning rate for scheduler')
+    parser.add_argument('--early_stop_patience', type=int, default=18, help='early stopping patience on eval metric')
+    parser.add_argument('--early_stop_min_delta', type=float, default=1e-4, help='minimum improvement for early stopping')
     args = parser.parse_args()
+    metric_name_cli = args.metric_name
     torch.cuda.set_device(args.gpu)
 
 
@@ -189,6 +200,8 @@ if __name__ == '__main__':
     print ('====== Reading Data =======')
     dataloader_class = get_dataloaders(args) # (MER2023 + e2e + e2e_name)
     train_loaders, eval_loaders, test_loaders = dataloader_class.get_loaders()
+    if metric_name_cli is not None:
+        args.metric_name = metric_name_cli
     assert len(train_loaders) == len(eval_loaders)
     print (f'train&val folder:{len(train_loaders)}; test sets:{len(test_loaders)}')
     args.audio_dim, args.text_dim, args.video_dim = train_loaders[0].dataset.get_featdim()
@@ -221,46 +234,70 @@ if __name__ == '__main__':
        
 
         print (f'Step2: training (multiple epoches)')
-        whole_store = []
-        whole_metrics = []
         best_eval_metric = -float('inf')
-        for epoch in range(args.epochs):
+        best_epoch = -1
+        best_state = None
+        best_eval_results = None
+        no_improve_epochs = 0
 
-            epoch_store = {}
+        scheduler = None
+        if args.use_scheduler:
+            scheduler = ReduceLROnPlateau(
+                optimizer,
+                mode='max',
+                factor=args.lr_factor,
+                patience=args.lr_patience,
+                min_lr=args.min_lr,
+            )
+
+        for epoch in range(args.epochs):
 
             ## training and validation
             train_results = train_or_eval_model(args, model, reg_loss, cls_loss, train_loader, epoch=epoch, optimizer=optimizer, train=True, dataloader_class=dataloader_class)
             eval_results  = train_or_eval_model(args, model, reg_loss, cls_loss, eval_loader,  epoch=epoch, optimizer=None,      train=False, dataloader_class=dataloader_class)
-            func_update_storage(inputs=eval_results, prefix='eval', outputs=epoch_store)
 
-            ## use args.metric_name to determine best_index
+            ## use args.metric_name to determine best checkpoint
             train_metric = gain_metric_from_results(train_results, args.metric_name)
             eval_metric  = gain_metric_from_results(eval_results,  args.metric_name)
-            whole_metrics.append(eval_metric)
-            print ('epoch:%d; metric:%s; train results:%.4f; eval results:%.4f' %(epoch+1, args.metric_name, train_metric, eval_metric))
+            if scheduler is not None:
+                scheduler.step(eval_metric)
+            current_lr = optimizer.param_groups[0]['lr']
+            print ('epoch:%d; metric:%s; train results:%.4f; eval results:%.4f; lr:%.6f' %(epoch+1, args.metric_name, train_metric, eval_metric, current_lr))
 
-            if eval_metric > best_eval_metric:
+            if eval_metric > best_eval_metric + args.early_stop_min_delta:
                 best_eval_metric = eval_metric
+                best_epoch = epoch
+                best_eval_results = eval_results
+                best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+                no_improve_epochs = 0
                 save_path = f'best_model_v4_folder_{ii+1}.pt'
                 torch.save(model.state_dict(), save_path)
                 print(f'  --> New best model saved to {save_path} (eval_metric: {best_eval_metric:.4f})')
+            else:
+                no_improve_epochs += 1
 
-            ## testing and saving
-            for jj, test_loader in enumerate(test_loaders):
-                test_results = train_or_eval_model(args, model, reg_loss, cls_loss, test_loader, epoch=epoch, optimizer=None, train=False, dataloader_class=dataloader_class)
-                func_update_storage(inputs=test_results, prefix=f'test{jj+1}', outputs=epoch_store)
-            
-            ## saving
-            whole_store.append(epoch_store)
-
+            if no_improve_epochs >= args.early_stop_patience:
+                print(f'  --> Early stopping at epoch {epoch+1}, best epoch: {best_epoch+1}, best eval_metric: {best_eval_metric:.4f}')
+                break
 
         print (f'Step3: saving and testing on the {ii+1} folder')
-        best_index = np.argmax(np.array(whole_metrics))
-        folder_save.append(whole_store[best_index])
+        if best_state is None:
+            best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+            best_eval_results = eval_results
+            best_epoch = epoch
+
+        model.load_state_dict(best_state)
+        epoch_store = {}
+        func_update_storage(inputs=best_eval_results, prefix='eval', outputs=epoch_store)
+        for jj, test_loader in enumerate(test_loaders):
+            test_results = train_or_eval_model(args, model, reg_loss, cls_loss, test_loader, epoch=best_epoch, optimizer=None, train=False, dataloader_class=dataloader_class)
+            func_update_storage(inputs=test_results, prefix=f'test{jj+1}', outputs=epoch_store)
+        folder_save.append(epoch_store)
+
         end_time = time.time()
         duration = end_time - start_time
         folder_duration.append(duration)
-        print (f'>>>>> Finish: training on the {ii+1}-th folder, best_index: {best_index}, duration: {duration} >>>>>')
+        print (f'>>>>> Finish: training on the {ii+1}-th folder, best_epoch: {best_epoch+1}, duration: {duration} >>>>>')
         # clear memory
         del model
         del optimizer

@@ -1,6 +1,7 @@
 import os
 import time
 import argparse
+import random
 import numpy as np
 from omegaconf import OmegaConf
 from thop import profile
@@ -13,6 +14,15 @@ from toolkit.utils.metric import *
 from toolkit.utils.functions import *
 from toolkit.models import get_models
 from toolkit.dataloader import get_dataloaders
+
+def set_random_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    # Keep algorithm choices stable across runs for fair hyper-param comparison.
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 def train_or_eval_model(args, model, reg_loss, cls_loss, dataloader, epoch, optimizer=None, train=False):
     
@@ -122,8 +132,12 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type=int, default=100, metavar='E', help='number of epochs')
     parser.add_argument('--print_iters', type=int, default=1e8, help='print per-iteartion')
     parser.add_argument('--gpu', default=0, type=int, help='GPU id to use')
+    parser.add_argument('--seed', type=int, default=None, help='global random seed for reproducible splits and training')
     args = parser.parse_args()
     torch.cuda.set_device(args.gpu)
+    if args.seed is not None:
+        set_random_seed(args.seed)
+        print(f'set global seed to {args.seed}')
 
 
     print ('====== Params Pre-analysis =======')

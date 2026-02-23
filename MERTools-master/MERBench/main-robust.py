@@ -178,6 +178,8 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type=int, default=100, metavar='E', help='number of epochs')
     parser.add_argument('--print_iters', type=int, default=1e8, help='print per-iteration')
     parser.add_argument('--gpu', default=0, type=int, help='GPU id to use')
+    parser.add_argument('--metric_name', type=str, default=None, choices=['emoval', 'emo', 'val', 'loss'],
+                        help='metric for model selection (override dataset default if set)')
     parser.add_argument('--emo_loss_weight', type=float, default=1.0, help='classification loss weight')
     parser.add_argument('--val_loss_weight', type=float, default=1.0, help='regression loss weight')
     parser.add_argument('--reg_loss_type', type=str, default='mse', choices=['mse', 'smoothl1'], help='regression loss type')
@@ -192,6 +194,7 @@ if __name__ == '__main__':
     parser.add_argument('--no_modality_dropout', action='store_false', dest='use_modality_dropout', help='disable modality dropout')
     parser.add_argument('--modality_dropout_warmup', type=int, default=0, help='warmup epochs before applying modality dropout')
     parser.add_argument('--early_stopping_patience', type=int, default=20, help='early stopping patience')
+    parser.add_argument('--early_stopping_min_delta', type=float, default=0.001, help='minimum metric improvement for early stopping')
     parser.add_argument('--lr_patience', type=int, default=10, help='lr scheduler patience')
     parser.add_argument('--lr_factor', type=float, default=0.5, help='lr reduction factor')
     
@@ -255,6 +258,7 @@ if __name__ == '__main__':
     parser.add_argument('--latent_noise_std', type=float, default=0.02, help='std of latent noise for student branch')
 
     args = parser.parse_args()
+    metric_name_cli = args.metric_name
     torch.cuda.set_device(args.gpu)
 
 
@@ -306,6 +310,9 @@ if __name__ == '__main__':
     print ('====== Reading Data =======')
     dataloader_class = get_dataloaders(args)
     train_loaders, eval_loaders, test_loaders = dataloader_class.get_loaders()
+    if metric_name_cli is not None:
+        args.metric_name = metric_name_cli
+        print(f'override metric_name by CLI: {args.metric_name}')
     assert len(train_loaders) == len(eval_loaders)
     print (f'train&val folder:{len(train_loaders)}; test sets:{len(test_loaders)}')
     args.audio_dim, args.text_dim, args.video_dim = train_loaders[0].dataset.get_featdim()
@@ -343,7 +350,7 @@ if __name__ == '__main__':
         # 早停机制
         early_stopping = EarlyStopping(
             patience=args.early_stopping_patience, 
-            min_delta=0.001, 
+            min_delta=args.early_stopping_min_delta, 
             mode='max'
         )
 

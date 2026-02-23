@@ -1,0 +1,1459 @@
+candidate count: 3
+repeats per candidate: 2
+total runs: 6
+
+====================================================================================================
+running cand01_hd128_do0.3_lr0.0001_rep01
+/root/miniconda3/bin/python -u main-release.py --model=attention --dataset=MER2023 --feat_type=utt --audio_feature=chinese-hubert-large-UTT --text_feature=Baichuan-13B-Base-UTT --video_feature=clip-vit-large-patch14-UTT --hyper_path=/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand01_hd128_do0.3_lr0.0001.yaml --l2=1e-05 --epochs=100 --batch_size=32 --num_workers=0 --gpu=0 --seed=3407 --save_root=./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep01
+====================================================================================================
+set global seed to 3407
+====== Params Pre-analysis =======
+args:  Namespace(audio_feature='chinese-hubert-large-UTT', batch_size=32, dataset='MER2023', debug=False, dropout=0.3, e2e_dim=None, e2e_name=None, epochs=100, feat_scale=1, feat_type='utt', gpu=0, grad_clip=-1.0, hidden_dim=128, hyper_path='/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand01_hd128_do0.3_lr0.0001.yaml', l2=1e-05, lr=0.0001, lr_adjust='case1', model='attention', n_classes=None, num_workers=0, print_iters=100000000.0, save_iters=100000000.0, save_root='./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep01-trimodal', savemodel=False, seed=3407, test_dataset=None, text_feature='Baichuan-13B-Base-UTT', train_dataset=None, video_feature='clip-vit-large-patch14-UTT')
+====== Reading Data =======
+train: sample number 3373
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 40%|████      | 1364/3373 [00:00<00:00, 13628.87it/s]
+ 81%|████████  | 2727/3373 [00:00<00:00, 11356.95it/s]
+100%|██████████| 3373/3373 [00:00<00:00, 11866.14it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 26%|██▌       | 881/3373 [00:00<00:00, 8759.74it/s]
+ 52%|█████▏    | 1757/3373 [00:00<00:00, 7775.99it/s]
+ 75%|███████▌  | 2542/3373 [00:00<00:00, 7174.10it/s]
+ 97%|█████████▋| 3266/3373 [00:00<00:00, 7048.30it/s]
+100%|██████████| 3373/3373 [00:00<00:00, 7274.98it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 52%|█████▏    | 1742/3373 [00:00<00:00, 17333.36it/s]
+100%|██████████| 3373/3373 [00:00<00:00, 16612.97it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test1: sample number 411
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+100%|██████████| 411/411 [00:00<00:00, 8718.07it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+100%|██████████| 411/411 [00:00<00:00, 13954.87it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+100%|██████████| 411/411 [00:00<00:00, 15256.33it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test2: sample number 412
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+100%|██████████| 412/412 [00:00<00:00, 13535.84it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+100%|██████████| 412/412 [00:00<00:00, 12969.38it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+100%|██████████| 412/412 [00:00<00:00, 16161.06it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test3: sample number 834
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+100%|██████████| 834/834 [00:00<00:00, 15162.04it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+100%|██████████| 834/834 [00:00<00:00, 11777.71it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+100%|██████████| 834/834 [00:00<00:00, 15198.60it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3085; eval results:0.1018
+epoch:2; metric:emoval; train results:0.1606; eval results:0.3353
+epoch:3; metric:emoval; train results:0.4013; eval results:0.4431
+epoch:4; metric:emoval; train results:0.4900; eval results:0.4905
+epoch:5; metric:emoval; train results:0.5680; eval results:0.5173
+epoch:6; metric:emoval; train results:0.6198; eval results:0.5162
+epoch:7; metric:emoval; train results:0.6391; eval results:0.5261
+epoch:8; metric:emoval; train results:0.6632; eval results:0.5477
+epoch:9; metric:emoval; train results:0.7106; eval results:0.4981
+epoch:10; metric:emoval; train results:0.7327; eval results:0.5173
+epoch:11; metric:emoval; train results:0.7575; eval results:0.5360
+epoch:12; metric:emoval; train results:0.7944; eval results:0.5381
+epoch:13; metric:emoval; train results:0.7966; eval results:0.5329
+epoch:14; metric:emoval; train results:0.8144; eval results:0.5370
+epoch:15; metric:emoval; train results:0.8274; eval results:0.5321
+epoch:16; metric:emoval; train results:0.8368; eval results:0.5255
+epoch:17; metric:emoval; train results:0.8592; eval results:0.5437
+epoch:18; metric:emoval; train results:0.8658; eval results:0.5015
+epoch:19; metric:emoval; train results:0.8701; eval results:0.4752
+epoch:20; metric:emoval; train results:0.8748; eval results:0.5146
+epoch:21; metric:emoval; train results:0.8887; eval results:0.5514
+epoch:22; metric:emoval; train results:0.8987; eval results:0.5186
+epoch:23; metric:emoval; train results:0.9023; eval results:0.5451
+epoch:24; metric:emoval; train results:0.8955; eval results:0.5331
+epoch:25; metric:emoval; train results:0.9006; eval results:0.5331
+epoch:26; metric:emoval; train results:0.9061; eval results:0.5544
+epoch:27; metric:emoval; train results:0.9200; eval results:0.5202
+epoch:28; metric:emoval; train results:0.9128; eval results:0.5006
+epoch:29; metric:emoval; train results:0.9188; eval results:0.5404
+epoch:30; metric:emoval; train results:0.9243; eval results:0.5214
+epoch:31; metric:emoval; train results:0.9230; eval results:0.5323
+epoch:32; metric:emoval; train results:0.9255; eval results:0.5423
+epoch:33; metric:emoval; train results:0.9337; eval results:0.5620
+epoch:34; metric:emoval; train results:0.9310; eval results:0.5490
+epoch:35; metric:emoval; train results:0.9362; eval results:0.5281
+epoch:36; metric:emoval; train results:0.9396; eval results:0.5298
+epoch:37; metric:emoval; train results:0.9358; eval results:0.5319
+epoch:38; metric:emoval; train results:0.9379; eval results:0.5202
+epoch:39; metric:emoval; train results:0.9403; eval results:0.5374
+epoch:40; metric:emoval; train results:0.9347; eval results:0.5225
+epoch:41; metric:emoval; train results:0.9417; eval results:0.5465
+epoch:42; metric:emoval; train results:0.9408; eval results:0.5317
+epoch:43; metric:emoval; train results:0.9480; eval results:0.5594
+epoch:44; metric:emoval; train results:0.9392; eval results:0.5315
+epoch:45; metric:emoval; train results:0.9453; eval results:0.5582
+epoch:46; metric:emoval; train results:0.9496; eval results:0.5538
+epoch:47; metric:emoval; train results:0.9521; eval results:0.5540
+epoch:48; metric:emoval; train results:0.9551; eval results:0.5400
+epoch:49; metric:emoval; train results:0.9540; eval results:0.5605
+epoch:50; metric:emoval; train results:0.9513; eval results:0.5505
+epoch:51; metric:emoval; train results:0.9471; eval results:0.5355
+epoch:52; metric:emoval; train results:0.9560; eval results:0.5346
+epoch:53; metric:emoval; train results:0.9544; eval results:0.5605
+epoch:54; metric:emoval; train results:0.9554; eval results:0.5424
+epoch:55; metric:emoval; train results:0.9598; eval results:0.5260
+epoch:56; metric:emoval; train results:0.9598; eval results:0.5400
+epoch:57; metric:emoval; train results:0.9608; eval results:0.5468
+epoch:58; metric:emoval; train results:0.9623; eval results:0.5366
+epoch:59; metric:emoval; train results:0.9567; eval results:0.5184
+epoch:60; metric:emoval; train results:0.9648; eval results:0.5291
+epoch:61; metric:emoval; train results:0.9633; eval results:0.5391
+epoch:62; metric:emoval; train results:0.9626; eval results:0.5376
+epoch:63; metric:emoval; train results:0.9599; eval results:0.5336
+epoch:64; metric:emoval; train results:0.9682; eval results:0.5480
+epoch:65; metric:emoval; train results:0.9675; eval results:0.5375
+epoch:66; metric:emoval; train results:0.9636; eval results:0.5376
+epoch:67; metric:emoval; train results:0.9625; eval results:0.5368
+epoch:68; metric:emoval; train results:0.9639; eval results:0.5304
+epoch:69; metric:emoval; train results:0.9664; eval results:0.5378
+epoch:70; metric:emoval; train results:0.9654; eval results:0.5560
+epoch:71; metric:emoval; train results:0.9641; eval results:0.5419
+epoch:72; metric:emoval; train results:0.9679; eval results:0.5309
+epoch:73; metric:emoval; train results:0.9668; eval results:0.5464
+epoch:74; metric:emoval; train results:0.9708; eval results:0.5120
+epoch:75; metric:emoval; train results:0.9663; eval results:0.5492
+epoch:76; metric:emoval; train results:0.9674; eval results:0.5350
+epoch:77; metric:emoval; train results:0.9686; eval results:0.5460
+epoch:78; metric:emoval; train results:0.9709; eval results:0.5333
+epoch:79; metric:emoval; train results:0.9679; eval results:0.5259
+epoch:80; metric:emoval; train results:0.9671; eval results:0.5259
+epoch:81; metric:emoval; train results:0.9586; eval results:0.5344
+epoch:82; metric:emoval; train results:0.9684; eval results:0.5406
+epoch:83; metric:emoval; train results:0.9708; eval results:0.5411
+epoch:84; metric:emoval; train results:0.9725; eval results:0.5200
+epoch:85; metric:emoval; train results:0.9744; eval results:0.5326
+epoch:86; metric:emoval; train results:0.9722; eval results:0.5495
+epoch:87; metric:emoval; train results:0.9690; eval results:0.5092
+epoch:88; metric:emoval; train results:0.9740; eval results:0.5215
+epoch:89; metric:emoval; train results:0.9749; eval results:0.5471
+epoch:90; metric:emoval; train results:0.9728; eval results:0.5330
+epoch:91; metric:emoval; train results:0.9739; eval results:0.5333
+epoch:92; metric:emoval; train results:0.9725; eval results:0.5228
+epoch:93; metric:emoval; train results:0.9761; eval results:0.5513
+epoch:94; metric:emoval; train results:0.9741; eval results:0.5163
+epoch:95; metric:emoval; train results:0.9732; eval results:0.5318
+epoch:96; metric:emoval; train results:0.9693; eval results:0.5547
+epoch:97; metric:emoval; train results:0.9774; eval results:0.5213
+epoch:98; metric:emoval; train results:0.9736; eval results:0.5614
+epoch:99; metric:emoval; train results:0.9722; eval results:0.5322
+epoch:100; metric:emoval; train results:0.9754; eval results:0.5290
+Step3: saving and testing on the 1 folder
+>>>>> Finish: training on the 1-th folder, best_index: 32, duration: 117.69498682022095 >>>>>
+>>>>> Cross-validation: training on the 2 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.4176; eval results:-0.0755
+epoch:2; metric:emoval; train results:0.0869; eval results:0.2629
+epoch:3; metric:emoval; train results:0.3465; eval results:0.4067
+epoch:4; metric:emoval; train results:0.4503; eval results:0.4076
+epoch:5; metric:emoval; train results:0.5415; eval results:0.4775
+epoch:6; metric:emoval; train results:0.5816; eval results:0.4924
+epoch:7; metric:emoval; train results:0.6202; eval results:0.4770
+epoch:8; metric:emoval; train results:0.6562; eval results:0.5182
+epoch:9; metric:emoval; train results:0.6942; eval results:0.5453
+epoch:10; metric:emoval; train results:0.7256; eval results:0.5163
+epoch:11; metric:emoval; train results:0.7461; eval results:0.5143
+epoch:12; metric:emoval; train results:0.7673; eval results:0.5246
+epoch:13; metric:emoval; train results:0.7753; eval results:0.4888
+epoch:14; metric:emoval; train results:0.7913; eval results:0.5511
+epoch:15; metric:emoval; train results:0.8152; eval results:0.5176
+epoch:16; metric:emoval; train results:0.8388; eval results:0.5270
+epoch:17; metric:emoval; train results:0.8412; eval results:0.5070
+epoch:18; metric:emoval; train results:0.8581; eval results:0.5257
+epoch:19; metric:emoval; train results:0.8528; eval results:0.5466
+epoch:20; metric:emoval; train results:0.8745; eval results:0.5493
+epoch:21; metric:emoval; train results:0.8844; eval results:0.5091
+epoch:22; metric:emoval; train results:0.8874; eval results:0.5489
+epoch:23; metric:emoval; train results:0.8963; eval results:0.5443
+epoch:24; metric:emoval; train results:0.9050; eval results:0.5205
+epoch:25; metric:emoval; train results:0.9084; eval results:0.5111
+epoch:26; metric:emoval; train results:0.9109; eval results:0.5279
+epoch:27; metric:emoval; train results:0.9139; eval results:0.5405
+epoch:28; metric:emoval; train results:0.9093; eval results:0.4911
+epoch:29; metric:emoval; train results:0.9176; eval results:0.5173
+epoch:30; metric:emoval; train results:0.9248; eval results:0.4884
+epoch:31; metric:emoval; train results:0.9231; eval results:0.5162
+epoch:32; metric:emoval; train results:0.9300; eval results:0.5202
+epoch:33; metric:emoval; train results:0.9330; eval results:0.5204
+epoch:34; metric:emoval; train results:0.9282; eval results:0.5234
+epoch:35; metric:emoval; train results:0.9370; eval results:0.5321
+epoch:36; metric:emoval; train results:0.9379; eval results:0.5572
+epoch:37; metric:emoval; train results:0.9382; eval results:0.5241
+epoch:38; metric:emoval; train results:0.9397; eval results:0.5374
+epoch:39; metric:emoval; train results:0.9442; eval results:0.5215
+epoch:40; metric:emoval; train results:0.9437; eval results:0.5331
+epoch:41; metric:emoval; train results:0.9460; eval results:0.5621
+epoch:42; metric:emoval; train results:0.9528; eval results:0.5215
+epoch:43; metric:emoval; train results:0.9467; eval results:0.5365
+epoch:44; metric:emoval; train results:0.9512; eval results:0.5526
+epoch:45; metric:emoval; train results:0.9505; eval results:0.5508
+epoch:46; metric:emoval; train results:0.9489; eval results:0.5353
+epoch:47; metric:emoval; train results:0.9504; eval results:0.5388
+epoch:48; metric:emoval; train results:0.9565; eval results:0.5431
+epoch:49; metric:emoval; train results:0.9555; eval results:0.5446
+epoch:50; metric:emoval; train results:0.9582; eval results:0.5355
+epoch:51; metric:emoval; train results:0.9578; eval results:0.5342
+epoch:52; metric:emoval; train results:0.9595; eval results:0.5310
+epoch:53; metric:emoval; train results:0.9593; eval results:0.5433
+epoch:54; metric:emoval; train results:0.9584; eval results:0.5476
+epoch:55; metric:emoval; train results:0.9571; eval results:0.5396
+epoch:56; metric:emoval; train results:0.9601; eval results:0.5347
+epoch:57; metric:emoval; train results:0.9598; eval results:0.5549
+epoch:58; metric:emoval; train results:0.9594; eval results:0.5340
+epoch:59; metric:emoval; train results:0.9578; eval results:0.5300
+epoch:60; metric:emoval; train results:0.9621; eval results:0.5295
+epoch:61; metric:emoval; train results:0.9607; eval results:0.5197
+epoch:62; metric:emoval; train results:0.9644; eval results:0.5406
+epoch:63; metric:emoval; train results:0.9626; eval results:0.5493
+epoch:64; metric:emoval; train results:0.9678; eval results:0.5351
+epoch:65; metric:emoval; train results:0.9663; eval results:0.5004
+epoch:66; metric:emoval; train results:0.9578; eval results:0.5495
+epoch:67; metric:emoval; train results:0.9600; eval results:0.5376
+epoch:68; metric:emoval; train results:0.9664; eval results:0.5297
+epoch:69; metric:emoval; train results:0.9643; eval results:0.5329
+epoch:70; metric:emoval; train results:0.9650; eval results:0.5246
+epoch:71; metric:emoval; train results:0.9667; eval results:0.5301
+epoch:72; metric:emoval; train results:0.9691; eval results:0.5380
+epoch:73; metric:emoval; train results:0.9637; eval results:0.5304
+epoch:74; metric:emoval; train results:0.9714; eval results:0.5298
+epoch:75; metric:emoval; train results:0.9685; eval results:0.5055
+epoch:76; metric:emoval; train results:0.9654; eval results:0.5437
+epoch:77; metric:emoval; train results:0.9647; eval results:0.5362
+epoch:78; metric:emoval; train results:0.9717; eval results:0.5420
+epoch:79; metric:emoval; train results:0.9720; eval results:0.5376
+epoch:80; metric:emoval; train results:0.9719; eval results:0.5350
+epoch:81; metric:emoval; train results:0.9702; eval results:0.5447
+epoch:82; metric:emoval; train results:0.9716; eval results:0.5478
+epoch:83; metric:emoval; train results:0.9716; eval results:0.5115
+epoch:84; metric:emoval; train results:0.9728; eval results:0.5355
+epoch:85; metric:emoval; train results:0.9728; eval results:0.5250
+epoch:86; metric:emoval; train results:0.9723; eval results:0.5353
+epoch:87; metric:emoval; train results:0.9747; eval results:0.5009
+epoch:88; metric:emoval; train results:0.9704; eval results:0.5236
+epoch:89; metric:emoval; train results:0.9765; eval results:0.5268
+epoch:90; metric:emoval; train results:0.9728; eval results:0.5180
+epoch:91; metric:emoval; train results:0.9742; eval results:0.5241
+epoch:92; metric:emoval; train results:0.9740; eval results:0.5380
+epoch:93; metric:emoval; train results:0.9736; eval results:0.5158
+epoch:94; metric:emoval; train results:0.9769; eval results:0.5295
+epoch:95; metric:emoval; train results:0.9748; eval results:0.5364
+epoch:96; metric:emoval; train results:0.9752; eval results:0.5133
+epoch:97; metric:emoval; train results:0.9758; eval results:0.5448
+epoch:98; metric:emoval; train results:0.9771; eval results:0.5482
+epoch:99; metric:emoval; train results:0.9758; eval results:0.5507
+epoch:100; metric:emoval; train results:0.9769; eval results:0.5337
+Step3: saving and testing on the 2 folder
+>>>>> Finish: training on the 2-th folder, best_index: 40, duration: 241.62852692604065 >>>>>
+>>>>> Cross-validation: training on the 3 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.2988; eval results:0.0452
+epoch:2; metric:emoval; train results:0.1866; eval results:0.2939
+epoch:3; metric:emoval; train results:0.3968; eval results:0.4041
+epoch:4; metric:emoval; train results:0.5053; eval results:0.4437
+epoch:5; metric:emoval; train results:0.5713; eval results:0.4962
+epoch:6; metric:emoval; train results:0.6214; eval results:0.5149
+epoch:7; metric:emoval; train results:0.6443; eval results:0.5001
+epoch:8; metric:emoval; train results:0.6708; eval results:0.5284
+epoch:9; metric:emoval; train results:0.7077; eval results:0.4915
+epoch:10; metric:emoval; train results:0.7372; eval results:0.5216
+epoch:11; metric:emoval; train results:0.7612; eval results:0.5203
+epoch:12; metric:emoval; train results:0.7907; eval results:0.5171
+epoch:13; metric:emoval; train results:0.8052; eval results:0.4700
+epoch:14; metric:emoval; train results:0.8200; eval results:0.5349
+epoch:15; metric:emoval; train results:0.8452; eval results:0.5061
+epoch:16; metric:emoval; train results:0.8363; eval results:0.5172
+epoch:17; metric:emoval; train results:0.8607; eval results:0.5299
+epoch:18; metric:emoval; train results:0.8594; eval results:0.5148
+epoch:19; metric:emoval; train results:0.8711; eval results:0.5241
+epoch:20; metric:emoval; train results:0.8837; eval results:0.5077
+epoch:21; metric:emoval; train results:0.8846; eval results:0.4986
+epoch:22; metric:emoval; train results:0.8950; eval results:0.5157
+epoch:23; metric:emoval; train results:0.9019; eval results:0.5055
+epoch:24; metric:emoval; train results:0.9006; eval results:0.5319
+epoch:25; metric:emoval; train results:0.9057; eval results:0.5303
+epoch:26; metric:emoval; train results:0.9049; eval results:0.5315
+epoch:27; metric:emoval; train results:0.9187; eval results:0.5107
+epoch:28; metric:emoval; train results:0.9193; eval results:0.5033
+epoch:29; metric:emoval; train results:0.9272; eval results:0.5239
+epoch:30; metric:emoval; train results:0.9261; eval results:0.5149
+epoch:31; metric:emoval; train results:0.9285; eval results:0.5184
+epoch:32; metric:emoval; train results:0.9278; eval results:0.5333
+epoch:33; metric:emoval; train results:0.9312; eval results:0.4940
+epoch:34; metric:emoval; train results:0.9312; eval results:0.5354
+epoch:35; metric:emoval; train results:0.9378; eval results:0.5328
+epoch:36; metric:emoval; train results:0.9375; eval results:0.5304
+epoch:37; metric:emoval; train results:0.9373; eval results:0.5109
+epoch:38; metric:emoval; train results:0.9361; eval results:0.5171
+epoch:39; metric:emoval; train results:0.9417; eval results:0.5449
+epoch:40; metric:emoval; train results:0.9451; eval results:0.5269
+epoch:41; metric:emoval; train results:0.9460; eval results:0.5321
+epoch:42; metric:emoval; train results:0.9442; eval results:0.5377
+epoch:43; metric:emoval; train results:0.9459; eval results:0.5320
+epoch:44; metric:emoval; train results:0.9476; eval results:0.5252
+epoch:45; metric:emoval; train results:0.9542; eval results:0.5155
+epoch:46; metric:emoval; train results:0.9485; eval results:0.5280
+epoch:47; metric:emoval; train results:0.9495; eval results:0.5225
+epoch:48; metric:emoval; train results:0.9514; eval results:0.5347
+epoch:49; metric:emoval; train results:0.9623; eval results:0.5028
+epoch:50; metric:emoval; train results:0.9597; eval results:0.5389
+epoch:51; metric:emoval; train results:0.9573; eval results:0.5261
+epoch:52; metric:emoval; train results:0.9574; eval results:0.5188
+epoch:53; metric:emoval; train results:0.9593; eval results:0.5221
+epoch:54; metric:emoval; train results:0.9607; eval results:0.5336
+epoch:55; metric:emoval; train results:0.9595; eval results:0.5366
+epoch:56; metric:emoval; train results:0.9572; eval results:0.5320
+epoch:57; metric:emoval; train results:0.9580; eval results:0.5248
+epoch:58; metric:emoval; train results:0.9604; eval results:0.5323
+epoch:59; metric:emoval; train results:0.9562; eval results:0.5413
+epoch:60; metric:emoval; train results:0.9662; eval results:0.5229
+epoch:61; metric:emoval; train results:0.9624; eval results:0.4984
+epoch:62; metric:emoval; train results:0.9606; eval results:0.5250
+epoch:63; metric:emoval; train results:0.9643; eval results:0.5177
+epoch:64; metric:emoval; train results:0.9659; eval results:0.5235
+epoch:65; metric:emoval; train results:0.9657; eval results:0.5220
+epoch:66; metric:emoval; train results:0.9657; eval results:0.5273
+epoch:67; metric:emoval; train results:0.9678; eval results:0.5389
+epoch:68; metric:emoval; train results:0.9634; eval results:0.5248
+epoch:69; metric:emoval; train results:0.9662; eval results:0.5336
+epoch:70; metric:emoval; train results:0.9638; eval results:0.5446
+epoch:71; metric:emoval; train results:0.9684; eval results:0.5062
+epoch:72; metric:emoval; train results:0.9713; eval results:0.5230
+epoch:73; metric:emoval; train results:0.9720; eval results:0.5144
+epoch:74; metric:emoval; train results:0.9682; eval results:0.4991
+epoch:75; metric:emoval; train results:0.9691; eval results:0.5075
+epoch:76; metric:emoval; train results:0.9721; eval results:0.4955
+epoch:77; metric:emoval; train results:0.9723; eval results:0.5079
+epoch:78; metric:emoval; train results:0.9714; eval results:0.5211
+epoch:79; metric:emoval; train results:0.9639; eval results:0.5106
+epoch:80; metric:emoval; train results:0.9739; eval results:0.5175
+epoch:81; metric:emoval; train results:0.9703; eval results:0.5075
+epoch:82; metric:emoval; train results:0.9734; eval results:0.5097
+epoch:83; metric:emoval; train results:0.9658; eval results:0.5293
+epoch:84; metric:emoval; train results:0.9733; eval results:0.5121
+epoch:85; metric:emoval; train results:0.9729; eval results:0.4954
+epoch:86; metric:emoval; train results:0.9689; eval results:0.5011
+epoch:87; metric:emoval; train results:0.9736; eval results:0.5334
+epoch:88; metric:emoval; train results:0.9717; eval results:0.5317
+epoch:89; metric:emoval; train results:0.9748; eval results:0.5162
+epoch:90; metric:emoval; train results:0.9711; eval results:0.5249
+epoch:91; metric:emoval; train results:0.9712; eval results:0.5485
+epoch:92; metric:emoval; train results:0.9702; eval results:0.5274
+epoch:93; metric:emoval; train results:0.9723; eval results:0.5355
+epoch:94; metric:emoval; train results:0.9702; eval results:0.5264
+epoch:95; metric:emoval; train results:0.9757; eval results:0.4935
+epoch:96; metric:emoval; train results:0.9761; eval results:0.5197
+epoch:97; metric:emoval; train results:0.9766; eval results:0.5279
+epoch:98; metric:emoval; train results:0.9757; eval results:0.5166
+epoch:99; metric:emoval; train results:0.9756; eval results:0.5262
+epoch:100; metric:emoval; train results:0.9759; eval results:0.5399
+Step3: saving and testing on the 3 folder
+>>>>> Finish: training on the 3-th folder, best_index: 90, duration: 440.8143980503082 >>>>>
+>>>>> Cross-validation: training on the 4 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.4376; eval results:-0.2079
+epoch:2; metric:emoval; train results:0.0052; eval results:0.2858
+epoch:3; metric:emoval; train results:0.3238; eval results:0.4569
+epoch:4; metric:emoval; train results:0.4570; eval results:0.5172
+epoch:5; metric:emoval; train results:0.5148; eval results:0.5075
+epoch:6; metric:emoval; train results:0.5891; eval results:0.5536
+epoch:7; metric:emoval; train results:0.6368; eval results:0.5456
+epoch:8; metric:emoval; train results:0.6681; eval results:0.5596
+epoch:9; metric:emoval; train results:0.7076; eval results:0.5701
+epoch:10; metric:emoval; train results:0.7274; eval results:0.5971
+epoch:11; metric:emoval; train results:0.7724; eval results:0.5636
+epoch:12; metric:emoval; train results:0.7868; eval results:0.5640
+epoch:13; metric:emoval; train results:0.7843; eval results:0.5597
+epoch:14; metric:emoval; train results:0.8154; eval results:0.5398
+epoch:15; metric:emoval; train results:0.8277; eval results:0.5610
+epoch:16; metric:emoval; train results:0.8424; eval results:0.5580
+epoch:17; metric:emoval; train results:0.8525; eval results:0.5677
+epoch:18; metric:emoval; train results:0.8636; eval results:0.5722
+epoch:19; metric:emoval; train results:0.8653; eval results:0.5825
+epoch:20; metric:emoval; train results:0.8818; eval results:0.5658
+epoch:21; metric:emoval; train results:0.8833; eval results:0.5849
+epoch:22; metric:emoval; train results:0.8945; eval results:0.5704
+epoch:23; metric:emoval; train results:0.8899; eval results:0.5734
+epoch:24; metric:emoval; train results:0.9024; eval results:0.5266
+epoch:25; metric:emoval; train results:0.9003; eval results:0.5715
+epoch:26; metric:emoval; train results:0.9095; eval results:0.5996
+epoch:27; metric:emoval; train results:0.9108; eval results:0.5518
+epoch:28; metric:emoval; train results:0.9153; eval results:0.5651
+epoch:29; metric:emoval; train results:0.9287; eval results:0.5505
+epoch:30; metric:emoval; train results:0.9154; eval results:0.5688
+epoch:31; metric:emoval; train results:0.9220; eval results:0.5726
+epoch:32; metric:emoval; train results:0.9327; eval results:0.5668
+epoch:33; metric:emoval; train results:0.9281; eval results:0.5556
+epoch:34; metric:emoval; train results:0.9271; eval results:0.5815
+epoch:35; metric:emoval; train results:0.9353; eval results:0.5707
+epoch:36; metric:emoval; train results:0.9394; eval results:0.5485
+epoch:37; metric:emoval; train results:0.9366; eval results:0.5704
+epoch:38; metric:emoval; train results:0.9422; eval results:0.5632
+epoch:39; metric:emoval; train results:0.9404; eval results:0.5949
+epoch:40; metric:emoval; train results:0.9391; eval results:0.5620
+epoch:41; metric:emoval; train results:0.9436; eval results:0.5724
+epoch:42; metric:emoval; train results:0.9410; eval results:0.5771
+epoch:43; metric:emoval; train results:0.9412; eval results:0.5846
+epoch:44; metric:emoval; train results:0.9478; eval results:0.5728
+epoch:45; metric:emoval; train results:0.9491; eval results:0.5837
+epoch:46; metric:emoval; train results:0.9504; eval results:0.5645
+epoch:47; metric:emoval; train results:0.9521; eval results:0.5649
+epoch:48; metric:emoval; train results:0.9528; eval results:0.5634
+epoch:49; metric:emoval; train results:0.9537; eval results:0.5653
+epoch:50; metric:emoval; train results:0.9532; eval results:0.5644
+epoch:51; metric:emoval; train results:0.9612; eval results:0.5604
+epoch:52; metric:emoval; train results:0.9558; eval results:0.5726
+epoch:53; metric:emoval; train results:0.9532; eval results:0.5789
+epoch:54; metric:emoval; train results:0.9598; eval results:0.5861
+epoch:55; metric:emoval; train results:0.9558; eval results:0.5910
+epoch:56; metric:emoval; train results:0.9565; eval results:0.5841
+epoch:57; metric:emoval; train results:0.9593; eval results:0.5769
+epoch:58; metric:emoval; train results:0.9495; eval results:0.5569
+epoch:59; metric:emoval; train results:0.9620; eval results:0.5829
+epoch:60; metric:emoval; train results:0.9639; eval results:0.5508
+epoch:61; metric:emoval; train results:0.9606; eval results:0.5494
+epoch:62; metric:emoval; train results:0.9634; eval results:0.5826
+epoch:63; metric:emoval; train results:0.9638; eval results:0.5806
+epoch:64; metric:emoval; train results:0.9604; eval results:0.5512
+epoch:65; metric:emoval; train results:0.9608; eval results:0.5703
+epoch:66; metric:emoval; train results:0.9674; eval results:0.5815
+epoch:67; metric:emoval; train results:0.9611; eval results:0.5727
+epoch:68; metric:emoval; train results:0.9645; eval results:0.5504
+epoch:69; metric:emoval; train results:0.9676; eval results:0.5655
+epoch:70; metric:emoval; train results:0.9680; eval results:0.5624
+epoch:71; metric:emoval; train results:0.9679; eval results:0.5734
+epoch:72; metric:emoval; train results:0.9673; eval results:0.5723
+epoch:73; metric:emoval; train results:0.9671; eval results:0.5656
+epoch:74; metric:emoval; train results:0.9698; eval results:0.5576
+epoch:75; metric:emoval; train results:0.9698; eval results:0.5704
+epoch:76; metric:emoval; train results:0.9685; eval results:0.5189
+epoch:77; metric:emoval; train results:0.9663; eval results:0.5665
+epoch:78; metric:emoval; train results:0.9672; eval results:0.5727
+epoch:79; metric:emoval; train results:0.9721; eval results:0.5746
+epoch:80; metric:emoval; train results:0.9732; eval results:0.5781
+epoch:81; metric:emoval; train results:0.9711; eval results:0.5546
+epoch:82; metric:emoval; train results:0.9713; eval results:0.5515
+epoch:83; metric:emoval; train results:0.9741; eval results:0.5760
+epoch:84; metric:emoval; train results:0.9725; eval results:0.5744
+epoch:85; metric:emoval; train results:0.9688; eval results:0.5344
+epoch:86; metric:emoval; train results:0.9689; eval results:0.5565
+epoch:87; metric:emoval; train results:0.9704; eval results:0.5581
+epoch:88; metric:emoval; train results:0.9721; eval results:0.5593
+epoch:89; metric:emoval; train results:0.9702; eval results:0.5589
+epoch:90; metric:emoval; train results:0.9741; eval results:0.5724
+epoch:91; metric:emoval; train results:0.9718; eval results:0.5734
+epoch:92; metric:emoval; train results:0.9705; eval results:0.5723
+epoch:93; metric:emoval; train results:0.9775; eval results:0.5742
+epoch:94; metric:emoval; train results:0.9769; eval results:0.5758
+epoch:95; metric:emoval; train results:0.9749; eval results:0.5810
+epoch:96; metric:emoval; train results:0.9717; eval results:0.5713
+epoch:97; metric:emoval; train results:0.9770; eval results:0.5766
+epoch:98; metric:emoval; train results:0.9735; eval results:0.5753
+epoch:99; metric:emoval; train results:0.9719; eval results:0.5703
+epoch:100; metric:emoval; train results:0.9752; eval results:0.5772
+Step3: saving and testing on the 4 folder
+>>>>> Finish: training on the 4-th folder, best_index: 25, duration: 445.6106450557709 >>>>>
+>>>>> Cross-validation: training on the 5 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3223; eval results:0.0156
+epoch:2; metric:emoval; train results:0.1183; eval results:0.2262
+epoch:3; metric:emoval; train results:0.3423; eval results:0.3455
+epoch:4; metric:emoval; train results:0.4577; eval results:0.4218
+epoch:5; metric:emoval; train results:0.5227; eval results:0.4743
+epoch:6; metric:emoval; train results:0.5768; eval results:0.4859
+epoch:7; metric:emoval; train results:0.6271; eval results:0.4975
+epoch:8; metric:emoval; train results:0.6707; eval results:0.4697
+epoch:9; metric:emoval; train results:0.6989; eval results:0.5053
+epoch:10; metric:emoval; train results:0.7304; eval results:0.4986
+epoch:11; metric:emoval; train results:0.7632; eval results:0.4744
+epoch:12; metric:emoval; train results:0.7703; eval results:0.5026
+epoch:13; metric:emoval; train results:0.7821; eval results:0.5125
+epoch:14; metric:emoval; train results:0.8028; eval results:0.5215
+epoch:15; metric:emoval; train results:0.8237; eval results:0.5146
+epoch:16; metric:emoval; train results:0.8468; eval results:0.5299
+epoch:17; metric:emoval; train results:0.8463; eval results:0.5242
+epoch:18; metric:emoval; train results:0.8567; eval results:0.4821
+epoch:19; metric:emoval; train results:0.8744; eval results:0.5063
+epoch:20; metric:emoval; train results:0.8704; eval results:0.5243
+epoch:21; metric:emoval; train results:0.8859; eval results:0.4668
+epoch:22; metric:emoval; train results:0.8790; eval results:0.5072
+epoch:23; metric:emoval; train results:0.8999; eval results:0.5233
+epoch:24; metric:emoval; train results:0.9022; eval results:0.5264
+epoch:25; metric:emoval; train results:0.9077; eval results:0.4966
+epoch:26; metric:emoval; train results:0.9108; eval results:0.4802
+epoch:27; metric:emoval; train results:0.9113; eval results:0.5166
+epoch:28; metric:emoval; train results:0.9214; eval results:0.4903
+epoch:29; metric:emoval; train results:0.9203; eval results:0.5048
+epoch:30; metric:emoval; train results:0.9246; eval results:0.5126
+epoch:31; metric:emoval; train results:0.9286; eval results:0.5398
+epoch:32; metric:emoval; train results:0.9349; eval results:0.5116
+epoch:33; metric:emoval; train results:0.9365; eval results:0.5366
+epoch:34; metric:emoval; train results:0.9344; eval results:0.5158
+epoch:35; metric:emoval; train results:0.9303; eval results:0.5340
+epoch:36; metric:emoval; train results:0.9354; eval results:0.5374
+epoch:37; metric:emoval; train results:0.9430; eval results:0.5083
+epoch:38; metric:emoval; train results:0.9405; eval results:0.5221
+epoch:39; metric:emoval; train results:0.9407; eval results:0.5110
+epoch:40; metric:emoval; train results:0.9369; eval results:0.5129
+epoch:41; metric:emoval; train results:0.9435; eval results:0.5190
+epoch:42; metric:emoval; train results:0.9512; eval results:0.5136
+epoch:43; metric:emoval; train results:0.9487; eval results:0.5444
+epoch:44; metric:emoval; train results:0.9491; eval results:0.5160
+epoch:45; metric:emoval; train results:0.9453; eval results:0.5004
+epoch:46; metric:emoval; train results:0.9547; eval results:0.5208
+epoch:47; metric:emoval; train results:0.9562; eval results:0.5420
+epoch:48; metric:emoval; train results:0.9559; eval results:0.5306
+epoch:49; metric:emoval; train results:0.9579; eval results:0.5183
+epoch:50; metric:emoval; train results:0.9480; eval results:0.4933
+epoch:51; metric:emoval; train results:0.9478; eval results:0.5235
+epoch:52; metric:emoval; train results:0.9593; eval results:0.5173
+epoch:53; metric:emoval; train results:0.9563; eval results:0.4915
+epoch:54; metric:emoval; train results:0.9572; eval results:0.5203
+epoch:55; metric:emoval; train results:0.9557; eval results:0.4967
+epoch:56; metric:emoval; train results:0.9558; eval results:0.5100
+epoch:57; metric:emoval; train results:0.9554; eval results:0.4992
+epoch:58; metric:emoval; train results:0.9626; eval results:0.5298
+epoch:59; metric:emoval; train results:0.9635; eval results:0.5106
+epoch:60; metric:emoval; train results:0.9637; eval results:0.4842
+epoch:61; metric:emoval; train results:0.9620; eval results:0.4847
+epoch:62; metric:emoval; train results:0.9623; eval results:0.4899
+epoch:63; metric:emoval; train results:0.9652; eval results:0.5461
+epoch:64; metric:emoval; train results:0.9599; eval results:0.5286
+epoch:65; metric:emoval; train results:0.9621; eval results:0.5380
+epoch:66; metric:emoval; train results:0.9637; eval results:0.5086
+epoch:67; metric:emoval; train results:0.9667; eval results:0.4818
+epoch:68; metric:emoval; train results:0.9640; eval results:0.5185
+epoch:69; metric:emoval; train results:0.9651; eval results:0.5064
+epoch:70; metric:emoval; train results:0.9650; eval results:0.5282
+epoch:71; metric:emoval; train results:0.9669; eval results:0.4966
+epoch:72; metric:emoval; train results:0.9663; eval results:0.4910
+epoch:73; metric:emoval; train results:0.9673; eval results:0.5075
+epoch:74; metric:emoval; train results:0.9694; eval results:0.5239
+epoch:75; metric:emoval; train results:0.9680; eval results:0.5204
+epoch:76; metric:emoval; train results:0.9703; eval results:0.5079
+epoch:77; metric:emoval; train results:0.9697; eval results:0.5343
+epoch:78; metric:emoval; train results:0.9663; eval results:0.5161
+epoch:79; metric:emoval; train results:0.9725; eval results:0.4887
+epoch:80; metric:emoval; train results:0.9670; eval results:0.5173
+epoch:81; metric:emoval; train results:0.9652; eval results:0.5251
+epoch:82; metric:emoval; train results:0.9723; eval results:0.5155
+epoch:83; metric:emoval; train results:0.9735; eval results:0.5172
+epoch:84; metric:emoval; train results:0.9706; eval results:0.5280
+epoch:85; metric:emoval; train results:0.9714; eval results:0.5234
+epoch:86; metric:emoval; train results:0.9734; eval results:0.5262
+epoch:87; metric:emoval; train results:0.9750; eval results:0.5271
+epoch:88; metric:emoval; train results:0.9711; eval results:0.5083
+epoch:89; metric:emoval; train results:0.9731; eval results:0.5101
+epoch:90; metric:emoval; train results:0.9726; eval results:0.5040
+epoch:91; metric:emoval; train results:0.9733; eval results:0.5247
+epoch:92; metric:emoval; train results:0.9750; eval results:0.5195
+epoch:93; metric:emoval; train results:0.9747; eval results:0.5075
+epoch:94; metric:emoval; train results:0.9751; eval results:0.5174
+epoch:95; metric:emoval; train results:0.9746; eval results:0.5187
+epoch:96; metric:emoval; train results:0.9727; eval results:0.5365
+epoch:97; metric:emoval; train results:0.9719; eval results:0.5167
+epoch:98; metric:emoval; train results:0.9758; eval results:0.4977
+epoch:99; metric:emoval; train results:0.9738; eval results:0.4987
+epoch:100; metric:emoval; train results:0.9752; eval results:0.5110
+Step3: saving and testing on the 5 folder
+>>>>> Finish: training on the 5-th folder, best_index: 62, duration: 454.11073327064514 >>>>>
+====== Prediction and Saving =======
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep01-trimodal/result/cv_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.7499_acc:0.7504_val:0.7449_1771810018.8679316.npz
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep01-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.8098_acc:0.8102_val:0.6507_1771810018.8679316.npz
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep01-trimodal/result/test2_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.7586_acc:0.7597_val:0.6902_1771810018.8679316.npz
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep01-trimodal/result/test3_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.8648_acc:0.8645_val:80.2576_1771810018.8679316.npz
+
+====================================================================================================
+running cand01_hd128_do0.3_lr0.0001_rep02
+/root/miniconda3/bin/python -u main-release.py --model=attention --dataset=MER2023 --feat_type=utt --audio_feature=chinese-hubert-large-UTT --text_feature=Baichuan-13B-Base-UTT --video_feature=clip-vit-large-patch14-UTT --hyper_path=/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand01_hd128_do0.3_lr0.0001.yaml --l2=1e-05 --epochs=100 --batch_size=32 --num_workers=0 --gpu=0 --seed=3408 --save_root=./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep02
+====================================================================================================
+set global seed to 3408
+====== Params Pre-analysis =======
+args:  Namespace(audio_feature='chinese-hubert-large-UTT', batch_size=32, dataset='MER2023', debug=False, dropout=0.3, e2e_dim=None, e2e_name=None, epochs=100, feat_scale=1, feat_type='utt', gpu=0, grad_clip=-1.0, hidden_dim=128, hyper_path='/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand01_hd128_do0.3_lr0.0001.yaml', l2=1e-05, lr=0.0001, lr_adjust='case1', model='attention', n_classes=None, num_workers=0, print_iters=100000000.0, save_iters=100000000.0, save_root='./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep02-trimodal', savemodel=False, seed=3408, test_dataset=None, text_feature='Baichuan-13B-Base-UTT', train_dataset=None, video_feature='clip-vit-large-patch14-UTT')
+====== Reading Data =======
+train: sample number 3373
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+  9%|▉         | 305/3373 [00:00<00:01, 1888.24it/s]
+ 18%|█▊        | 606/3373 [00:00<00:01, 2404.75it/s]
+ 25%|██▌       | 860/3373 [00:00<00:01, 2435.93it/s]
+ 33%|███▎      | 1111/3373 [00:00<00:00, 2423.82it/s]
+ 40%|████      | 1358/3373 [00:00<00:00, 2359.56it/s]
+ 47%|████▋     | 1597/3373 [00:00<00:00, 2333.67it/s]
+ 54%|█████▍    | 1833/3373 [00:00<00:00, 1873.70it/s]
+ 61%|██████    | 2041/3373 [00:00<00:00, 1925.57it/s]
+ 67%|██████▋   | 2244/3373 [00:01<00:00, 1947.85it/s]
+ 74%|███████▍  | 2496/3373 [00:01<00:00, 2106.79it/s]
+ 80%|████████  | 2714/3373 [00:01<00:00, 2113.22it/s]
+ 87%|████████▋ | 2951/3373 [00:01<00:00, 2184.04it/s]
+ 98%|█████████▊| 3316/3373 [00:01<00:00, 2608.93it/s]
+100%|██████████| 3373/3373 [00:01<00:00, 2289.69it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+  7%|▋         | 227/3373 [00:00<00:01, 2268.80it/s]
+ 13%|█▎        | 454/3373 [00:00<00:01, 2176.81it/s]
+ 20%|█▉        | 672/3373 [00:00<00:01, 2081.54it/s]
+ 26%|██▌       | 881/3373 [00:00<00:01, 1566.66it/s]
+ 31%|███       | 1052/3373 [00:00<00:01, 1594.75it/s]
+ 36%|███▌      | 1221/3373 [00:00<00:01, 1614.51it/s]
+ 41%|████      | 1389/3373 [00:00<00:01, 1625.72it/s]
+ 46%|████▋     | 1563/3373 [00:00<00:01, 1657.20it/s]
+ 51%|█████▏    | 1733/3373 [00:01<00:01, 1625.07it/s]
+ 57%|█████▋    | 1935/3373 [00:01<00:00, 1737.07it/s]
+ 63%|██████▎   | 2111/3373 [00:01<00:00, 1425.19it/s]
+ 67%|██████▋   | 2264/3373 [00:01<00:00, 1411.19it/s]
+ 72%|███████▏  | 2413/3373 [00:01<00:00, 1396.18it/s]
+ 76%|███████▌  | 2558/3373 [00:01<00:00, 1405.71it/s]
+ 80%|████████  | 2702/3373 [00:01<00:00, 1158.58it/s]
+ 84%|████████▍ | 2835/3373 [00:01<00:00, 1198.31it/s]
+ 89%|████████▊ | 2988/3373 [00:02<00:00, 1277.70it/s]
+ 94%|█████████▍| 3167/3373 [00:02<00:00, 1411.78it/s]
+100%|█████████▉| 3364/3373 [00:02<00:00, 1563.16it/s]
+100%|██████████| 3373/3373 [00:02<00:00, 1528.78it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 11%|█         | 366/3373 [00:00<00:01, 2139.13it/s]
+ 20%|██        | 685/3373 [00:00<00:01, 2600.74it/s]
+ 28%|██▊       | 960/3373 [00:00<00:00, 2659.22it/s]
+ 37%|███▋      | 1234/3373 [00:00<00:00, 2675.47it/s]
+ 45%|████▍     | 1507/3373 [00:00<00:00, 2646.88it/s]
+ 53%|█████▎    | 1775/3373 [00:00<00:00, 2657.11it/s]
+ 61%|██████    | 2043/3373 [00:00<00:00, 2600.67it/s]
+ 70%|███████   | 2362/3373 [00:00<00:00, 2778.97it/s]
+ 78%|███████▊  | 2642/3373 [00:00<00:00, 2776.27it/s]
+ 87%|████████▋ | 2922/3373 [00:01<00:00, 2780.52it/s]
+ 95%|█████████▌| 3208/3373 [00:01<00:00, 2752.56it/s]
+100%|██████████| 3373/3373 [00:01<00:00, 2646.07it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test1: sample number 411
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+ 72%|███████▏  | 294/411 [00:00<00:00, 2935.78it/s]
+100%|██████████| 411/411 [00:00<00:00, 2175.19it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+ 56%|█████▌    | 230/411 [00:00<00:00, 2299.25it/s]
+100%|██████████| 411/411 [00:00<00:00, 2117.16it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+ 94%|█████████▎| 385/411 [00:00<00:00, 3830.91it/s]
+100%|██████████| 411/411 [00:00<00:00, 4001.86it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test2: sample number 412
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+ 74%|███████▍  | 306/412 [00:00<00:00, 3053.10it/s]
+100%|██████████| 412/412 [00:00<00:00, 2314.04it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+ 75%|███████▍  | 308/412 [00:00<00:00, 3075.90it/s]
+100%|██████████| 412/412 [00:00<00:00, 3765.53it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+ 90%|████████▉ | 369/412 [00:00<00:00, 3689.11it/s]
+100%|██████████| 412/412 [00:00<00:00, 3926.21it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test3: sample number 834
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+ 16%|█▌        | 133/834 [00:00<00:00, 1328.36it/s]
+ 34%|███▎      | 281/834 [00:00<00:00, 1415.99it/s]
+ 51%|█████     | 427/834 [00:00<00:00, 1405.20it/s]
+ 84%|████████▎ | 698/834 [00:00<00:00, 1477.98it/s]
+100%|██████████| 834/834 [00:00<00:00, 1689.39it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+ 37%|███▋      | 310/834 [00:00<00:00, 3061.15it/s]
+ 74%|███████▍  | 617/834 [00:00<00:00, 2028.13it/s]
+100%|██████████| 834/834 [00:00<00:00, 2117.18it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+ 22%|██▏       | 180/834 [00:00<00:00, 1773.98it/s]
+ 43%|████▎     | 358/834 [00:00<00:00, 1709.58it/s]
+ 73%|███████▎  | 608/834 [00:00<00:00, 2054.75it/s]
+100%|██████████| 834/834 [00:00<00:00, 2529.88it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3164; eval results:0.0219
+epoch:2; metric:emoval; train results:0.1095; eval results:0.2278
+epoch:3; metric:emoval; train results:0.3269; eval results:0.4064
+epoch:4; metric:emoval; train results:0.4511; eval results:0.4067
+epoch:5; metric:emoval; train results:0.5276; eval results:0.5290
+epoch:6; metric:emoval; train results:0.5797; eval results:0.5390
+epoch:7; metric:emoval; train results:0.6268; eval results:0.5424
+epoch:8; metric:emoval; train results:0.6464; eval results:0.5357
+epoch:9; metric:emoval; train results:0.6803; eval results:0.5354
+epoch:10; metric:emoval; train results:0.7187; eval results:0.5649
+epoch:11; metric:emoval; train results:0.7255; eval results:0.5430
+epoch:12; metric:emoval; train results:0.7587; eval results:0.5484
+epoch:13; metric:emoval; train results:0.7821; eval results:0.5097
+epoch:14; metric:emoval; train results:0.7906; eval results:0.5411
+epoch:15; metric:emoval; train results:0.8211; eval results:0.5518
+epoch:16; metric:emoval; train results:0.8238; eval results:0.5466
+epoch:17; metric:emoval; train results:0.8425; eval results:0.5466
+epoch:18; metric:emoval; train results:0.8491; eval results:0.5372
+epoch:19; metric:emoval; train results:0.8640; eval results:0.5674
+epoch:20; metric:emoval; train results:0.8651; eval results:0.5326
+epoch:21; metric:emoval; train results:0.8790; eval results:0.5359
+epoch:22; metric:emoval; train results:0.8869; eval results:0.5450
+epoch:23; metric:emoval; train results:0.8925; eval results:0.5521
+epoch:24; metric:emoval; train results:0.8903; eval results:0.5665
+epoch:25; metric:emoval; train results:0.9040; eval results:0.5563
+epoch:26; metric:emoval; train results:0.9063; eval results:0.5565
+epoch:27; metric:emoval; train results:0.9117; eval results:0.5530
+epoch:28; metric:emoval; train results:0.9059; eval results:0.5394
+epoch:29; metric:emoval; train results:0.9119; eval results:0.5697
+epoch:30; metric:emoval; train results:0.9230; eval results:0.5506
+epoch:31; metric:emoval; train results:0.9178; eval results:0.5770
+epoch:32; metric:emoval; train results:0.9270; eval results:0.5630
+epoch:33; metric:emoval; train results:0.9330; eval results:0.5636
+epoch:34; metric:emoval; train results:0.9338; eval results:0.5680
+epoch:35; metric:emoval; train results:0.9351; eval results:0.5521
+epoch:36; metric:emoval; train results:0.9287; eval results:0.5525
+epoch:37; metric:emoval; train results:0.9359; eval results:0.5555
+epoch:38; metric:emoval; train results:0.9379; eval results:0.5650
+epoch:39; metric:emoval; train results:0.9384; eval results:0.5678
+epoch:40; metric:emoval; train results:0.9361; eval results:0.5648
+epoch:41; metric:emoval; train results:0.9392; eval results:0.5448
+epoch:42; metric:emoval; train results:0.9416; eval results:0.5622
+epoch:43; metric:emoval; train results:0.9431; eval results:0.5625
+epoch:44; metric:emoval; train results:0.9461; eval results:0.5390
+epoch:45; metric:emoval; train results:0.9466; eval results:0.5518
+epoch:46; metric:emoval; train results:0.9447; eval results:0.5519
+epoch:47; metric:emoval; train results:0.9512; eval results:0.5397
+epoch:48; metric:emoval; train results:0.9521; eval results:0.5615
+epoch:49; metric:emoval; train results:0.9531; eval results:0.5576
+epoch:50; metric:emoval; train results:0.9497; eval results:0.5637
+epoch:51; metric:emoval; train results:0.9497; eval results:0.5672
+epoch:52; metric:emoval; train results:0.9492; eval results:0.5373
+epoch:53; metric:emoval; train results:0.9534; eval results:0.5418
+epoch:54; metric:emoval; train results:0.9568; eval results:0.5567
+epoch:55; metric:emoval; train results:0.9545; eval results:0.5642
+epoch:56; metric:emoval; train results:0.9528; eval results:0.5389
+epoch:57; metric:emoval; train results:0.9636; eval results:0.5475
+epoch:58; metric:emoval; train results:0.9594; eval results:0.5750
+epoch:59; metric:emoval; train results:0.9619; eval results:0.5353
+epoch:60; metric:emoval; train results:0.9561; eval results:0.5574
+epoch:61; metric:emoval; train results:0.9625; eval results:0.5481
+epoch:62; metric:emoval; train results:0.9595; eval results:0.5506
+epoch:63; metric:emoval; train results:0.9582; eval results:0.5617
+epoch:64; metric:emoval; train results:0.9633; eval results:0.5456
+epoch:65; metric:emoval; train results:0.9670; eval results:0.5346
+epoch:66; metric:emoval; train results:0.9673; eval results:0.5337
+epoch:67; metric:emoval; train results:0.9634; eval results:0.5373
+epoch:68; metric:emoval; train results:0.9652; eval results:0.5378
+epoch:69; metric:emoval; train results:0.9693; eval results:0.5636
+epoch:70; metric:emoval; train results:0.9670; eval results:0.5300
+epoch:71; metric:emoval; train results:0.9658; eval results:0.5378
+epoch:72; metric:emoval; train results:0.9684; eval results:0.5491
+epoch:73; metric:emoval; train results:0.9666; eval results:0.5392
+epoch:74; metric:emoval; train results:0.9660; eval results:0.5374
+epoch:75; metric:emoval; train results:0.9689; eval results:0.5464
+epoch:76; metric:emoval; train results:0.9673; eval results:0.5530
+epoch:77; metric:emoval; train results:0.9685; eval results:0.5162
+epoch:78; metric:emoval; train results:0.9673; eval results:0.5317
+epoch:79; metric:emoval; train results:0.9667; eval results:0.5478
+epoch:80; metric:emoval; train results:0.9696; eval results:0.5433
+epoch:81; metric:emoval; train results:0.9654; eval results:0.5206
+epoch:82; metric:emoval; train results:0.9663; eval results:0.5618
+epoch:83; metric:emoval; train results:0.9680; eval results:0.5494
+epoch:84; metric:emoval; train results:0.9692; eval results:0.5518
+epoch:85; metric:emoval; train results:0.9687; eval results:0.5527
+epoch:86; metric:emoval; train results:0.9655; eval results:0.5279
+epoch:87; metric:emoval; train results:0.9734; eval results:0.5216
+epoch:88; metric:emoval; train results:0.9730; eval results:0.5438
+epoch:89; metric:emoval; train results:0.9708; eval results:0.5546
+epoch:90; metric:emoval; train results:0.9721; eval results:0.5561
+epoch:91; metric:emoval; train results:0.9755; eval results:0.5734
+epoch:92; metric:emoval; train results:0.9743; eval results:0.5458
+epoch:93; metric:emoval; train results:0.9742; eval results:0.5307
+epoch:94; metric:emoval; train results:0.9746; eval results:0.5582
+epoch:95; metric:emoval; train results:0.9749; eval results:0.5351
+epoch:96; metric:emoval; train results:0.9720; eval results:0.5641
+epoch:97; metric:emoval; train results:0.9713; eval results:0.5610
+epoch:98; metric:emoval; train results:0.9735; eval results:0.5505
+epoch:99; metric:emoval; train results:0.9721; eval results:0.5396
+epoch:100; metric:emoval; train results:0.9757; eval results:0.5369
+Step3: saving and testing on the 1 folder
+>>>>> Finish: training on the 1-th folder, best_index: 30, duration: 459.9955425262451 >>>>>
+>>>>> Cross-validation: training on the 2 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3376; eval results:-0.0572
+epoch:2; metric:emoval; train results:0.0601; eval results:0.2095
+epoch:3; metric:emoval; train results:0.2778; eval results:0.3949
+epoch:4; metric:emoval; train results:0.4490; eval results:0.4647
+epoch:5; metric:emoval; train results:0.5224; eval results:0.4982
+epoch:6; metric:emoval; train results:0.5805; eval results:0.5135
+epoch:7; metric:emoval; train results:0.6219; eval results:0.5161
+epoch:8; metric:emoval; train results:0.6618; eval results:0.4989
+epoch:9; metric:emoval; train results:0.6820; eval results:0.4720
+epoch:10; metric:emoval; train results:0.7209; eval results:0.5563
+epoch:11; metric:emoval; train results:0.7389; eval results:0.5572
+epoch:12; metric:emoval; train results:0.7742; eval results:0.5249
+epoch:13; metric:emoval; train results:0.7851; eval results:0.5583
+epoch:14; metric:emoval; train results:0.7950; eval results:0.5652
+epoch:15; metric:emoval; train results:0.8308; eval results:0.5606
+epoch:16; metric:emoval; train results:0.8407; eval results:0.5490
+epoch:17; metric:emoval; train results:0.8502; eval results:0.5381
+epoch:18; metric:emoval; train results:0.8669; eval results:0.5323
+epoch:19; metric:emoval; train results:0.8661; eval results:0.5602
+epoch:20; metric:emoval; train results:0.8786; eval results:0.5463
+epoch:21; metric:emoval; train results:0.8810; eval results:0.5620
+epoch:22; metric:emoval; train results:0.8856; eval results:0.5494
+epoch:23; metric:emoval; train results:0.8973; eval results:0.5304
+epoch:24; metric:emoval; train results:0.9046; eval results:0.5208
+epoch:25; metric:emoval; train results:0.9093; eval results:0.5078
+epoch:26; metric:emoval; train results:0.9115; eval results:0.5615
+epoch:27; metric:emoval; train results:0.9111; eval results:0.5385
+epoch:28; metric:emoval; train results:0.9200; eval results:0.5337
+epoch:29; metric:emoval; train results:0.9186; eval results:0.5241
+epoch:30; metric:emoval; train results:0.9241; eval results:0.5281
+epoch:31; metric:emoval; train results:0.9252; eval results:0.5379
+epoch:32; metric:emoval; train results:0.9312; eval results:0.5228
+epoch:33; metric:emoval; train results:0.9303; eval results:0.5131
+epoch:34; metric:emoval; train results:0.9265; eval results:0.5547
+epoch:35; metric:emoval; train results:0.9297; eval results:0.5356
+epoch:36; metric:emoval; train results:0.9314; eval results:0.5268
+epoch:37; metric:emoval; train results:0.9390; eval results:0.5386
+epoch:38; metric:emoval; train results:0.9320; eval results:0.5308
+epoch:39; metric:emoval; train results:0.9476; eval results:0.5415
+epoch:40; metric:emoval; train results:0.9466; eval results:0.5547
+epoch:41; metric:emoval; train results:0.9483; eval results:0.5185
+epoch:42; metric:emoval; train results:0.9414; eval results:0.5557
+epoch:43; metric:emoval; train results:0.9437; eval results:0.5594
+epoch:44; metric:emoval; train results:0.9483; eval results:0.5414
+epoch:45; metric:emoval; train results:0.9550; eval results:0.5476
+epoch:46; metric:emoval; train results:0.9559; eval results:0.5108
+epoch:47; metric:emoval; train results:0.9512; eval results:0.5553
+epoch:48; metric:emoval; train results:0.9535; eval results:0.5336
+epoch:49; metric:emoval; train results:0.9534; eval results:0.5163
+epoch:50; metric:emoval; train results:0.9519; eval results:0.5458
+epoch:51; metric:emoval; train results:0.9594; eval results:0.5297
+epoch:52; metric:emoval; train results:0.9590; eval results:0.5434
+epoch:53; metric:emoval; train results:0.9574; eval results:0.5096
+epoch:54; metric:emoval; train results:0.9571; eval results:0.5283
+epoch:55; metric:emoval; train results:0.9570; eval results:0.5372
+epoch:56; metric:emoval; train results:0.9561; eval results:0.5408
+epoch:57; metric:emoval; train results:0.9607; eval results:0.5258
+epoch:58; metric:emoval; train results:0.9587; eval results:0.5502
+epoch:59; metric:emoval; train results:0.9611; eval results:0.5500
+epoch:60; metric:emoval; train results:0.9563; eval results:0.5338
+epoch:61; metric:emoval; train results:0.9612; eval results:0.5160
+epoch:62; metric:emoval; train results:0.9656; eval results:0.5381
+epoch:63; metric:emoval; train results:0.9634; eval results:0.5539
+epoch:64; metric:emoval; train results:0.9670; eval results:0.5631
+epoch:65; metric:emoval; train results:0.9649; eval results:0.5550
+epoch:66; metric:emoval; train results:0.9650; eval results:0.5508
+epoch:67; metric:emoval; train results:0.9663; eval results:0.5688
+epoch:68; metric:emoval; train results:0.9669; eval results:0.5512
+epoch:69; metric:emoval; train results:0.9682; eval results:0.5449
+epoch:70; metric:emoval; train results:0.9688; eval results:0.5345
+epoch:71; metric:emoval; train results:0.9700; eval results:0.5433
+epoch:72; metric:emoval; train results:0.9733; eval results:0.5528
+epoch:73; metric:emoval; train results:0.9665; eval results:0.5347
+epoch:74; metric:emoval; train results:0.9666; eval results:0.5097
+epoch:75; metric:emoval; train results:0.9703; eval results:0.5469
+epoch:76; metric:emoval; train results:0.9709; eval results:0.4957
+epoch:77; metric:emoval; train results:0.9679; eval results:0.5429
+epoch:78; metric:emoval; train results:0.9706; eval results:0.5319
+epoch:79; metric:emoval; train results:0.9663; eval results:0.5237
+epoch:80; metric:emoval; train results:0.9707; eval results:0.5454
+epoch:81; metric:emoval; train results:0.9707; eval results:0.5411
+epoch:82; metric:emoval; train results:0.9686; eval results:0.5413
+epoch:83; metric:emoval; train results:0.9721; eval results:0.5158
+epoch:84; metric:emoval; train results:0.9728; eval results:0.5299
+epoch:85; metric:emoval; train results:0.9728; eval results:0.5454
+epoch:86; metric:emoval; train results:0.9735; eval results:0.5375
+epoch:87; metric:emoval; train results:0.9746; eval results:0.5344
+epoch:88; metric:emoval; train results:0.9740; eval results:0.5434
+epoch:89; metric:emoval; train results:0.9762; eval results:0.5385
+epoch:90; metric:emoval; train results:0.9759; eval results:0.5585
+epoch:91; metric:emoval; train results:0.9741; eval results:0.5454
+epoch:92; metric:emoval; train results:0.9750; eval results:0.5267
+epoch:93; metric:emoval; train results:0.9757; eval results:0.5688
+epoch:94; metric:emoval; train results:0.9757; eval results:0.5358
+epoch:95; metric:emoval; train results:0.9755; eval results:0.5248
+epoch:96; metric:emoval; train results:0.9765; eval results:0.5516
+epoch:97; metric:emoval; train results:0.9773; eval results:0.5288
+epoch:98; metric:emoval; train results:0.9760; eval results:0.5209
+epoch:99; metric:emoval; train results:0.9779; eval results:0.5214
+epoch:100; metric:emoval; train results:0.9775; eval results:0.5494
+Step3: saving and testing on the 2 folder
+>>>>> Finish: training on the 2-th folder, best_index: 66, duration: 418.98624062538147 >>>>>
+>>>>> Cross-validation: training on the 3 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3718; eval results:-0.1344
+epoch:2; metric:emoval; train results:0.0385; eval results:0.2331
+epoch:3; metric:emoval; train results:0.2850; eval results:0.3775
+epoch:4; metric:emoval; train results:0.4533; eval results:0.4436
+epoch:5; metric:emoval; train results:0.5362; eval results:0.4542
+epoch:6; metric:emoval; train results:0.5930; eval results:0.4717
+epoch:7; metric:emoval; train results:0.6459; eval results:0.5001
+epoch:8; metric:emoval; train results:0.6654; eval results:0.5286
+epoch:9; metric:emoval; train results:0.7056; eval results:0.5091
+epoch:10; metric:emoval; train results:0.7260; eval results:0.4983
+epoch:11; metric:emoval; train results:0.7554; eval results:0.5200
+epoch:12; metric:emoval; train results:0.7705; eval results:0.4340
+epoch:13; metric:emoval; train results:0.8019; eval results:0.5023
+epoch:14; metric:emoval; train results:0.8136; eval results:0.4940
+epoch:15; metric:emoval; train results:0.8220; eval results:0.5046
+epoch:16; metric:emoval; train results:0.8435; eval results:0.5398
+epoch:17; metric:emoval; train results:0.8690; eval results:0.5157
+epoch:18; metric:emoval; train results:0.8582; eval results:0.4732
+epoch:19; metric:emoval; train results:0.8755; eval results:0.5218
+epoch:20; metric:emoval; train results:0.8796; eval results:0.5048
+epoch:21; metric:emoval; train results:0.8947; eval results:0.5106
+epoch:22; metric:emoval; train results:0.8944; eval results:0.4909
+epoch:23; metric:emoval; train results:0.8899; eval results:0.5017
+epoch:24; metric:emoval; train results:0.9051; eval results:0.5037
+epoch:25; metric:emoval; train results:0.9086; eval results:0.5001
+epoch:26; metric:emoval; train results:0.9095; eval results:0.4986
+epoch:27; metric:emoval; train results:0.9064; eval results:0.4994
+epoch:28; metric:emoval; train results:0.9222; eval results:0.4894
+epoch:29; metric:emoval; train results:0.9189; eval results:0.5245
+epoch:30; metric:emoval; train results:0.9210; eval results:0.5214
+epoch:31; metric:emoval; train results:0.9299; eval results:0.5139
+epoch:32; metric:emoval; train results:0.9265; eval results:0.5074
+epoch:33; metric:emoval; train results:0.9309; eval results:0.4953
+epoch:34; metric:emoval; train results:0.9385; eval results:0.5027
+epoch:35; metric:emoval; train results:0.9374; eval results:0.5079
+epoch:36; metric:emoval; train results:0.9346; eval results:0.5224
+epoch:37; metric:emoval; train results:0.9361; eval results:0.5079
+epoch:38; metric:emoval; train results:0.9427; eval results:0.5325
+epoch:39; metric:emoval; train results:0.9398; eval results:0.5042
+epoch:40; metric:emoval; train results:0.9379; eval results:0.5275
+epoch:41; metric:emoval; train results:0.9450; eval results:0.5201
+epoch:42; metric:emoval; train results:0.9485; eval results:0.5207
+epoch:43; metric:emoval; train results:0.9485; eval results:0.5292
+epoch:44; metric:emoval; train results:0.9511; eval results:0.5167
+epoch:45; metric:emoval; train results:0.9449; eval results:0.5236
+epoch:46; metric:emoval; train results:0.9494; eval results:0.5194
+epoch:47; metric:emoval; train results:0.9577; eval results:0.5222
+epoch:48; metric:emoval; train results:0.9550; eval results:0.5085
+epoch:49; metric:emoval; train results:0.9548; eval results:0.5208
+epoch:50; metric:emoval; train results:0.9565; eval results:0.5245
+epoch:51; metric:emoval; train results:0.9582; eval results:0.4754
+epoch:52; metric:emoval; train results:0.9510; eval results:0.5009
+epoch:53; metric:emoval; train results:0.9576; eval results:0.4908
+epoch:54; metric:emoval; train results:0.9563; eval results:0.4980
+epoch:55; metric:emoval; train results:0.9559; eval results:0.4972
+epoch:56; metric:emoval; train results:0.9607; eval results:0.5133
+epoch:57; metric:emoval; train results:0.9619; eval results:0.5034
+epoch:58; metric:emoval; train results:0.9577; eval results:0.5176
+epoch:59; metric:emoval; train results:0.9625; eval results:0.5080
+epoch:60; metric:emoval; train results:0.9653; eval results:0.5167
+epoch:61; metric:emoval; train results:0.9631; eval results:0.5206
+epoch:62; metric:emoval; train results:0.9664; eval results:0.5171
+epoch:63; metric:emoval; train results:0.9628; eval results:0.5219
+epoch:64; metric:emoval; train results:0.9661; eval results:0.4914
+epoch:65; metric:emoval; train results:0.9635; eval results:0.5159
+epoch:66; metric:emoval; train results:0.9587; eval results:0.4902
+epoch:67; metric:emoval; train results:0.9625; eval results:0.4890
+epoch:68; metric:emoval; train results:0.9647; eval results:0.5211
+epoch:69; metric:emoval; train results:0.9694; eval results:0.4982
+epoch:70; metric:emoval; train results:0.9703; eval results:0.5048
+epoch:71; metric:emoval; train results:0.9681; eval results:0.4888
+epoch:72; metric:emoval; train results:0.9655; eval results:0.5115
+epoch:73; metric:emoval; train results:0.9675; eval results:0.5115
+epoch:74; metric:emoval; train results:0.9664; eval results:0.5022
+epoch:75; metric:emoval; train results:0.9702; eval results:0.5097
+epoch:76; metric:emoval; train results:0.9676; eval results:0.5300
+epoch:77; metric:emoval; train results:0.9634; eval results:0.5146
+epoch:78; metric:emoval; train results:0.9710; eval results:0.5348
+epoch:79; metric:emoval; train results:0.9703; eval results:0.5229
+epoch:80; metric:emoval; train results:0.9711; eval results:0.5002
+epoch:81; metric:emoval; train results:0.9710; eval results:0.5124
+epoch:82; metric:emoval; train results:0.9714; eval results:0.4939
+epoch:83; metric:emoval; train results:0.9685; eval results:0.5094
+epoch:84; metric:emoval; train results:0.9716; eval results:0.5016
+epoch:85; metric:emoval; train results:0.9754; eval results:0.5098
+epoch:86; metric:emoval; train results:0.9743; eval results:0.5252
+epoch:87; metric:emoval; train results:0.9723; eval results:0.5119
+epoch:88; metric:emoval; train results:0.9735; eval results:0.5257
+epoch:89; metric:emoval; train results:0.9712; eval results:0.4920
+epoch:90; metric:emoval; train results:0.9737; eval results:0.5269
+epoch:91; metric:emoval; train results:0.9737; eval results:0.5107
+epoch:92; metric:emoval; train results:0.9705; eval results:0.4963
+epoch:93; metric:emoval; train results:0.9717; eval results:0.5115
+epoch:94; metric:emoval; train results:0.9722; eval results:0.5070
+epoch:95; metric:emoval; train results:0.9750; eval results:0.5179
+epoch:96; metric:emoval; train results:0.9745; eval results:0.5198
+epoch:97; metric:emoval; train results:0.9709; eval results:0.5321
+epoch:98; metric:emoval; train results:0.9765; eval results:0.5201
+epoch:99; metric:emoval; train results:0.9768; eval results:0.5004
+epoch:100; metric:emoval; train results:0.9779; eval results:0.5094
+Step3: saving and testing on the 3 folder
+>>>>> Finish: training on the 3-th folder, best_index: 15, duration: 446.9151849746704 >>>>>
+>>>>> Cross-validation: training on the 4 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3833; eval results:-0.1683
+epoch:2; metric:emoval; train results:0.0665; eval results:0.1907
+epoch:3; metric:emoval; train results:0.2834; eval results:0.3261
+epoch:4; metric:emoval; train results:0.4423; eval results:0.4179
+epoch:5; metric:emoval; train results:0.5224; eval results:0.4924
+epoch:6; metric:emoval; train results:0.5841; eval results:0.4641
+epoch:7; metric:emoval; train results:0.6222; eval results:0.5018
+epoch:8; metric:emoval; train results:0.6725; eval results:0.5104
+epoch:9; metric:emoval; train results:0.6938; eval results:0.4890
+epoch:10; metric:emoval; train results:0.7294; eval results:0.4898
+epoch:11; metric:emoval; train results:0.7554; eval results:0.4833
+epoch:12; metric:emoval; train results:0.7919; eval results:0.4790
+epoch:13; metric:emoval; train results:0.7968; eval results:0.4788
+epoch:14; metric:emoval; train results:0.8179; eval results:0.4772
+epoch:15; metric:emoval; train results:0.8248; eval results:0.4752
+epoch:16; metric:emoval; train results:0.8420; eval results:0.4865
+epoch:17; metric:emoval; train results:0.8608; eval results:0.4741
+epoch:18; metric:emoval; train results:0.8666; eval results:0.4855
+epoch:19; metric:emoval; train results:0.8789; eval results:0.4867
+epoch:20; metric:emoval; train results:0.8793; eval results:0.5117
+epoch:21; metric:emoval; train results:0.8824; eval results:0.4934
+epoch:22; metric:emoval; train results:0.9029; eval results:0.5009
+epoch:23; metric:emoval; train results:0.9035; eval results:0.4825
+epoch:24; metric:emoval; train results:0.9001; eval results:0.4844
+epoch:25; metric:emoval; train results:0.9070; eval results:0.4937
+epoch:26; metric:emoval; train results:0.9085; eval results:0.4908
+epoch:27; metric:emoval; train results:0.9155; eval results:0.4880
+epoch:28; metric:emoval; train results:0.9241; eval results:0.4939
+epoch:29; metric:emoval; train results:0.9213; eval results:0.4879
+epoch:30; metric:emoval; train results:0.9236; eval results:0.4968
+epoch:31; metric:emoval; train results:0.9332; eval results:0.4810
+epoch:32; metric:emoval; train results:0.9340; eval results:0.5047
+epoch:33; metric:emoval; train results:0.9308; eval results:0.4747
+epoch:34; metric:emoval; train results:0.9349; eval results:0.4801
+epoch:35; metric:emoval; train results:0.9351; eval results:0.4678
+epoch:36; metric:emoval; train results:0.9353; eval results:0.5058
+epoch:37; metric:emoval; train results:0.9364; eval results:0.4893
+epoch:38; metric:emoval; train results:0.9427; eval results:0.4957
+epoch:39; metric:emoval; train results:0.9428; eval results:0.4806
+epoch:40; metric:emoval; train results:0.9447; eval results:0.4828
+epoch:41; metric:emoval; train results:0.9444; eval results:0.4850
+epoch:42; metric:emoval; train results:0.9496; eval results:0.4979
+epoch:43; metric:emoval; train results:0.9496; eval results:0.4986
+epoch:44; metric:emoval; train results:0.9471; eval results:0.4936
+epoch:45; metric:emoval; train results:0.9482; eval results:0.5084
+epoch:46; metric:emoval; train results:0.9546; eval results:0.4996
+epoch:47; metric:emoval; train results:0.9562; eval results:0.4904
+epoch:48; metric:emoval; train results:0.9583; eval results:0.4994
+epoch:49; metric:emoval; train results:0.9530; eval results:0.4697
+epoch:50; metric:emoval; train results:0.9541; eval results:0.4880
+epoch:51; metric:emoval; train results:0.9539; eval results:0.4759
+epoch:52; metric:emoval; train results:0.9579; eval results:0.4888
+epoch:53; metric:emoval; train results:0.9538; eval results:0.4930
+epoch:54; metric:emoval; train results:0.9618; eval results:0.5037
+epoch:55; metric:emoval; train results:0.9546; eval results:0.5180
+epoch:56; metric:emoval; train results:0.9650; eval results:0.5113
+epoch:57; metric:emoval; train results:0.9604; eval results:0.4994
+epoch:58; metric:emoval; train results:0.9658; eval results:0.4967
+epoch:59; metric:emoval; train results:0.9586; eval results:0.4913
+epoch:60; metric:emoval; train results:0.9618; eval results:0.4936
+epoch:61; metric:emoval; train results:0.9660; eval results:0.5030
+epoch:62; metric:emoval; train results:0.9668; eval results:0.4987
+epoch:63; metric:emoval; train results:0.9656; eval results:0.4970
+epoch:64; metric:emoval; train results:0.9609; eval results:0.4803
+epoch:65; metric:emoval; train results:0.9673; eval results:0.4931
+epoch:66; metric:emoval; train results:0.9572; eval results:0.4901
+epoch:67; metric:emoval; train results:0.9639; eval results:0.5107
+epoch:68; metric:emoval; train results:0.9675; eval results:0.4871
+epoch:69; metric:emoval; train results:0.9654; eval results:0.4820
+epoch:70; metric:emoval; train results:0.9675; eval results:0.5092
+epoch:71; metric:emoval; train results:0.9661; eval results:0.4926
+epoch:72; metric:emoval; train results:0.9657; eval results:0.4983
+epoch:73; metric:emoval; train results:0.9712; eval results:0.4944
+epoch:74; metric:emoval; train results:0.9716; eval results:0.4911
+epoch:75; metric:emoval; train results:0.9711; eval results:0.4856
+epoch:76; metric:emoval; train results:0.9709; eval results:0.5099
+epoch:77; metric:emoval; train results:0.9690; eval results:0.5018
+epoch:78; metric:emoval; train results:0.9701; eval results:0.5043
+epoch:79; metric:emoval; train results:0.9754; eval results:0.5088
+epoch:80; metric:emoval; train results:0.9694; eval results:0.4983
+epoch:81; metric:emoval; train results:0.9732; eval results:0.4853
+epoch:82; metric:emoval; train results:0.9722; eval results:0.4953
+epoch:83; metric:emoval; train results:0.9736; eval results:0.4835
+epoch:84; metric:emoval; train results:0.9732; eval results:0.4990
+epoch:85; metric:emoval; train results:0.9755; eval results:0.4807
+epoch:86; metric:emoval; train results:0.9745; eval results:0.5055
+epoch:87; metric:emoval; train results:0.9738; eval results:0.5099
+epoch:88; metric:emoval; train results:0.9755; eval results:0.4987
+epoch:89; metric:emoval; train results:0.9750; eval results:0.5173
+epoch:90; metric:emoval; train results:0.9770; eval results:0.4995
+epoch:91; metric:emoval; train results:0.9767; eval results:0.4823
+epoch:92; metric:emoval; train results:0.9743; eval results:0.5001
+epoch:93; metric:emoval; train results:0.9768; eval results:0.4863
+epoch:94; metric:emoval; train results:0.9788; eval results:0.4962
+epoch:95; metric:emoval; train results:0.9756; eval results:0.4836
+epoch:96; metric:emoval; train results:0.9776; eval results:0.5011
+epoch:97; metric:emoval; train results:0.9773; eval results:0.4811
+epoch:98; metric:emoval; train results:0.9776; eval results:0.5014
+epoch:99; metric:emoval; train results:0.9811; eval results:0.4928
+epoch:100; metric:emoval; train results:0.9739; eval results:0.4727
+Step3: saving and testing on the 4 folder
+>>>>> Finish: training on the 4-th folder, best_index: 54, duration: 427.6871795654297 >>>>>
+>>>>> Cross-validation: training on the 5 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3439; eval results:-0.0951
+epoch:2; metric:emoval; train results:0.0845; eval results:0.2586
+epoch:3; metric:emoval; train results:0.3357; eval results:0.3392
+epoch:4; metric:emoval; train results:0.4429; eval results:0.4595
+epoch:5; metric:emoval; train results:0.5267; eval results:0.5100
+epoch:6; metric:emoval; train results:0.6047; eval results:0.4861
+epoch:7; metric:emoval; train results:0.6231; eval results:0.5023
+epoch:8; metric:emoval; train results:0.6774; eval results:0.5206
+epoch:9; metric:emoval; train results:0.7019; eval results:0.5071
+epoch:10; metric:emoval; train results:0.7300; eval results:0.5377
+epoch:11; metric:emoval; train results:0.7474; eval results:0.5419
+epoch:12; metric:emoval; train results:0.7720; eval results:0.4653
+epoch:13; metric:emoval; train results:0.7902; eval results:0.5381
+epoch:14; metric:emoval; train results:0.8268; eval results:0.5152
+epoch:15; metric:emoval; train results:0.8169; eval results:0.4996
+epoch:16; metric:emoval; train results:0.8320; eval results:0.5238
+epoch:17; metric:emoval; train results:0.8560; eval results:0.5043
+epoch:18; metric:emoval; train results:0.8561; eval results:0.5334
+epoch:19; metric:emoval; train results:0.8551; eval results:0.4902
+epoch:20; metric:emoval; train results:0.8787; eval results:0.5239
+epoch:21; metric:emoval; train results:0.8923; eval results:0.4939
+epoch:22; metric:emoval; train results:0.8854; eval results:0.5071
+epoch:23; metric:emoval; train results:0.9003; eval results:0.5157
+epoch:24; metric:emoval; train results:0.9051; eval results:0.5216
+epoch:25; metric:emoval; train results:0.9116; eval results:0.5295
+epoch:26; metric:emoval; train results:0.9171; eval results:0.5219
+epoch:27; metric:emoval; train results:0.9126; eval results:0.5282
+epoch:28; metric:emoval; train results:0.9245; eval results:0.5284
+epoch:29; metric:emoval; train results:0.9187; eval results:0.5021
+epoch:30; metric:emoval; train results:0.9231; eval results:0.5272
+epoch:31; metric:emoval; train results:0.9257; eval results:0.5156
+epoch:32; metric:emoval; train results:0.9234; eval results:0.5116
+epoch:33; metric:emoval; train results:0.9302; eval results:0.5266
+epoch:34; metric:emoval; train results:0.9289; eval results:0.4999
+epoch:35; metric:emoval; train results:0.9316; eval results:0.5334
+epoch:36; metric:emoval; train results:0.9321; eval results:0.5174
+epoch:37; metric:emoval; train results:0.9373; eval results:0.5249
+epoch:38; metric:emoval; train results:0.9449; eval results:0.5258
+epoch:39; metric:emoval; train results:0.9435; eval results:0.5255
+epoch:40; metric:emoval; train results:0.9378; eval results:0.5251
+epoch:41; metric:emoval; train results:0.9432; eval results:0.5227
+epoch:42; metric:emoval; train results:0.9446; eval results:0.4858
+epoch:43; metric:emoval; train results:0.9487; eval results:0.5042
+epoch:44; metric:emoval; train results:0.9457; eval results:0.5359
+epoch:45; metric:emoval; train results:0.9512; eval results:0.5328
+epoch:46; metric:emoval; train results:0.9508; eval results:0.5289
+epoch:47; metric:emoval; train results:0.9533; eval results:0.5130
+epoch:48; metric:emoval; train results:0.9528; eval results:0.5216
+epoch:49; metric:emoval; train results:0.9537; eval results:0.5249
+epoch:50; metric:emoval; train results:0.9558; eval results:0.5240
+epoch:51; metric:emoval; train results:0.9561; eval results:0.5183
+epoch:52; metric:emoval; train results:0.9562; eval results:0.4941
+epoch:53; metric:emoval; train results:0.9608; eval results:0.5259
+epoch:54; metric:emoval; train results:0.9607; eval results:0.4984
+epoch:55; metric:emoval; train results:0.9585; eval results:0.5140
+epoch:56; metric:emoval; train results:0.9567; eval results:0.5278
+epoch:57; metric:emoval; train results:0.9554; eval results:0.5360
+epoch:58; metric:emoval; train results:0.9630; eval results:0.5216
+epoch:59; metric:emoval; train results:0.9592; eval results:0.5392
+epoch:60; metric:emoval; train results:0.9614; eval results:0.5281
+epoch:61; metric:emoval; train results:0.9608; eval results:0.5317
+epoch:62; metric:emoval; train results:0.9631; eval results:0.5152
+epoch:63; metric:emoval; train results:0.9671; eval results:0.5388
+epoch:64; metric:emoval; train results:0.9674; eval results:0.5105
+epoch:65; metric:emoval; train results:0.9671; eval results:0.5335
+epoch:66; metric:emoval; train results:0.9676; eval results:0.5200
+epoch:67; metric:emoval; train results:0.9657; eval results:0.5029
+epoch:68; metric:emoval; train results:0.9662; eval results:0.5263
+epoch:69; metric:emoval; train results:0.9673; eval results:0.5171
+epoch:70; metric:emoval; train results:0.9686; eval results:0.5103
+epoch:71; metric:emoval; train results:0.9683; eval results:0.5393
+epoch:72; metric:emoval; train results:0.9670; eval results:0.4986
+epoch:73; metric:emoval; train results:0.9658; eval results:0.5538
+epoch:74; metric:emoval; train results:0.9694; eval results:0.5311
+epoch:75; metric:emoval; train results:0.9627; eval results:0.5369
+epoch:76; metric:emoval; train results:0.9703; eval results:0.5343
+epoch:77; metric:emoval; train results:0.9718; eval results:0.5233
+epoch:78; metric:emoval; train results:0.9718; eval results:0.5234
+epoch:79; metric:emoval; train results:0.9697; eval results:0.4918
+epoch:80; metric:emoval; train results:0.9694; eval results:0.5361
+epoch:81; metric:emoval; train results:0.9710; eval results:0.5163
+epoch:82; metric:emoval; train results:0.9689; eval results:0.5323
+epoch:83; metric:emoval; train results:0.9733; eval results:0.5070
+epoch:84; metric:emoval; train results:0.9700; eval results:0.5253
+epoch:85; metric:emoval; train results:0.9716; eval results:0.5347
+epoch:86; metric:emoval; train results:0.9721; eval results:0.5122
+epoch:87; metric:emoval; train results:0.9731; eval results:0.5179
+epoch:88; metric:emoval; train results:0.9749; eval results:0.5255
+epoch:89; metric:emoval; train results:0.9732; eval results:0.5462
+epoch:90; metric:emoval; train results:0.9722; eval results:0.5234
+epoch:91; metric:emoval; train results:0.9743; eval results:0.5382
+epoch:92; metric:emoval; train results:0.9726; eval results:0.5066
+epoch:93; metric:emoval; train results:0.9693; eval results:0.5395
+epoch:94; metric:emoval; train results:0.9720; eval results:0.5301
+epoch:95; metric:emoval; train results:0.9789; eval results:0.5477
+epoch:96; metric:emoval; train results:0.9724; eval results:0.5264
+epoch:97; metric:emoval; train results:0.9760; eval results:0.5167
+epoch:98; metric:emoval; train results:0.9762; eval results:0.5026
+epoch:99; metric:emoval; train results:0.9736; eval results:0.5072
+epoch:100; metric:emoval; train results:0.9709; eval results:0.5615
+Step3: saving and testing on the 5 folder
+>>>>> Finish: training on the 5-th folder, best_index: 99, duration: 427.3887052536011 >>>>>
+====== Prediction and Saving =======
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/cv_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.7423_acc:0.7424_val:0.7569_1771812254.469607.npz
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.8054_acc:0.8054_val:0.6885_1771812254.469607.npz
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/test2_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.7517_acc:0.7524_val:0.7102_1771812254.469607.npz
+save results in ./saved_grid_repeat/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/test3_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention+utt+None_f1:0.8736_acc:0.8753_val:81.4171_1771812254.469607.npz
+
+====================================================================================================
+running cand02_hd128_do0.4_lr0.0001_rep01
+/root/miniconda3/bin/python -u main-release.py --model=attention --dataset=MER2023 --feat_type=utt --audio_feature=chinese-hubert-large-UTT --text_feature=Baichuan-13B-Base-UTT --video_feature=clip-vit-large-patch14-UTT --hyper_path=/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand02_hd128_do0.4_lr0.0001.yaml --l2=1e-05 --epochs=100 --batch_size=32 --num_workers=0 --gpu=0 --seed=3407 --save_root=./saved_grid_repeat/cand02_hd128_do0.4_lr0.0001/rep01
+====================================================================================================
+set global seed to 3407
+====== Params Pre-analysis =======
+args:  Namespace(audio_feature='chinese-hubert-large-UTT', batch_size=32, dataset='MER2023', debug=False, dropout=0.4, e2e_dim=None, e2e_name=None, epochs=100, feat_scale=1, feat_type='utt', gpu=0, grad_clip=-1.0, hidden_dim=128, hyper_path='/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand02_hd128_do0.4_lr0.0001.yaml', l2=1e-05, lr=0.0001, lr_adjust='case1', model='attention', n_classes=None, num_workers=0, print_iters=100000000.0, save_iters=100000000.0, save_root='./saved_grid_repeat/cand02_hd128_do0.4_lr0.0001/rep01-trimodal', savemodel=False, seed=3407, test_dataset=None, text_feature='Baichuan-13B-Base-UTT', train_dataset=None, video_feature='clip-vit-large-patch14-UTT')
+====== Reading Data =======
+train: sample number 3373
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 12%|█▏        | 407/3373 [00:00<00:00, 4066.40it/s]
+ 24%|██▍       | 814/3373 [00:00<00:00, 4060.18it/s]
+ 36%|███▌      | 1221/3373 [00:00<00:00, 2892.19it/s]
+ 46%|████▌     | 1541/3373 [00:00<00:00, 2860.23it/s]
+ 55%|█████▍    | 1845/3373 [00:00<00:00, 2245.46it/s]
+ 62%|██████▏   | 2095/3373 [00:00<00:00, 2276.29it/s]
+ 69%|██████▉   | 2340/3373 [00:00<00:00, 2304.72it/s]
+ 77%|███████▋  | 2583/3373 [00:01<00:00, 1896.52it/s]
+ 85%|████████▍ | 2855/3373 [00:01<00:00, 2089.20it/s]
+ 95%|█████████▍| 3196/3373 [00:01<00:00, 2420.16it/s]
+100%|██████████| 3373/3373 [00:01<00:00, 2572.09it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+  9%|▉         | 300/3373 [00:00<00:01, 1768.61it/s]
+ 16%|█▌        | 533/3373 [00:00<00:01, 2007.15it/s]
+ 22%|██▏       | 743/3373 [00:00<00:01, 2028.20it/s]
+ 28%|██▊       | 950/3373 [00:00<00:01, 2025.15it/s]
+ 34%|███▍      | 1155/3373 [00:00<00:01, 1971.73it/s]
+ 40%|████      | 1354/3373 [00:00<00:01, 1915.73it/s]
+ 46%|████▌     | 1547/3373 [00:00<00:00, 1893.04it/s]
+ 51%|█████▏    | 1737/3373 [00:00<00:01, 1537.16it/s]
+ 56%|█████▋    | 1901/3373 [00:01<00:00, 1558.33it/s]
+ 61%|██████    | 2064/3373 [00:01<00:00, 1556.01it/s]
+ 66%|██████▌   | 2225/3373 [00:01<00:00, 1554.97it/s]
+ 71%|███████   | 2384/3373 [00:01<00:00, 1560.07it/s]
+ 76%|███████▌  | 2551/3373 [00:01<00:00, 1590.22it/s]
+ 80%|████████  | 2712/3373 [00:01<00:00, 1567.59it/s]
+ 85%|████████▌ | 2871/3373 [00:01<00:00, 1294.73it/s]
+ 90%|████████▉ | 3028/3373 [00:01<00:00, 1361.94it/s]
+ 96%|█████████▋| 3254/3373 [00:01<00:00, 1597.37it/s]
+100%|██████████| 3373/3373 [00:01<00:00, 1696.39it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 14%|█▎        | 457/3373 [00:00<00:00, 4543.62it/s]
+ 27%|██▋       | 912/3373 [00:00<00:00, 2996.46it/s]
+ 37%|███▋      | 1242/3373 [00:00<00:00, 3067.09it/s]
+ 46%|████▋     | 1567/3373 [00:00<00:00, 2441.71it/s]
+ 57%|█████▋    | 1919/3373 [00:00<00:00, 2733.40it/s]
+ 66%|██████▌   | 2233/3373 [00:00<00:00, 2837.90it/s]
+ 75%|███████▌  | 2544/3373 [00:00<00:00, 2913.41it/s]
+ 85%|████████▌ | 2871/3373 [00:00<00:00, 3009.18it/s]
+ 97%|█████████▋| 3262/3373 [00:01<00:00, 3265.23it/s]
+100%|██████████| 3373/3373 [00:01<00:00, 3103.56it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test1: sample number 411
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+ 37%|███▋      | 153/411 [00:00<00:00, 1526.43it/s]
+100%|██████████| 411/411 [00:00<00:00, 2164.60it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+ 62%|██████▏   | 256/411 [00:00<00:00, 2541.01it/s]
+100%|██████████| 411/411 [00:00<00:00, 3584.99it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+ 89%|████████▊ | 364/411 [00:00<00:00, 3638.84it/s]
+100%|██████████| 411/411 [00:00<00:00, 3939.44it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test2: sample number 412
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+ 44%|████▍     | 183/412 [00:00<00:00, 1827.78it/s]
+100%|██████████| 412/412 [00:00<00:00, 3457.50it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+ 49%|████▉     | 202/412 [00:00<00:00, 2008.96it/s]
+100%|██████████| 412/412 [00:00<00:00, 2148.04it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+ 56%|█████▌    | 230/412 [00:00<00:00, 2296.50it/s]
+100%|██████████| 412/412 [00:00<00:00, 2042.96it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test3: sample number 834
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+ 36%|███▌      | 298/834 [00:00<00:00, 1837.18it/s]
+ 59%|█████▊    | 489/834 [00:00<00:00, 1828.41it/s]
+ 86%|████████▌ | 719/834 [00:00<00:00, 2012.96it/s]
+100%|██████████| 834/834 [00:00<00:00, 2172.30it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+ 26%|██▌       | 214/834 [00:00<00:00, 2104.48it/s]
+ 51%|█████     | 425/834 [00:00<00:00, 2028.41it/s]
+ 75%|███████▌  | 628/834 [00:00<00:00, 1972.47it/s]
+100%|██████████| 834/834 [00:00<00:00, 2034.35it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+ 46%|████▌     | 381/834 [00:00<00:00, 3785.78it/s]
+ 99%|█████████▉| 827/834 [00:00<00:00, 4169.02it/s]
+100%|██████████| 834/834 [00:00<00:00, 4131.70it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train results:-0.3812; eval results:-0.0195
+epoch:2; metric:emoval; train results:0.0683; eval results:0.2445
+epoch:3; metric:emoval; train results:0.3322; eval results:0.4085
+epoch:4; metric:emoval; train results:0.4315; eval results:0.4510
+epoch:5; metric:emoval; train results:0.5011; eval results:0.5072
+epoch:6; metric:emoval; train results:0.5429; eval results:0.5009
+epoch:7; metric:emoval; train results:0.5664; eval results:0.5095
+epoch:8; metric:emoval; train results:0.6002; eval results:0.5283
+epoch:9; metric:emoval; train results:0.6342; eval results:0.5223
+epoch:10; metric:emoval; train results:0.6562; eval results:0.5436
+epoch:11; metric:emoval; train results:0.6789; eval results:0.5150
+epoch:12; metric:emoval; train results:0.7097; eval results:0.5444
+epoch:13; metric:emoval; train results:0.7294; eval results:0.5199
+epoch:14; metric:emoval; train results:0.7448; eval results:0.5466
+epoch:15; metric:emoval; train results:0.7496; eval results:0.5353
+epoch:16; metric:emoval; train results:0.7752; eval results:0.5526
+epoch:17; metric:emoval; train results:0.7876; eval results:0.5441
+epoch:18; metric:emoval; train results:0.8105; eval results:0.5145
+epoch:19; metric:emoval; train results:0.8094; eval results:0.5199
+epoch:20; metric:emoval; train results:0.8235; eval results:0.4945
+epoch:21; metric:emoval; train results:0.8284; eval results:0.5258
+epoch:22; metric:emoval; train results:0.8428; eval results:0.5262
+epoch:23; metric:emoval; train results:0.8600; eval results:0.5647
+epoch:24; metric:emoval; train results:0.8534; eval results:0.5282
+epoch:25; metric:emoval; train results:0.8569; eval results:0.5271
+epoch:26; metric:emoval; train results:0.8616; eval results:0.5146
+epoch:27; metric:emoval; train results:0.8738; eval results:0.5301
+epoch:28; metric:emoval; train results:0.8692; eval results:0.5175
+epoch:29; metric:emoval; train results:0.8751; eval results:0.5232
+epoch:30; metric:emoval; train results:0.8827; eval results:0.5111
+epoch:31; metric:emoval; train results:0.8883; eval results:0.5382
+epoch:32; metric:emoval; train results:0.8952; eval results:0.5374
+epoch:33; metric:emoval; train results:0.8983; eval results:0.5565
+epoch:34; metric:emoval; train results:0.9056; eval results:0.5527
+epoch:35; metric:emoval; train results:0.8977; eval results:0.5042
+epoch:36; metric:emoval; train results:0.9121; eval results:0.5411
+epoch:37; metric:emoval; train results:0.9063; eval results:0.5106
+epoch:38; metric:emoval; train results:0.9092; eval results:0.5398
+epoch:39; metric:emoval; train results:0.9157; eval results:0.5478
+epoch:40; metric:emoval; train results:0.9071; eval results:0.5306
+epoch:41; metric:emoval; train results:0.9119; eval results:0.5457
+epoch:42; metric:emoval; train results:0.9094; eval results:0.5496
+epoch:43; metric:emoval; train results:0.9206; eval results:0.5243
+epoch:44; metric:emoval; train results:0.9183; eval results:0.5315
+epoch:45; metric:emoval; train results:0.9270; eval results:0.5399
+epoch:46; metric:emoval; train results:0.9292; eval results:0.5537
+epoch:47; metric:emoval; train results:0.9348; eval results:0.5582
+epoch:48; metric:emoval; train results:0.9290; eval results:0.5267
+epoch:49; metric:emoval; train results:0.9340; eval results:0.5490
+epoch:50; metric:emoval; train results:0.9334; eval results:0.5351
+epoch:51; metric:emoval; train results:0.9278; eval results:0.5435
+epoch:52; metric:emoval; train results:0.9323; eval results:0.5421
+epoch:53; metric:emoval; train results:0.9344; eval results:0.5348
+epoch:54; metric:emoval; train results:0.9325; eval results:0.5221
+epoch:55; metric:emoval; train results:0.9392; eval results:0.5593
+epoch:56; metric:emoval; train results:0.9393; eval results:0.5508
+epoch:57; metric:emoval; train results:0.9418; eval results:0.5209
+epoch:58; metric:emoval; train results:0.9385; eval results:0.5362
+epoch:59; metric:emoval; train results:0.9445; eval results:0.5411
+epoch:60; metric:emoval; train results:0.9495; eval results:0.5388
+epoch:61; metric:emoval; train results:0.9430; eval results:0.5314
+epoch:62; metric:emoval; train results:0.9448; eval results:0.5592
+epoch:63; metric:emoval; train results:0.9468; eval results:0.5193
+epoch:64; metric:emoval; train results:0.9416; eval results:0.5304
+epoch:65; metric:emoval; train results:0.9479; eval results:0.5483
+epoch:66; metric:emoval; train results:0.9516; eval results:0.5403
+epoch:67; metric:emoval; train results:0.9489; eval results:0.5164
+epoch:68; metric:emoval; train results:0.9447; eval results:0.5382
+epoch:69; metric:emoval; train results:0.9556; eval results:0.5271
+epoch:70; metric:emoval; train results:0.9486; eval results:0.5375
+epoch:71; metric:emoval; train results:0.9461; eval results:0.5344
+epoch:72; metric:emoval; train results:0.9536; eval results:0.5542
+epoch:73; metric:emoval; train results:0.9540; eval results:0.5282
+epoch:74; metric:emoval; train results:0.9550; eval results:0.5498

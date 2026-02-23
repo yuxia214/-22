@@ -1,0 +1,84 @@
+set global seed to 3408
+====== Params Pre-analysis =======
+args:  Namespace(audio_feature='chinese-hubert-large-UTT', batch_size=32, dataset='MER2023', debug=False, dropout=[0.4], e2e_dim=None, e2e_name=None, epochs=100, feat_scale=1, feat_type='utt', gpu=0, grad_clip=[-1.0], hidden_dim=[128], hyper_path='/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat/hparams/cand02_hd128_do0.4_lr0.0001.yaml', l2=1e-05, lr=[0.0001], lr_adjust='case1', model='attention', n_classes=None, num_workers=0, print_iters=100000000.0, save_iters=100000000.0, save_root='./saved_grid_repeat/cand02_hd128_do0.4_lr0.0001/rep02-trimodal', savemodel=False, seed=3408, test_dataset=None, text_feature='Baichuan-13B-Base-UTT', train_dataset=None, video_feature='clip-vit-large-patch14-UTT')
+====== Reading Data =======
+train: sample number 3373
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 45%|████▍     | 1502/3373 [00:00<00:00, 14952.71it/s]
+ 89%|████████▉ | 2998/3373 [00:00<00:00, 13072.41it/s]
+100%|██████████| 3373/3373 [00:00<00:00, 13713.37it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 30%|███       | 1025/3373 [00:00<00:00, 10230.89it/s]
+ 61%|██████    | 2049/3373 [00:00<00:00, 9853.53it/s] 
+ 90%|█████████ | 3036/3373 [00:00<00:00, 8989.30it/s]
+100%|██████████| 3373/3373 [00:00<00:00, 9252.51it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]
+ 44%|████▍     | 1484/3373 [00:00<00:00, 14805.00it/s]
+ 88%|████████▊ | 2965/3373 [00:00<00:00, 12643.82it/s]
+100%|██████████| 3373/3373 [00:00<00:00, 13665.87it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test1: sample number 411
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+100%|██████████| 411/411 [00:00<00:00, 9794.65it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+100%|██████████| 411/411 [00:00<00:00, 7431.45it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/411 [00:00<?, ?it/s]
+100%|██████████| 411/411 [00:00<00:00, 15797.39it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test2: sample number 412
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+100%|██████████| 412/412 [00:00<00:00, 15062.31it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+100%|██████████| 412/412 [00:00<00:00, 12360.45it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/412 [00:00<?, ?it/s]
+100%|██████████| 412/412 [00:00<00:00, 15498.79it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test3: sample number 834
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+100%|██████████| 834/834 [00:00<00:00, 15794.19it/s]
+Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+100%|██████████| 834/834 [00:00<00:00, 12452.92it/s]
+Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/834 [00:00<?, ?it/s]
+100%|██████████| 834/834 [00:00<00:00, 16887.61it/s]
+Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+Traceback (most recent call last):
+  File "main-release.py", line 214, in <module>
+    model = get_models(args).cuda()
+  File "/root/autodl-tmp/MERTools-master/MERBench/toolkit/models/__init__.py", line 61, in __init__
+    self.model = MODEL_MAP[args.model](args)
+  File "/root/autodl-tmp/MERTools-master/MERBench/toolkit/models/attention.py", line 22, in __init__
+    self.audio_encoder = MLPEncoder(audio_dim, hidden_dim, dropout)
+  File "/root/autodl-tmp/MERTools-master/MERBench/toolkit/models/modules/encoder.py", line 25, in __init__
+    self.drop = nn.Dropout(p=dropout)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/dropout.py", line 15, in __init__
+    if p < 0 or p > 1:
+TypeError: '<' not supported between instances of 'ListConfig' and 'int'

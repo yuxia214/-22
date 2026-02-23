@@ -14,6 +14,7 @@ from .mctn import MCTN
 from .mmim import MMIM
 from .graph_mfn import Graph_MFN
 from .attention import Attention
+from .attention_paper import AttentionPaper
 from .attention_robust import AttentionRobust
 from .attention_robust_v2 import AttentionRobustV2
 from .attention_robust_v4 import AttentionRobustV4
@@ -34,6 +35,7 @@ class get_models(torch.nn.Module):
 
             # 特征压缩到句子级再处理，所以支持 utt/align/unalign
             'attention': Attention,
+            'attention_paper': AttentionPaper,  # 论文版attention：线性打分 + softmax模态权重
             'attention_robust': AttentionRobust,  # 增强版attention，支持模态dropout
             'attention_robust_v2': AttentionRobustV2,  # VAE版attention，概率化多模态融合
             'attention_robust_v4': AttentionRobustV4,  # V4版attention，对比学习+门控融合

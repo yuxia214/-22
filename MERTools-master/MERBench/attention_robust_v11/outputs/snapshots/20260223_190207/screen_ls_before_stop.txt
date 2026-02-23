@@ -1,0 +1,5 @@
+There are screens on:
+	9913.v11_group_g_20260223_154255	(02/23/26 15:42:54)	(Detached)
+	5704.v11_group_d_20260223_153615	(02/23/26 15:36:15)	(Detached)
+	5707.v11_group_e_20260223_153615	(02/23/26 15:36:15)	(Detached)
+3 Sockets in /run/screen/S-root.

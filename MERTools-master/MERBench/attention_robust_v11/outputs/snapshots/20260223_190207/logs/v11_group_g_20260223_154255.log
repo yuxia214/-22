@@ -1380,11 +1380,3 @@ epoch:60; metric:emoval; train:0.8535; eval:0.5904; lr:0.000200
 epoch:61; metric:emoval; train:0.8667; eval:0.5609; lr:0.000200
 epoch:62; metric:emoval; train:0.8413; eval:0.5542; lr:0.000200
 epoch:63; metric:emoval; train:0.8571; eval:0.5095; lr:0.000200
-epoch:64; metric:emoval; train:0.8451; eval:0.6131; lr:0.000200
-Terminated
-[WARN] run failed: run_tag=g11_loader2_balanced seed=9408 rc=143, continue.
-
-===================================================================
-run_tag=g12_loader2_noise seed=9408 gpu=0 batch=12 workers=1
-save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/g12_loader2_noise/seed9408
-===================================================================

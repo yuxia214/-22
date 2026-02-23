@@ -1,0 +1,86 @@
+==== V11 group D start (repeats=2, base_seed=5407) ====
+
+===================================================================
+run_tag=d01_hd256_balanced seed=5407 gpu=0 batch_size=24
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/d01_hd256_balanced/seed5407
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=d01_hd256_balanced seed=5407 rc=1, continue.
+
+===================================================================
+run_tag=d02_hd256_multi_focus seed=5407 gpu=0 batch_size=24
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/d02_hd256_multi_focus/seed5407
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=d02_hd256_multi_focus seed=5407 rc=1, continue.
+
+===================================================================
+run_tag=d01_hd256_balanced seed=5408 gpu=0 batch_size=24
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/d01_hd256_balanced/seed5408
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=d01_hd256_balanced seed=5408 rc=1, continue.
+
+===================================================================
+run_tag=d02_hd256_multi_focus seed=5408 gpu=0 batch_size=24
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/results/d02_hd256_multi_focus/seed5408
+===================================================================
+Traceback (most recent call last):
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 45, in <module>
+    main()
+  File "attention_robust_v11/launch_main_robust_seeded.py", line 41, in main
+    runpy.run_path(args.main_robust, run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust.py", line 44, in <module>
+    from toolkit.utils.loss import *
+ModuleNotFoundError: No module named 'toolkit'
+[WARN] run failed: run_tag=d02_hd256_multi_focus seed=5408 rc=1, continue.
+runs_parsed=0
+summary_rows=0
+csv=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v11/outputs/summary/group_d_summary.csv
+[WARN] group D finished with failed_runs=4
+==== V11 group D done ====

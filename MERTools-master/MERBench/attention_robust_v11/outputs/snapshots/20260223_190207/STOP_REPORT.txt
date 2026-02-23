@@ -1,0 +1,14 @@
+snapshot=attention_robust_v11/outputs/snapshots/20260223_190207
+time=2026-02-23T19:02:46.543413
+screen=stopped
+gpu_compute=stopped
+completed_runs_per_tag:
+  d01_hd256_balanced: 2
+  d02_hd256_multi_focus: 1
+  e01_parallel_noise_guard: 1
+  e02_parallel_stable: 0
+  f11_cpulean_balanced: 2
+  f12_cpulean_multi: 2
+  g11_loader2_balanced: 1
+  g12_loader2_noise: 1
+summary_csv=attention_robust_v11/outputs/snapshots/20260223_190207/summary/summary_before_stop.csv

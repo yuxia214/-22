@@ -1,0 +1,2 @@
+candidate_id,hidden_dim,dropout,lr,runs_ok,runs_total,mean_emoval,std_emoval,mean_f1,mean_acc,mean_val
+cand01_hd128_do0.3_lr0.0001,128,0.3,0.0001,2,2,0.5264374999999999,0.022503673311261792,0.7133,0.7176,0.74745

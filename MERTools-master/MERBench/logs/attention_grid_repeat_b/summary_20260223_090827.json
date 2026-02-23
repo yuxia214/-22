@@ -1,0 +1,28 @@
+[
+  {
+    "candidate_id": "cand02_hd256_do0.3_lr0.001",
+    "hidden_dim": 256,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "runs_ok": 2,
+    "runs_total": 2,
+    "mean_emoval": 0.5935625,
+    "std_emoval": 0.004472450391004852,
+    "mean_f1": 0.7585,
+    "mean_acc": 0.76125,
+    "mean_val": 0.6597500000000001
+  },
+  {
+    "candidate_id": "cand01_hd128_do0.3_lr0.001",
+    "hidden_dim": 128,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "runs_ok": 2,
+    "runs_total": 2,
+    "mean_emoval": 0.5893,
+    "std_emoval": 0.010960155108391536,
+    "mean_f1": 0.7562,
+    "mean_acc": 0.7556,
+    "mean_val": 0.6676
+  }
+]

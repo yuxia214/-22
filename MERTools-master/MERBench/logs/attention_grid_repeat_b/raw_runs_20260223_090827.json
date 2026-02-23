@@ -1,0 +1,62 @@
+[
+  {
+    "candidate_id": "cand01_hd128_do0.3_lr0.001",
+    "hidden_dim": 128,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "repeat": 1,
+    "seed": 4407,
+    "run_log": "/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_b/runs/cand01_hd128_do0.3_lr0.001_rep01.log",
+    "return_code": 0,
+    "status": "ok",
+    "f1": 0.7599,
+    "acc": 0.759,
+    "val": 0.6514,
+    "emoval": 0.5970500000000001
+  },
+  {
+    "candidate_id": "cand01_hd128_do0.3_lr0.001",
+    "hidden_dim": 128,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "repeat": 2,
+    "seed": 4408,
+    "run_log": "/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_b/runs/cand01_hd128_do0.3_lr0.001_rep02.log",
+    "return_code": 0,
+    "status": "ok",
+    "f1": 0.7525,
+    "acc": 0.7522,
+    "val": 0.6838,
+    "emoval": 0.58155
+  },
+  {
+    "candidate_id": "cand02_hd256_do0.3_lr0.001",
+    "hidden_dim": 256,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "repeat": 1,
+    "seed": 4407,
+    "run_log": "/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_b/runs/cand02_hd256_do0.3_lr0.001_rep01.log",
+    "return_code": 0,
+    "status": "ok",
+    "f1": 0.7589,
+    "acc": 0.7611,
+    "val": 0.6487,
+    "emoval": 0.596725
+  },
+  {
+    "candidate_id": "cand02_hd256_do0.3_lr0.001",
+    "hidden_dim": 256,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "repeat": 2,
+    "seed": 4408,
+    "run_log": "/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_b/runs/cand02_hd256_do0.3_lr0.001_rep02.log",
+    "return_code": 0,
+    "status": "ok",
+    "f1": 0.7581,
+    "acc": 0.7614,
+    "val": 0.6708,
+    "emoval": 0.5904
+  }
+]

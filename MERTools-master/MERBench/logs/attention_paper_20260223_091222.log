@@ -1265,3 +1265,31 @@ epoch:83; metric:emoval; train results:0.9651; eval results:0.5338
 epoch:84; metric:emoval; train results:0.9701; eval results:0.5378
 epoch:85; metric:emoval; train results:0.9715; eval results:0.5254
 epoch:86; metric:emoval; train results:0.9648; eval results:0.5276
+epoch:87; metric:emoval; train results:0.9698; eval results:0.5157
+epoch:88; metric:emoval; train results:0.9686; eval results:0.5266
+epoch:89; metric:emoval; train results:0.9684; eval results:0.5137
+epoch:90; metric:emoval; train results:0.9666; eval results:0.5214
+epoch:91; metric:emoval; train results:0.9748; eval results:0.5090
+epoch:92; metric:emoval; train results:0.9737; eval results:0.5121
+epoch:93; metric:emoval; train results:0.9712; eval results:0.5186
+epoch:94; metric:emoval; train results:0.9734; eval results:0.4994
+epoch:95; metric:emoval; train results:0.9742; eval results:0.4937
+epoch:96; metric:emoval; train results:0.9723; eval results:0.5205
+epoch:97; metric:emoval; train results:0.9720; eval results:0.4710
+epoch:98; metric:emoval; train results:0.9687; eval results:0.5155
+epoch:99; metric:emoval; train results:0.9754; eval results:0.5150
+epoch:100; metric:emoval; train results:0.9771; eval results:0.4985
+Step3: saving and testing on the 5 folder
+>>>>> Finish: training on the 5-th folder, best_index: 50, duration: 392.80797576904297 >>>>>
+====== Prediction and Saving =======
+save results in ./saved_grid_repeat_paper_v2/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/cv_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_paper+utt+None_f1:0.7293_acc:0.7314_val:0.7478_1771812692.37423.npz
+save results in ./saved_grid_repeat_paper_v2/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_paper+utt+None_f1:0.7975_acc:0.7981_val:0.6812_1771812692.37423.npz
+save results in ./saved_grid_repeat_paper_v2/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/test2_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_paper+utt+None_f1:0.7503_acc:0.7500_val:0.6577_1771812692.37423.npz
+save results in ./saved_grid_repeat_paper_v2/cand01_hd128_do0.3_lr0.0001/rep02-trimodal/result/test3_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_paper+utt+None_f1:0.8721_acc:0.8741_val:80.4768_1771812692.37423.npz
+
+####################################################################################################
+summary ranking (by mean_emoval)
+[1] cand01_hd128_do0.3_lr0.0001 mean_emoval=0.5264374999999999 std_emoval=0.022503673311261792 mean_f1=0.7133 mean_val=0.74745 runs=2/2
+####################################################################################################
+raw runs: /root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_paper_v2/raw_runs_20260223_091222.json
+summary: /root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_paper_v2/summary_20260223_091222.json

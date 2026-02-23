@@ -1,0 +1,15 @@
+[
+  {
+    "candidate_id": "cand01_hd128_do0.3_lr0.0001",
+    "hidden_dim": 128,
+    "dropout": 0.3,
+    "lr": 0.0001,
+    "runs_ok": 2,
+    "runs_total": 2,
+    "mean_emoval": 0.5264374999999999,
+    "std_emoval": 0.022503673311261792,
+    "mean_f1": 0.7133,
+    "mean_acc": 0.7176,
+    "mean_val": 0.74745
+  }
+]

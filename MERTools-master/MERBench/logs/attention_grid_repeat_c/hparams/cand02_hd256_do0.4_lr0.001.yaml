@@ -1,0 +1,5 @@
+attention:
+  hidden_dim: 256
+  dropout: 0.4
+  grad_clip: -1.0
+  lr: 0.001

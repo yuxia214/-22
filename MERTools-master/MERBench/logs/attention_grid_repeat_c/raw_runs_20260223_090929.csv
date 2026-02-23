@@ -1,0 +1,5 @@
+candidate_id,hidden_dim,dropout,lr,repeat,seed,run_log,return_code,status,f1,acc,val,emoval
+cand01_hd128_do0.4_lr0.001,128,0.4,0.001,1,5407,/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_c/runs/cand01_hd128_do0.4_lr0.001_rep01.log,0,ok,0.7508,0.7522,0.6415,0.590425
+cand01_hd128_do0.4_lr0.001,128,0.4,0.001,2,5408,/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_c/runs/cand01_hd128_do0.4_lr0.001_rep02.log,0,ok,0.7564,0.756,0.6457,0.5949749999999999
+cand02_hd256_do0.4_lr0.001,256,0.4,0.001,1,5407,/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_c/runs/cand02_hd256_do0.4_lr0.001_rep01.log,0,ok,0.7565,0.7584,0.6586,0.59185
+cand02_hd256_do0.4_lr0.001,256,0.4,0.001,2,5408,/root/autodl-tmp/MERTools-master/MERBench/logs/attention_grid_repeat_c/runs/cand02_hd256_do0.4_lr0.001_rep02.log,0,ok,0.7446,0.748,0.6513,0.581775

@@ -94,6 +94,7 @@ case "${CASE_ID}" in
             --use_swa
             --swa_start_epoch=30
             --swa_lr=2e-4
+            --reg_loss_type=smoothl1
             --reg_loss_type_stage2=none
             --no_init_prior_from_fold_train
             --no_valence_calibration

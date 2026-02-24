@@ -1,0 +1,4 @@
+run_tag,runs_ok,train_waf_mean,train_waf_std,train_mse_mean,train_mse_std,multi_waf_mean,multi_waf_std,multi_mse_mean,multi_mse_std,noise_waf_mean,noise_waf_std,noise_mse_mean,noise_mse_std,semi_waf_mean,semi_waf_std,avg_waf_mean,avg_waf_std,avg_mse_mean,avg_mse_std,score_multi_mean,score_multi_std,score_balanced_mean,score_balanced_std
+p3_c3,1,75.25,0.0,0.6405,0.0,84.28,0.0,0.6162,0.0,77.82,0.0,0.6203,0.0,87.63,0.0,81.245,0.0,0.6256666666666666,0.0,68.875,0.0,65.60333333333334,0.0
+p3_c2,1,75.5,0.0,0.6765,0.0,84.06,0.0,0.6318,0.0,76.47,0.0,0.6251,0.0,89.53,0.0,81.39,0.0,0.6444666666666666,0.0,68.265,0.0,65.27833333333334,0.0
+p3_c1,1,74.72,0.0,0.6362,0.0,83.76,0.0,0.6219,0.0,75.82,0.0,0.6184,0.0,88.23,0.0,80.63250000000001,0.0,0.6255000000000001,0.0,68.2125,0.0,64.995,0.0

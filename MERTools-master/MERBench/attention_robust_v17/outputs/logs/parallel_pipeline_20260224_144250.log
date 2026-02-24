@@ -1,0 +1,15 @@
+================================================================
+ V17 Parallel Training + Ensemble Pipeline
+ Configs: s1 s2 s3 s4
+ Seeds:   8407 42
+ Total runs: 8
+ Parallel: 4 at a time
+================================================================
+
+======== Phase 1: Training 8 models (4 parallel) ========
+
+--- Batch 1/2: 4 runs (configs s1-s4, seed 8407) ---
+[START] s1_seed8407 on cores 0-2
+[START] s2_seed8407 on cores 3-5
+[START] s3_seed8407 on cores 6-8
+[START] s4_seed8407 on cores 9-11

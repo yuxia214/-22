@@ -1100,6 +1100,14 @@ if __name__ == '__main__':
     for jj in range(len(test_loaders)):
         emo_labels, emo_probs = average_folder_for_emos(folder_save, f'test{jj+1}')
         val_labels, val_preds = average_folder_for_vals(folder_save, f'test{jj+1}')
+        if isinstance(emo_probs, list):
+            emo_probs = np.asarray(emo_probs, dtype=np.float32)
+        if isinstance(emo_labels, list):
+            emo_labels = np.asarray(emo_labels)
+        if isinstance(val_preds, list):
+            val_preds = np.asarray(val_preds, dtype=np.float32)
+        if isinstance(val_labels, list):
+            val_labels = np.asarray(val_labels)
         _, test_result = dataloader_class.calculate_results(emo_probs, emo_labels, val_preds, val_labels)
         save_path = f'{save_resroot}/test{jj+1}_{prefix_name}_{test_result}_{name_time}.npz'
         print (f'save results in {save_path}')
@@ -1107,10 +1115,14 @@ if __name__ == '__main__':
         save_data = dict(args=np.array(args, dtype=object))
         if isinstance(emo_probs, np.ndarray):
             save_data['emo_probs'] = emo_probs
+            save_data['emoprobs'] = emo_probs
         if isinstance(emo_labels, np.ndarray):
             save_data['emo_labels'] = emo_labels
+            save_data['emolabels'] = emo_labels
         if isinstance(val_preds, np.ndarray):
             save_data['val_preds'] = val_preds
+            save_data['valpreds'] = val_preds
         if isinstance(val_labels, np.ndarray):
             save_data['val_labels'] = val_labels
+            save_data['vallabels'] = val_labels
         np.savez_compressed(save_path, **save_data)

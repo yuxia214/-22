@@ -23,3 +23,59 @@
 [START] s2_seed42 on cores 3-5
 [START] s3_seed42 on cores 6-8
 [START] s4_seed42 on cores 9-11
+[DONE]  s4_seed42
+[DONE]  s1_seed42
+[DONE]  s2_seed42
+[DONE]  s3_seed42
+
+======== Phase 1 complete in 4337s (72m) ========
+  Batch 1 failures: 0
+  Batch 2 failures: 0
+
+======== Phase 2: Ensemble ========
+  Ensembling 8 models
+
+  --- test1 ---
+=== Ensemble: test1 ===
+Dirs: ['/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42']
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42, skipping
+ERROR: No predictions found!
+
+  --- test2 ---
+=== Ensemble: test2 ===
+Dirs: ['/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42']
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42, skipping
+ERROR: No predictions found!
+
+  --- test3 ---
+=== Ensemble: test3 ===
+Dirs: ['/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed42', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42']
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s1_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s2_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s3_seed42, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed8407, skipping
+  [WARN] No valid npz in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42, skipping
+ERROR: No predictions found!
+
+================================================================
+ V17 Pipeline Complete! (4337s total)
+ Ensemble: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ensemble
+ Target: Combined > 0.7005 on test1
+================================================================

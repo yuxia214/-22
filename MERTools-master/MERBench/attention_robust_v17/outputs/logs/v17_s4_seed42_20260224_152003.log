@@ -443,3 +443,67 @@ epoch:28; metric:emoval; train:0.2717; eval:0.2170; lr:0.000496; reg_loss:smooth
 epoch:29; metric:emoval; train:0.2790; eval:0.3457; lr:0.000492; reg_loss:smoothl1
 epoch:30; metric:emoval; train:0.2959; eval:0.2577; lr:0.000488; reg_loss:smoothl1
 epoch:31; metric:emoval; train:0.3169; eval:0.3541; lr:0.000482; reg_loss:smoothl1
+
+epoch:32; metric:emoval; train:0.3901; eval:0.4045; lr:0.000476; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.3923; eval:0.3435; lr:0.000469; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.4054; eval:0.3841; lr:0.000461; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.4131; eval:0.3968; lr:0.000452; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.3951; eval:0.4893; lr:0.000443; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.4316; eval:0.3902; lr:0.000432; reg_loss:smoothl1
+epoch:38; metric:emoval; train:0.4334; eval:0.4787; lr:0.000421; reg_loss:smoothl1
+epoch:39; metric:emoval; train:0.5734; eval:0.5747; lr:0.000410; reg_loss:smoothl1
+epoch:40; metric:emoval; train:0.6895; eval:0.6096; lr:0.000397; reg_loss:smoothl1
+epoch:41; metric:emoval; train:0.6744; eval:0.5130; lr:0.000384; reg_loss:smoothl1
+epoch:42; metric:emoval; train:0.6916; eval:0.5394; lr:0.000371; reg_loss:smoothl1
+epoch:43; metric:emoval; train:0.7210; eval:0.5808; lr:0.000357; reg_loss:smoothl1
+epoch:44; metric:emoval; train:0.7552; eval:0.5385; lr:0.000342; reg_loss:smoothl1
+epoch:45; metric:emoval; train:0.7917; eval:0.5759; lr:0.000328; reg_loss:smoothl1
+epoch:46; metric:emoval; train:0.7950; eval:0.4998; lr:0.000313; reg_loss:smoothl1
+epoch:47; metric:emoval; train:0.8134; eval:0.5226; lr:0.000297; reg_loss:smoothl1
+epoch:48; metric:emoval; train:0.8186; eval:0.5314; lr:0.000282; reg_loss:smoothl1
+epoch:49; metric:emoval; train:0.8303; eval:0.4753; lr:0.000266; reg_loss:smoothl1
+epoch:50; metric:emoval; train:0.8292; eval:0.4380; lr:0.000251; reg_loss:smoothl1
+epoch:51; metric:emoval; train:0.8404; eval:0.5659; lr:0.000235; reg_loss:smoothl1
+epoch:52; metric:emoval; train:0.8405; eval:0.5255; lr:0.000219; reg_loss:smoothl1
+epoch:53; metric:emoval; train:0.8559; eval:0.5760; lr:0.000204; reg_loss:smoothl1
+epoch:54; metric:emoval; train:0.8594; eval:0.5896; lr:0.000188; reg_loss:smoothl1
+epoch:55; metric:emoval; train:0.8633; eval:0.5744; lr:0.000173; reg_loss:smoothl1
+epoch:56; metric:emoval; train:0.8760; eval:0.5288; lr:0.000159; reg_loss:smoothl1
+epoch:57; metric:emoval; train:0.8818; eval:0.5668; lr:0.000144; reg_loss:smoothl1
+epoch:58; metric:emoval; train:0.8858; eval:0.5094; lr:0.000130; reg_loss:smoothl1
+epoch:59; metric:emoval; train:0.8866; eval:0.5226; lr:0.000117; reg_loss:smoothl1
+epoch:60; metric:emoval; train:0.8974; eval:0.5727; lr:0.000104; reg_loss:smoothl1
+epoch:61; metric:emoval; train:0.9059; eval:0.5678; lr:0.000091; reg_loss:smoothl1
+epoch:62; metric:emoval; train:0.8979; eval:0.5344; lr:0.000080; reg_loss:smoothl1
+epoch:63; metric:emoval; train:0.9083; eval:0.5727; lr:0.000069; reg_loss:smoothl1
+epoch:64; metric:emoval; train:0.9089; eval:0.5953; lr:0.000058; reg_loss:smoothl1
+epoch:65; metric:emoval; train:0.9131; eval:0.5337; lr:0.000049; reg_loss:smoothl1
+epoch:66; metric:emoval; train:0.9083; eval:0.5653; lr:0.000040; reg_loss:smoothl1
+epoch:67; metric:emoval; train:0.9206; eval:0.5817; lr:0.000032; reg_loss:smoothl1
+epoch:68; metric:emoval; train:0.9249; eval:0.5779; lr:0.000025; reg_loss:smoothl1
+epoch:69; metric:emoval; train:0.9242; eval:0.5695; lr:0.000019; reg_loss:smoothl1
+epoch:70; metric:emoval; train:0.9297; eval:0.5469; lr:0.000013; reg_loss:smoothl1
+epoch:71; metric:emoval; train:0.9328; eval:0.5753; lr:0.000009; reg_loss:mse
+epoch:72; metric:emoval; train:0.9278; eval:0.5598; lr:0.000005; reg_loss:mse
+epoch:73; metric:emoval; train:0.9301; eval:0.5739; lr:0.000003; reg_loss:mse
+epoch:74; metric:emoval; train:0.9292; eval:0.5802; lr:0.000001; reg_loss:mse
+epoch:75; metric:emoval; train:0.9344; eval:0.5762; lr:0.000500; reg_loss:mse
+epoch:76; metric:emoval; train:0.6194; eval:0.4013; lr:0.000500; reg_loss:mse
+epoch:77; metric:emoval; train:0.6723; eval:0.5133; lr:0.000500; reg_loss:mse
+epoch:78; metric:emoval; train:0.7266; eval:0.5230; lr:0.000499; reg_loss:mse
+epoch:79; metric:emoval; train:0.7352; eval:0.5739; lr:0.000498; reg_loss:mse
+epoch:80; metric:emoval; train:0.7834; eval:0.4601; lr:0.000497; reg_loss:mse
+epoch:81; metric:emoval; train:0.7720; eval:0.5613; lr:0.000496; reg_loss:mse
+epoch:82; metric:emoval; train:0.7942; eval:0.5332; lr:0.000494; reg_loss:mse
+epoch:83; metric:emoval; train:0.7926; eval:0.5795; lr:0.000492; reg_loss:mse
+epoch:84; metric:emoval; train:0.7953; eval:0.4374; lr:0.000490; reg_loss:mse
+epoch:85; metric:emoval; train:0.7832; eval:0.5167; lr:0.000488; reg_loss:mse
+Early stopping at epoch 85, best epoch: 40
+Step3: saving and testing on the 5 folder
+fold:5; emotion-group calibration enabled; groups=[0, 1, 2, 3, 4]; global_coef:1.006799; global_bias:0.168674; clip:3.0
+>>>>> Finish: training on the 5-th folder, best_epoch: 40, swa_updates: 0, duration: 392.5943717956543 >>>>>
+====== Prediction and Saving =======
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42/seed42-trimodal/result/cv_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v2+utt+None_f1:0.7647_acc:0.7655_val:0.6067_1771919202.8444521.npz
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42/seed42-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v2+utt+None_f1:0.8282_acc:0.8273_val:0.6441_1771919202.8444521.npz
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42/seed42-trimodal/result/test2_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v2+utt+None_f1:0.7881_acc:0.7913_val:0.6193_1771919202.8444521.npz
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/s4_seed42/seed42-trimodal/result/test3_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v2+utt+None_f1:0.8905_acc:0.8921_val:81.8567_1771919202.8444521.npz

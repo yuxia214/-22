@@ -16,7 +16,7 @@
 # Python artifacts
 __pycache__/
 *.py[cod]
-
+AutoFigure-Edit/sam3
 # Virtual environments
 venv/
 .venv/

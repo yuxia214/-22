@@ -25,6 +25,9 @@ from .attention_robust_v8 import AttentionRobustV8
 from .attention_robust_v9 import AttentionRobustV9
 from .attention_robust_v10 import AttentionRobustV10
 from .attention_robust_v12 import AttentionRobustV12
+from .attention_robust_v13 import AttentionRobustV13
+from .attention_robust_v14 import AttentionRobustV14
+from .attention_robust_v15 import AttentionRobustV15
 
 class get_models(torch.nn.Module):
     def __init__(self, args):
@@ -47,6 +50,9 @@ class get_models(torch.nn.Module):
             'attention_robust_v9': AttentionRobustV9,  # V9版attention，质量估计 + 缺失补全 + 一致性学习
             'attention_robust_v10': AttentionRobustV10,  # V10版attention，AV-only鲁棒融合
             'attention_robust_v12': AttentionRobustV12,  # V12版attention，V2+prior实验分支
+            'attention_robust_v13': AttentionRobustV13,  # V13版attention，v12增强分支
+            'attention_robust_v14': AttentionRobustV14,  # V14版attention，fold-prior与回归强化实验
+            'attention_robust_v15': AttentionRobustV15,  # V15版attention，专家化训练骨架分支
             'lmf': LMF,
             'misa': MISA,
             'mmim': MMIM,

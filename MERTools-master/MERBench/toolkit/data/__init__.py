@@ -22,6 +22,7 @@ class get_datasets(Dataset):
             'attention_robust_v8': Data_Feat,  # 新增：V8版鲁棒性attention模型
             'attention_robust_v9': Data_Feat,  # 新增：V9版鲁棒性attention模型
             'attention_robust_v10': Data_Feat_AV,  # 新增：V10版AV-only鲁棒性attention模型
+            'attention_robust_v12': Data_Feat,  # 新增：V12版鲁棒性attention模型
             'lf_dnn': Data_Feat,
             'lmf': Data_Feat,
             'misa': Data_Feat,

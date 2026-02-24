@@ -13,3 +13,13 @@
 [START] s2_seed8407 on cores 3-5
 [START] s3_seed8407 on cores 6-8
 [START] s4_seed8407 on cores 9-11
+[DONE]  s4_seed8407
+[DONE]  s2_seed8407
+[DONE]  s1_seed8407
+[DONE]  s3_seed8407
+
+--- Batch 2/2: 4 runs (configs s1-s4, seed 42) ---
+[START] s1_seed42 on cores 0-2
+[START] s2_seed42 on cores 3-5
+[START] s3_seed42 on cores 6-8
+[START] s4_seed42 on cores 9-11

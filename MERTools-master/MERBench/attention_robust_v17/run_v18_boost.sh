@@ -8,7 +8,7 @@ PYTHON_BIN="${PYTHON_BIN:-/root/miniconda3/bin/python}"
 GPU_ID="${GPU_ID:-0}"
 
 CASES_STR="${CASES:-b1 b2 b3 b4 b5 b6}"
-SEEDS_STR="${SEEDS:-8407 42 2023}"
+SEEDS_STR="${SEEDS:-8407}"
 read -r -a CASES <<< "${CASES_STR}"
 read -r -a SEEDS <<< "${SEEDS_STR}"
 

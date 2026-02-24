@@ -827,6 +827,27 @@ def _get_roboflow_api_key(sam_api_key: Optional[str]) -> str:
     return key
 
 
+def _resolve_local_sam3_checkpoint_path() -> Optional[str]:
+    """Resolve local SAM3 checkpoint path with local-first priority."""
+    env_ckpt = os.environ.get("SAM3_CHECKPOINT_PATH") or os.environ.get("SAM3_CKPT_PATH")
+    if env_ckpt:
+        env_path = Path(env_ckpt).expanduser()
+        if env_path.is_file():
+            return str(env_path)
+        print(f"警告: 指定的 SAM3 checkpoint 不存在: {env_path}")
+
+    project_dir = Path(__file__).resolve().parent
+    candidate_paths = [
+        project_dir / "sam3" / "权重" / "sam3.pt",
+        project_dir / "sam3" / "weights" / "sam3.pt",
+        project_dir / "sam3" / "sam3.pt",
+    ]
+    for path in candidate_paths:
+        if path.is_file():
+            return str(path)
+    return None
+
+
 def _image_to_data_uri(image: Image.Image) -> str:
     buf = io.BytesIO()
     image.save(buf, format="PNG")
@@ -1108,7 +1129,17 @@ def segment_with_sam3(
 
         device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"使用设备: {device}")
-        model = build_sam3_image_model(device=device, bpe_path=str(bpe_path) if bpe_path else None)
+        checkpoint_path = _resolve_local_sam3_checkpoint_path()
+        if checkpoint_path:
+            print(f"使用本地 SAM3 权重: {checkpoint_path}")
+        else:
+            print("警告: 未找到本地 SAM3 权重，将回退到 Hugging Face 下载")
+        model = build_sam3_image_model(
+            device=device,
+            bpe_path=str(bpe_path) if bpe_path else None,
+            checkpoint_path=checkpoint_path,
+            load_from_HF=checkpoint_path is None,
+        )
         processor = Sam3Processor(model, device=device)
         inference_state = processor.set_image(image)
 

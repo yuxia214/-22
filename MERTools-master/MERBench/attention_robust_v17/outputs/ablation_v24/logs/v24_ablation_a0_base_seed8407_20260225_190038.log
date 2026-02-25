@@ -36,4 +36,486 @@ audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-da
 
   0%|          | 0/834 [00:00<?, ?it/s]  1%|          | 8/834 [00:00<00:41, 19.93it/s] 22%|██▏       | 180/834 [00:00<00:01, 444.03it/s] 43%|████▎     | 357/834 [00:00<00:00, 740.50it/s] 56%|█████▌    | 468/834 [00:00<00:00, 713.75it/s] 67%|██████▋   | 562/834 [00:00<00:00, 725.10it/s] 79%|███████▊  | 656/834 [00:01<00:00, 762.98it/s] 90%|█████████ | 753/834 [00:01<00:00, 743.06it/s]100%|██████████| 834/834 [00:01<00:00, 703.66it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
 
-  0%|          | 0/834 [00:00<?, ?it/s]  0%|          | 1/834 [00:00<01:25,  9.74it/s] 17%|█▋        | 144/834 [00:00<00:01, 557.26it/s] 39%|███▉      | 328/834 [00:00<00:00, 888.04it/s] 53%|█████▎    | 439/834 [00:00<00:00, 930.53it/s] 74%|███████▍  | 617/834 [00:00<00:00, 1157.93it/s] 88%|████████▊ | 736/834 [00:00<00:00, 874.51it/s] 100%|██████████| 834/834 [00:00<00:00, 961.28it/s]
+  0%|          | 0/834 [00:00<?, ?it/s]  0%|          | 1/834 [00:00<01:25,  9.74it/s] 17%|█▋        | 144/834 [00:00<00:01, 557.26it/s] 39%|███▉      | 328/834 [00:00<00:00, 888.04it/s] 53%|█████▎    | 439/834 [00:00<00:00, 930.53it/s] 74%|███████▍  | 617/834 [00:00<00:00, 1157.93it/s] 88%|████████▊ | 736/834 [00:00<00:00, 874.51it/s] 100%|██████████| 834/834 [00:00<00:00, 961.28it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+fold:1; init prior centers from fold-train; counts=[706,644,541,305,376,127] centers=[-0.069,-2.517,1.752,-2.336,-1.037,-0.388]
+fold:1; using LabelSmoothingCrossEntropy(smoothing=0.05)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:0.0724; eval:0.3822; lr:0.000360; reg_loss:smoothl1
+epoch:2; metric:emoval; train:0.5000; eval:0.4356; lr:0.000360; reg_loss:smoothl1
+epoch:3; metric:emoval; train:0.5622; eval:0.5724; lr:0.000360; reg_loss:smoothl1
+epoch:4; metric:emoval; train:0.6239; eval:0.5004; lr:0.000360; reg_loss:smoothl1
+epoch:5; metric:emoval; train:0.6475; eval:0.5063; lr:0.000360; reg_loss:smoothl1
+epoch:6; metric:emoval; train:0.6758; eval:0.5901; lr:0.000360; reg_loss:smoothl1
+epoch:7; metric:emoval; train:0.6990; eval:0.5719; lr:0.000360; reg_loss:smoothl1
+epoch:8; metric:emoval; train:0.7229; eval:0.5575; lr:0.000360; reg_loss:smoothl1
+epoch:9; metric:emoval; train:0.7444; eval:0.6009; lr:0.000360; reg_loss:smoothl1
+epoch:10; metric:emoval; train:0.7551; eval:0.5437; lr:0.000360; reg_loss:smoothl1
+epoch:11; metric:emoval; train:0.7610; eval:0.5707; lr:0.000360; reg_loss:smoothl1
+epoch:12; metric:emoval; train:0.7844; eval:0.5374; lr:0.000360; reg_loss:smoothl1
+epoch:13; metric:emoval; train:0.7824; eval:0.6092; lr:0.000360; reg_loss:smoothl1
+epoch:14; metric:emoval; train:0.8019; eval:0.6003; lr:0.000360; reg_loss:smoothl1
+epoch:15; metric:emoval; train:0.7796; eval:0.5744; lr:0.000360; reg_loss:smoothl1
+epoch:16; metric:emoval; train:0.7912; eval:0.5550; lr:0.000360; reg_loss:smoothl1
+epoch:17; metric:emoval; train:0.8011; eval:0.5705; lr:0.000360; reg_loss:smoothl1
+epoch:18; metric:emoval; train:0.8067; eval:0.5679; lr:0.000360; reg_loss:smoothl1
+epoch:19; metric:emoval; train:0.8259; eval:0.5473; lr:0.000360; reg_loss:smoothl1
+epoch:20; metric:emoval; train:0.8170; eval:0.5208; lr:0.000360; reg_loss:smoothl1
+epoch:21; metric:emoval; train:0.8000; eval:0.6011; lr:0.000360; reg_loss:smoothl1
+epoch:22; metric:emoval; train:0.8251; eval:0.5845; lr:0.000180; reg_loss:smoothl1
+epoch:23; metric:emoval; train:0.8608; eval:0.6309; lr:0.000180; reg_loss:smoothl1
+epoch:24; metric:emoval; train:0.8813; eval:0.6241; lr:0.000180; reg_loss:smoothl1
+epoch:25; metric:emoval; train:0.8889; eval:0.6110; lr:0.000180; reg_loss:smoothl1
+epoch:26; metric:emoval; train:0.8993; eval:0.5877; lr:0.000180; reg_loss:smoothl1
+epoch:27; metric:emoval; train:0.8942; eval:0.5715; lr:0.000180; reg_loss:smoothl1
+epoch:28; metric:emoval; train:0.8948; eval:0.5563; lr:0.000180; reg_loss:smoothl1
+epoch:29; metric:emoval; train:0.8911; eval:0.5964; lr:0.000180; reg_loss:smoothl1
+epoch:30; metric:emoval; train:0.9051; eval:0.5707; lr:0.000180; reg_loss:smoothl1
+epoch:31; metric:emoval; train:0.9095; eval:0.5659; lr:0.000180; reg_loss:smoothl1
+epoch:32; metric:emoval; train:0.9052; eval:0.6203; lr:0.000090; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.9221; eval:0.5993; lr:0.000090; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.9219; eval:0.6234; lr:0.000090; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.9299; eval:0.5862; lr:0.000090; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.9289; eval:0.5915; lr:0.000090; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.9199; eval:0.6044; lr:0.000090; reg_loss:mse
+epoch:38; metric:emoval; train:0.9238; eval:0.6105; lr:0.000090; reg_loss:mse
+epoch:39; metric:emoval; train:0.9262; eval:0.5948; lr:0.000090; reg_loss:mse
+epoch:40; metric:emoval; train:0.9294; eval:0.6000; lr:0.000090; reg_loss:mse
+epoch:41; metric:emoval; train:0.9319; eval:0.5801; lr:0.000045; reg_loss:mse
+epoch:42; metric:emoval; train:0.9386; eval:0.5876; lr:0.000045; reg_loss:mse
+epoch:43; metric:emoval; train:0.9458; eval:0.5865; lr:0.000045; reg_loss:mse
+epoch:44; metric:emoval; train:0.9420; eval:0.6014; lr:0.000045; reg_loss:mse
+epoch:45; metric:emoval; train:0.9504; eval:0.6103; lr:0.000045; reg_loss:mse
+epoch:46; metric:emoval; train:0.9479; eval:0.5867; lr:0.000045; reg_loss:mse
+epoch:47; metric:emoval; train:0.9486; eval:0.6094; lr:0.000045; reg_loss:mse
+epoch:48; metric:emoval; train:0.9525; eval:0.5918; lr:0.000045; reg_loss:mse
+epoch:49; metric:emoval; train:0.9480; eval:0.5858; lr:0.000045; reg_loss:mse
+epoch:50; metric:emoval; train:0.9526; eval:0.6066; lr:0.000023; reg_loss:mse
+epoch:51; metric:emoval; train:0.9569; eval:0.5928; lr:0.000023; reg_loss:mse
+epoch:52; metric:emoval; train:0.9522; eval:0.6061; lr:0.000023; reg_loss:mse
+epoch:53; metric:emoval; train:0.9573; eval:0.5951; lr:0.000023; reg_loss:mse
+epoch:54; metric:emoval; train:0.9536; eval:0.5976; lr:0.000023; reg_loss:mse
+epoch:55; metric:emoval; train:0.9583; eval:0.6063; lr:0.000023; reg_loss:mse
+epoch:56; metric:emoval; train:0.9599; eval:0.5995; lr:0.000023; reg_loss:mse
+epoch:57; metric:emoval; train:0.9588; eval:0.5919; lr:0.000023; reg_loss:mse
+epoch:58; metric:emoval; train:0.9571; eval:0.5925; lr:0.000023; reg_loss:mse
+epoch:59; metric:emoval; train:0.9630; eval:0.5949; lr:0.000011; reg_loss:mse
+Early stopping at epoch 59, best epoch: 23
+Step3: saving and testing on the 1 folder
+fold:1; reg-ft epoch:1; train_mse:0.276026; eval_mse:0.605811; lr:0.000080
+fold:1; reg-ft epoch:2; train_mse:0.272814; eval_mse:0.610187; lr:0.000080
+fold:1; reg-ft epoch:3; train_mse:0.264500; eval_mse:0.610745; lr:0.000080
+fold:1; reg-ft epoch:4; train_mse:0.272031; eval_mse:0.607850; lr:0.000080
+fold:1; reg-ft epoch:5; train_mse:0.270193; eval_mse:0.609722; lr:0.000040
+fold:1; reg-ft epoch:6; train_mse:0.264207; eval_mse:0.609938; lr:0.000040
+fold:1; reg-head finetune done; updates:6; best_eval_mse:0.6058112382888794
+fold:1; emotion-group calibration enabled; groups=[0, 1, 2, 3, 4, 5]; global_coef:0.961670; global_bias:0.073395; clip:4.5
+>>>>> Finish: training on the 1-th folder, best_epoch: 23, swa_updates: 0, duration: 609.288277387619 >>>>>
+>>>>> Cross-validation: training on the 2 folder >>>>>
+Step1: build model (each folder has its own model)
+fold:2; init prior centers from fold-train; counts=[697,651,563,301,370,117] centers=[-0.082,-2.500,1.762,-2.388,-0.991,-0.404]
+fold:2; using LabelSmoothingCrossEntropy(smoothing=0.05)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:0.1033; eval:0.4428; lr:0.000360; reg_loss:smoothl1
+epoch:2; metric:emoval; train:0.4892; eval:0.4990; lr:0.000360; reg_loss:smoothl1
+epoch:3; metric:emoval; train:0.5927; eval:0.5490; lr:0.000360; reg_loss:smoothl1
+epoch:4; metric:emoval; train:0.6229; eval:0.5205; lr:0.000360; reg_loss:smoothl1
+epoch:5; metric:emoval; train:0.6728; eval:0.4892; lr:0.000360; reg_loss:smoothl1
+epoch:6; metric:emoval; train:0.6859; eval:0.4942; lr:0.000360; reg_loss:smoothl1
+epoch:7; metric:emoval; train:0.7148; eval:0.6017; lr:0.000360; reg_loss:smoothl1
+epoch:8; metric:emoval; train:0.7174; eval:0.4381; lr:0.000360; reg_loss:smoothl1
+epoch:9; metric:emoval; train:0.7433; eval:0.5236; lr:0.000360; reg_loss:smoothl1
+epoch:10; metric:emoval; train:0.7612; eval:0.5670; lr:0.000360; reg_loss:smoothl1
+epoch:11; metric:emoval; train:0.7582; eval:0.6206; lr:0.000360; reg_loss:smoothl1
+epoch:12; metric:emoval; train:0.7678; eval:0.5394; lr:0.000360; reg_loss:smoothl1
+epoch:13; metric:emoval; train:0.7846; eval:0.4733; lr:0.000360; reg_loss:smoothl1
+epoch:14; metric:emoval; train:0.7933; eval:0.5548; lr:0.000360; reg_loss:smoothl1
+epoch:15; metric:emoval; train:0.8076; eval:0.4743; lr:0.000360; reg_loss:smoothl1
+epoch:16; metric:emoval; train:0.7871; eval:0.5518; lr:0.000360; reg_loss:smoothl1
+epoch:17; metric:emoval; train:0.7904; eval:0.5350; lr:0.000360; reg_loss:smoothl1
+epoch:18; metric:emoval; train:0.8109; eval:0.5154; lr:0.000360; reg_loss:smoothl1
+epoch:19; metric:emoval; train:0.8176; eval:0.4974; lr:0.000360; reg_loss:smoothl1
+epoch:20; metric:emoval; train:0.8297; eval:0.4505; lr:0.000180; reg_loss:smoothl1
+epoch:21; metric:emoval; train:0.8664; eval:0.5897; lr:0.000180; reg_loss:smoothl1
+epoch:22; metric:emoval; train:0.8835; eval:0.5176; lr:0.000180; reg_loss:smoothl1
+epoch:23; metric:emoval; train:0.8897; eval:0.5706; lr:0.000180; reg_loss:smoothl1
+epoch:24; metric:emoval; train:0.9046; eval:0.5478; lr:0.000180; reg_loss:smoothl1
+epoch:25; metric:emoval; train:0.8963; eval:0.5299; lr:0.000180; reg_loss:smoothl1
+epoch:26; metric:emoval; train:0.8989; eval:0.5149; lr:0.000180; reg_loss:smoothl1
+epoch:27; metric:emoval; train:0.8981; eval:0.5492; lr:0.000180; reg_loss:smoothl1
+epoch:28; metric:emoval; train:0.9049; eval:0.4960; lr:0.000180; reg_loss:smoothl1
+epoch:29; metric:emoval; train:0.9115; eval:0.5399; lr:0.000090; reg_loss:smoothl1
+epoch:30; metric:emoval; train:0.9184; eval:0.5409; lr:0.000090; reg_loss:smoothl1
+epoch:31; metric:emoval; train:0.9330; eval:0.4889; lr:0.000090; reg_loss:smoothl1
+epoch:32; metric:emoval; train:0.9240; eval:0.5664; lr:0.000090; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.9366; eval:0.5284; lr:0.000090; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.9325; eval:0.5215; lr:0.000090; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.9328; eval:0.5514; lr:0.000090; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.9345; eval:0.5192; lr:0.000090; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.9260; eval:0.5256; lr:0.000090; reg_loss:mse
+epoch:38; metric:emoval; train:0.9220; eval:0.5359; lr:0.000045; reg_loss:mse
+epoch:39; metric:emoval; train:0.9374; eval:0.5434; lr:0.000045; reg_loss:mse
+epoch:40; metric:emoval; train:0.9405; eval:0.4998; lr:0.000045; reg_loss:mse
+epoch:41; metric:emoval; train:0.9462; eval:0.5207; lr:0.000045; reg_loss:mse
+epoch:42; metric:emoval; train:0.9486; eval:0.5477; lr:0.000045; reg_loss:mse
+epoch:43; metric:emoval; train:0.9467; eval:0.5283; lr:0.000045; reg_loss:mse
+epoch:44; metric:emoval; train:0.9511; eval:0.5503; lr:0.000045; reg_loss:mse
+epoch:45; metric:emoval; train:0.9522; eval:0.5458; lr:0.000045; reg_loss:mse
+epoch:46; metric:emoval; train:0.9502; eval:0.5031; lr:0.000045; reg_loss:mse
+epoch:47; metric:emoval; train:0.9493; eval:0.5527; lr:0.000023; reg_loss:mse
+Early stopping at epoch 47, best epoch: 11
+Step3: saving and testing on the 2 folder
+fold:2; reg-ft epoch:1; train_mse:0.428283; eval_mse:0.594516; lr:0.000080
+fold:2; reg-ft epoch:2; train_mse:0.426399; eval_mse:0.594290; lr:0.000080
+fold:2; reg-ft epoch:3; train_mse:0.417533; eval_mse:0.595114; lr:0.000080
+fold:2; reg-ft epoch:4; train_mse:0.404757; eval_mse:0.593089; lr:0.000080
+fold:2; reg-ft epoch:5; train_mse:0.426122; eval_mse:0.593145; lr:0.000080
+fold:2; reg-ft epoch:6; train_mse:0.417071; eval_mse:0.594238; lr:0.000080
+fold:2; reg-ft epoch:7; train_mse:0.421390; eval_mse:0.592805; lr:0.000080
+fold:2; reg-ft epoch:8; train_mse:0.411211; eval_mse:0.592379; lr:0.000080
+fold:2; reg-ft epoch:9; train_mse:0.422325; eval_mse:0.591685; lr:0.000080
+fold:2; reg-ft epoch:10; train_mse:0.412195; eval_mse:0.591842; lr:0.000080
+fold:2; reg-ft epoch:11; train_mse:0.422184; eval_mse:0.591404; lr:0.000080
+fold:2; reg-ft epoch:12; train_mse:0.422900; eval_mse:0.591413; lr:0.000080
+fold:2; reg-ft epoch:13; train_mse:0.429174; eval_mse:0.591235; lr:0.000080
+fold:2; reg-ft epoch:14; train_mse:0.418603; eval_mse:0.591511; lr:0.000080
+fold:2; reg-ft epoch:15; train_mse:0.411032; eval_mse:0.590656; lr:0.000080
+fold:2; reg-ft epoch:16; train_mse:0.412079; eval_mse:0.591863; lr:0.000080
+fold:2; reg-head finetune done; updates:16; best_eval_mse:0.590655505657196
+fold:2; emotion-group calibration enabled; groups=[0, 1, 2, 3, 4, 5]; global_coef:0.994799; global_bias:0.022249; clip:4.5
+>>>>> Finish: training on the 2-th folder, best_epoch: 11, swa_updates: 0, duration: 546.29856300354 >>>>>
+>>>>> Cross-validation: training on the 3 folder >>>>>
+Step1: build model (each folder has its own model)
+fold:3; init prior centers from fold-train; counts=[698,677,556,301,354,113] centers=[-0.089,-2.503,1.781,-2.390,-0.973,-0.529]
+fold:3; using LabelSmoothingCrossEntropy(smoothing=0.05)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:0.0705; eval:0.4491; lr:0.000360; reg_loss:smoothl1
+epoch:2; metric:emoval; train:0.4929; eval:0.5085; lr:0.000360; reg_loss:smoothl1
+epoch:3; metric:emoval; train:0.5886; eval:0.5667; lr:0.000360; reg_loss:smoothl1
+epoch:4; metric:emoval; train:0.6486; eval:0.5373; lr:0.000360; reg_loss:smoothl1
+epoch:5; metric:emoval; train:0.6696; eval:0.5417; lr:0.000360; reg_loss:smoothl1
+epoch:6; metric:emoval; train:0.6890; eval:0.4934; lr:0.000360; reg_loss:smoothl1
+epoch:7; metric:emoval; train:0.7067; eval:0.5542; lr:0.000360; reg_loss:smoothl1
+epoch:8; metric:emoval; train:0.7282; eval:0.5363; lr:0.000360; reg_loss:smoothl1
+epoch:9; metric:emoval; train:0.7661; eval:0.5175; lr:0.000360; reg_loss:smoothl1
+epoch:10; metric:emoval; train:0.7636; eval:0.4702; lr:0.000360; reg_loss:smoothl1
+epoch:11; metric:emoval; train:0.7583; eval:0.5617; lr:0.000360; reg_loss:smoothl1
+epoch:12; metric:emoval; train:0.7821; eval:0.5291; lr:0.000180; reg_loss:smoothl1
+epoch:13; metric:emoval; train:0.8388; eval:0.5594; lr:0.000180; reg_loss:smoothl1
+epoch:14; metric:emoval; train:0.8672; eval:0.5354; lr:0.000180; reg_loss:smoothl1
+epoch:15; metric:emoval; train:0.8614; eval:0.5709; lr:0.000180; reg_loss:smoothl1
+epoch:16; metric:emoval; train:0.8606; eval:0.5460; lr:0.000180; reg_loss:smoothl1
+epoch:17; metric:emoval; train:0.8761; eval:0.5384; lr:0.000180; reg_loss:smoothl1
+epoch:18; metric:emoval; train:0.8734; eval:0.5440; lr:0.000180; reg_loss:smoothl1
+epoch:19; metric:emoval; train:0.8750; eval:0.5301; lr:0.000180; reg_loss:smoothl1
+epoch:20; metric:emoval; train:0.8672; eval:0.5103; lr:0.000180; reg_loss:smoothl1
+epoch:21; metric:emoval; train:0.8843; eval:0.4895; lr:0.000180; reg_loss:smoothl1
+epoch:22; metric:emoval; train:0.8673; eval:0.5660; lr:0.000180; reg_loss:smoothl1
+epoch:23; metric:emoval; train:0.8882; eval:0.5577; lr:0.000180; reg_loss:smoothl1
+epoch:24; metric:emoval; train:0.8954; eval:0.5423; lr:0.000090; reg_loss:smoothl1
+epoch:25; metric:emoval; train:0.9056; eval:0.5369; lr:0.000090; reg_loss:smoothl1
+epoch:26; metric:emoval; train:0.9113; eval:0.5524; lr:0.000090; reg_loss:smoothl1
+epoch:27; metric:emoval; train:0.9163; eval:0.5476; lr:0.000090; reg_loss:smoothl1
+epoch:28; metric:emoval; train:0.9244; eval:0.5619; lr:0.000090; reg_loss:smoothl1
+epoch:29; metric:emoval; train:0.9249; eval:0.5490; lr:0.000090; reg_loss:smoothl1
+epoch:30; metric:emoval; train:0.9230; eval:0.5484; lr:0.000090; reg_loss:smoothl1
+epoch:31; metric:emoval; train:0.9159; eval:0.5471; lr:0.000090; reg_loss:smoothl1
+epoch:32; metric:emoval; train:0.9297; eval:0.5488; lr:0.000090; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.9289; eval:0.5595; lr:0.000045; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.9383; eval:0.5330; lr:0.000045; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.9362; eval:0.5476; lr:0.000045; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.9416; eval:0.5514; lr:0.000045; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.9321; eval:0.5330; lr:0.000045; reg_loss:mse
+epoch:38; metric:emoval; train:0.9417; eval:0.5676; lr:0.000045; reg_loss:mse
+epoch:39; metric:emoval; train:0.9421; eval:0.5624; lr:0.000045; reg_loss:mse
+epoch:40; metric:emoval; train:0.9335; eval:0.5282; lr:0.000045; reg_loss:mse
+epoch:41; metric:emoval; train:0.9383; eval:0.5630; lr:0.000045; reg_loss:mse
+epoch:42; metric:emoval; train:0.9428; eval:0.5644; lr:0.000023; reg_loss:mse
+epoch:43; metric:emoval; train:0.9464; eval:0.5567; lr:0.000023; reg_loss:mse
+epoch:44; metric:emoval; train:0.9493; eval:0.5395; lr:0.000023; reg_loss:mse
+epoch:45; metric:emoval; train:0.9473; eval:0.5652; lr:0.000023; reg_loss:mse
+epoch:46; metric:emoval; train:0.9490; eval:0.5499; lr:0.000023; reg_loss:mse
+epoch:47; metric:emoval; train:0.9491; eval:0.5663; lr:0.000023; reg_loss:mse
+epoch:48; metric:emoval; train:0.9478; eval:0.5649; lr:0.000023; reg_loss:mse
+epoch:49; metric:emoval; train:0.9521; eval:0.5611; lr:0.000023; reg_loss:mse
+epoch:50; metric:emoval; train:0.9491; eval:0.5619; lr:0.000023; reg_loss:mse
+epoch:51; metric:emoval; train:0.9494; eval:0.5612; lr:0.000011; reg_loss:mse
+Early stopping at epoch 51, best epoch: 15
+Step3: saving and testing on the 3 folder
+fold:3; reg-ft epoch:1; train_mse:0.312275; eval_mse:0.637401; lr:0.000080
+fold:3; reg-ft epoch:2; train_mse:0.298916; eval_mse:0.632735; lr:0.000080
+fold:3; reg-ft epoch:3; train_mse:0.287347; eval_mse:0.631506; lr:0.000080
+fold:3; reg-ft epoch:4; train_mse:0.297617; eval_mse:0.631528; lr:0.000080
+fold:3; reg-ft epoch:5; train_mse:0.293431; eval_mse:0.633187; lr:0.000080
+fold:3; reg-ft epoch:6; train_mse:0.289166; eval_mse:0.630875; lr:0.000080
+fold:3; reg-ft epoch:7; train_mse:0.287734; eval_mse:0.634619; lr:0.000080
+fold:3; reg-ft epoch:8; train_mse:0.296667; eval_mse:0.633170; lr:0.000080
+fold:3; reg-ft epoch:9; train_mse:0.293754; eval_mse:0.638005; lr:0.000080
+fold:3; reg-ft epoch:10; train_mse:0.304090; eval_mse:0.635293; lr:0.000040
+fold:3; reg-ft epoch:11; train_mse:0.299147; eval_mse:0.634735; lr:0.000040
+fold:3; reg-head finetune done; updates:11; best_eval_mse:0.6308750510215759
+fold:3; emotion-group calibration enabled; groups=[0, 1, 2, 3, 4, 5]; global_coef:0.932566; global_bias:0.006579; clip:4.5
+>>>>> Finish: training on the 3-th folder, best_epoch: 15, swa_updates: 0, duration: 551.1941480636597 >>>>>
+>>>>> Cross-validation: training on the 4 folder >>>>>
+Step1: build model (each folder has its own model)
+fold:4; init prior centers from fold-train; counts=[686,669,541,310,384,109] centers=[-0.060,-2.493,1.774,-2.366,-0.995,-0.326]
+fold:4; using LabelSmoothingCrossEntropy(smoothing=0.05)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:0.0825; eval:0.5007; lr:0.000360; reg_loss:smoothl1
+epoch:2; metric:emoval; train:0.4985; eval:0.5513; lr:0.000360; reg_loss:smoothl1
+epoch:3; metric:emoval; train:0.5790; eval:0.5347; lr:0.000360; reg_loss:smoothl1
+epoch:4; metric:emoval; train:0.6230; eval:0.5747; lr:0.000360; reg_loss:smoothl1
+epoch:5; metric:emoval; train:0.6618; eval:0.5638; lr:0.000360; reg_loss:smoothl1
+epoch:6; metric:emoval; train:0.6833; eval:0.5286; lr:0.000360; reg_loss:smoothl1
+epoch:7; metric:emoval; train:0.6999; eval:0.5676; lr:0.000360; reg_loss:smoothl1
+epoch:8; metric:emoval; train:0.7215; eval:0.6021; lr:0.000360; reg_loss:smoothl1
+epoch:9; metric:emoval; train:0.7490; eval:0.5571; lr:0.000360; reg_loss:smoothl1
+epoch:10; metric:emoval; train:0.7747; eval:0.5966; lr:0.000360; reg_loss:smoothl1
+epoch:11; metric:emoval; train:0.7711; eval:0.5976; lr:0.000360; reg_loss:smoothl1
+epoch:12; metric:emoval; train:0.7626; eval:0.5982; lr:0.000360; reg_loss:smoothl1
+epoch:13; metric:emoval; train:0.7610; eval:0.5783; lr:0.000360; reg_loss:smoothl1
+epoch:14; metric:emoval; train:0.7807; eval:0.6029; lr:0.000360; reg_loss:smoothl1
+epoch:15; metric:emoval; train:0.7938; eval:0.5863; lr:0.000360; reg_loss:smoothl1
+epoch:16; metric:emoval; train:0.8001; eval:0.5687; lr:0.000360; reg_loss:smoothl1
+epoch:17; metric:emoval; train:0.7957; eval:0.5624; lr:0.000360; reg_loss:smoothl1
+epoch:18; metric:emoval; train:0.8232; eval:0.4931; lr:0.000360; reg_loss:smoothl1
+epoch:19; metric:emoval; train:0.7863; eval:0.6085; lr:0.000360; reg_loss:smoothl1
+epoch:20; metric:emoval; train:0.8278; eval:0.5449; lr:0.000360; reg_loss:smoothl1
+epoch:21; metric:emoval; train:0.8123; eval:0.5568; lr:0.000360; reg_loss:smoothl1
+epoch:22; metric:emoval; train:0.8119; eval:0.5720; lr:0.000360; reg_loss:smoothl1
+epoch:23; metric:emoval; train:0.8243; eval:0.4663; lr:0.000360; reg_loss:smoothl1
+epoch:24; metric:emoval; train:0.8076; eval:0.6089; lr:0.000360; reg_loss:smoothl1
+epoch:25; metric:emoval; train:0.8274; eval:0.5828; lr:0.000360; reg_loss:smoothl1
+epoch:26; metric:emoval; train:0.8474; eval:0.6145; lr:0.000360; reg_loss:smoothl1
+epoch:27; metric:emoval; train:0.8431; eval:0.5572; lr:0.000360; reg_loss:smoothl1
+epoch:28; metric:emoval; train:0.8429; eval:0.4770; lr:0.000360; reg_loss:smoothl1
+epoch:29; metric:emoval; train:0.8307; eval:0.5068; lr:0.000360; reg_loss:smoothl1
+epoch:30; metric:emoval; train:0.8469; eval:0.5181; lr:0.000360; reg_loss:smoothl1
+epoch:31; metric:emoval; train:0.8327; eval:0.5172; lr:0.000360; reg_loss:smoothl1
+epoch:32; metric:emoval; train:0.8385; eval:0.5343; lr:0.000360; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.8310; eval:0.4929; lr:0.000360; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.8570; eval:0.5525; lr:0.000360; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.8622; eval:0.5183; lr:0.000180; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.8913; eval:0.5816; lr:0.000180; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.8913; eval:0.4635; lr:0.000180; reg_loss:mse
+epoch:38; metric:emoval; train:0.8800; eval:0.5413; lr:0.000180; reg_loss:mse
+epoch:39; metric:emoval; train:0.8935; eval:0.5697; lr:0.000180; reg_loss:mse
+epoch:40; metric:emoval; train:0.8801; eval:0.6119; lr:0.000180; reg_loss:mse
+epoch:41; metric:emoval; train:0.9132; eval:0.5808; lr:0.000180; reg_loss:mse
+epoch:42; metric:emoval; train:0.8891; eval:0.5927; lr:0.000180; reg_loss:mse
+epoch:43; metric:emoval; train:0.9019; eval:0.5976; lr:0.000180; reg_loss:mse
+epoch:44; metric:emoval; train:0.9248; eval:0.5211; lr:0.000090; reg_loss:mse
+epoch:45; metric:emoval; train:0.9282; eval:0.6180; lr:0.000090; reg_loss:mse
+epoch:46; metric:emoval; train:0.9418; eval:0.5873; lr:0.000090; reg_loss:mse
+epoch:47; metric:emoval; train:0.9440; eval:0.5906; lr:0.000090; reg_loss:mse
+epoch:48; metric:emoval; train:0.9408; eval:0.5643; lr:0.000090; reg_loss:mse
+epoch:49; metric:emoval; train:0.9444; eval:0.5899; lr:0.000090; reg_loss:mse
+epoch:50; metric:emoval; train:0.9443; eval:0.5873; lr:0.000090; reg_loss:mse
+epoch:51; metric:emoval; train:0.9449; eval:0.5857; lr:0.000090; reg_loss:mse
+epoch:52; metric:emoval; train:0.9500; eval:0.6013; lr:0.000090; reg_loss:mse
+epoch:53; metric:emoval; train:0.9441; eval:0.5887; lr:0.000090; reg_loss:mse
+epoch:54; metric:emoval; train:0.9418; eval:0.6018; lr:0.000045; reg_loss:mse
+epoch:55; metric:emoval; train:0.9547; eval:0.6119; lr:0.000045; reg_loss:mse
+epoch:56; metric:emoval; train:0.9539; eval:0.5913; lr:0.000045; reg_loss:mse
+epoch:57; metric:emoval; train:0.9582; eval:0.5915; lr:0.000045; reg_loss:mse
+epoch:58; metric:emoval; train:0.9590; eval:0.6011; lr:0.000045; reg_loss:mse
+epoch:59; metric:emoval; train:0.9521; eval:0.6115; lr:0.000045; reg_loss:mse
+epoch:60; metric:emoval; train:0.9545; eval:0.5990; lr:0.000045; reg_loss:mse
+epoch:61; metric:emoval; train:0.9559; eval:0.6206; lr:0.000045; reg_loss:mse
+epoch:62; metric:emoval; train:0.9619; eval:0.6189; lr:0.000045; reg_loss:mse
+epoch:63; metric:emoval; train:0.9578; eval:0.6077; lr:0.000045; reg_loss:mse
+epoch:64; metric:emoval; train:0.9602; eval:0.6062; lr:0.000045; reg_loss:mse
+epoch:65; metric:emoval; train:0.9593; eval:0.5962; lr:0.000045; reg_loss:mse
+epoch:66; metric:emoval; train:0.9644; eval:0.5916; lr:0.000045; reg_loss:mse
+epoch:67; metric:emoval; train:0.9625; eval:0.5993; lr:0.000045; reg_loss:mse
+epoch:68; metric:emoval; train:0.9569; eval:0.6042; lr:0.000045; reg_loss:mse
+epoch:69; metric:emoval; train:0.9638; eval:0.6042; lr:0.000045; reg_loss:mse
+epoch:70; metric:emoval; train:0.9660; eval:0.5956; lr:0.000023; reg_loss:mse
+epoch:71; metric:emoval; train:0.9631; eval:0.6042; lr:0.000023; reg_loss:mse
+epoch:72; metric:emoval; train:0.9668; eval:0.6019; lr:0.000023; reg_loss:mse
+epoch:73; metric:emoval; train:0.9649; eval:0.6084; lr:0.000023; reg_loss:mse
+epoch:74; metric:emoval; train:0.9651; eval:0.5910; lr:0.000023; reg_loss:mse
+epoch:75; metric:emoval; train:0.9609; eval:0.6010; lr:0.000023; reg_loss:mse
+epoch:76; metric:emoval; train:0.9651; eval:0.6003; lr:0.000023; reg_loss:mse
+epoch:77; metric:emoval; train:0.9684; eval:0.5944; lr:0.000023; reg_loss:mse
+epoch:78; metric:emoval; train:0.9662; eval:0.5999; lr:0.000023; reg_loss:mse
+epoch:79; metric:emoval; train:0.9654; eval:0.5922; lr:0.000011; reg_loss:mse
+epoch:80; metric:emoval; train:0.9693; eval:0.6001; lr:0.000011; reg_loss:mse
+epoch:81; metric:emoval; train:0.9713; eval:0.6126; lr:0.000011; reg_loss:mse
+epoch:82; metric:emoval; train:0.9694; eval:0.6060; lr:0.000011; reg_loss:mse
+epoch:83; metric:emoval; train:0.9673; eval:0.5964; lr:0.000011; reg_loss:mse
+epoch:84; metric:emoval; train:0.9680; eval:0.5991; lr:0.000011; reg_loss:mse
+epoch:85; metric:emoval; train:0.9666; eval:0.6024; lr:0.000011; reg_loss:mse
+epoch:86; metric:emoval; train:0.9706; eval:0.5964; lr:0.000011; reg_loss:mse
+epoch:87; metric:emoval; train:0.9663; eval:0.5936; lr:0.000011; reg_loss:mse
+epoch:88; metric:emoval; train:0.9671; eval:0.6005; lr:0.000006; reg_loss:mse
+epoch:89; metric:emoval; train:0.9683; eval:0.6024; lr:0.000006; reg_loss:mse
+epoch:90; metric:emoval; train:0.9692; eval:0.6074; lr:0.000006; reg_loss:mse
+epoch:91; metric:emoval; train:0.9714; eval:0.6002; lr:0.000006; reg_loss:mse
+epoch:92; metric:emoval; train:0.9705; eval:0.5957; lr:0.000006; reg_loss:mse
+epoch:93; metric:emoval; train:0.9692; eval:0.6066; lr:0.000006; reg_loss:mse
+epoch:94; metric:emoval; train:0.9746; eval:0.5984; lr:0.000006; reg_loss:mse
+epoch:95; metric:emoval; train:0.9694; eval:0.6065; lr:0.000006; reg_loss:mse
+epoch:96; metric:emoval; train:0.9704; eval:0.5979; lr:0.000006; reg_loss:mse
+epoch:97; metric:emoval; train:0.9712; eval:0.6101; lr:0.000003; reg_loss:mse
+Early stopping at epoch 97, best epoch: 61
+Step3: saving and testing on the 4 folder
+fold:4; reg-ft epoch:1; train_mse:0.115890; eval_mse:0.567918; lr:0.000080
+fold:4; reg-ft epoch:2; train_mse:0.119205; eval_mse:0.568102; lr:0.000080
+fold:4; reg-ft epoch:3; train_mse:0.113253; eval_mse:0.572118; lr:0.000080
+fold:4; reg-ft epoch:4; train_mse:0.119777; eval_mse:0.568560; lr:0.000080
+fold:4; reg-ft epoch:5; train_mse:0.120248; eval_mse:0.571126; lr:0.000040
+fold:4; reg-ft epoch:6; train_mse:0.112059; eval_mse:0.570493; lr:0.000040
+fold:4; reg-head finetune done; updates:6; best_eval_mse:0.5679177045822144
+fold:4; emotion-group calibration enabled; groups=[0, 1, 2, 3, 4, 5]; global_coef:0.941397; global_bias:-0.018483; clip:4.5
+>>>>> Finish: training on the 4-th folder, best_epoch: 61, swa_updates: 0, duration: 971.372172832489 >>>>>
+>>>>> Cross-validation: training on the 5 folder >>>>>
+Step1: build model (each folder has its own model)
+fold:5; init prior centers from fold-train; counts=[697,647,555,315,364,118] centers=[-0.095,-2.478,1.790,-2.352,-1.036,-0.383]
+fold:5; using LabelSmoothingCrossEntropy(smoothing=0.05)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:0.0846; eval:0.4252; lr:0.000360; reg_loss:smoothl1
+epoch:2; metric:emoval; train:0.4900; eval:0.3144; lr:0.000360; reg_loss:smoothl1
+epoch:3; metric:emoval; train:0.5736; eval:0.5347; lr:0.000360; reg_loss:smoothl1
+epoch:4; metric:emoval; train:0.6174; eval:0.5344; lr:0.000360; reg_loss:smoothl1
+epoch:5; metric:emoval; train:0.6638; eval:0.5482; lr:0.000360; reg_loss:smoothl1
+epoch:6; metric:emoval; train:0.6942; eval:0.4448; lr:0.000360; reg_loss:smoothl1
+epoch:7; metric:emoval; train:0.7200; eval:0.5290; lr:0.000360; reg_loss:smoothl1
+epoch:8; metric:emoval; train:0.7332; eval:0.4858; lr:0.000360; reg_loss:smoothl1
+epoch:9; metric:emoval; train:0.7365; eval:0.5177; lr:0.000360; reg_loss:smoothl1
+epoch:10; metric:emoval; train:0.7360; eval:0.5531; lr:0.000360; reg_loss:smoothl1
+epoch:11; metric:emoval; train:0.7658; eval:0.5209; lr:0.000360; reg_loss:smoothl1
+epoch:12; metric:emoval; train:0.7819; eval:0.5156; lr:0.000360; reg_loss:smoothl1
+epoch:13; metric:emoval; train:0.7805; eval:0.4670; lr:0.000360; reg_loss:smoothl1
+epoch:14; metric:emoval; train:0.7867; eval:0.4879; lr:0.000360; reg_loss:smoothl1
+epoch:15; metric:emoval; train:0.8083; eval:0.5071; lr:0.000360; reg_loss:smoothl1
+epoch:16; metric:emoval; train:0.8080; eval:0.5215; lr:0.000360; reg_loss:smoothl1
+epoch:17; metric:emoval; train:0.7994; eval:0.5415; lr:0.000360; reg_loss:smoothl1
+epoch:18; metric:emoval; train:0.8042; eval:0.4899; lr:0.000360; reg_loss:smoothl1
+epoch:19; metric:emoval; train:0.7983; eval:0.5368; lr:0.000180; reg_loss:smoothl1
+epoch:20; metric:emoval; train:0.8667; eval:0.5313; lr:0.000180; reg_loss:smoothl1
+epoch:21; metric:emoval; train:0.8810; eval:0.5518; lr:0.000180; reg_loss:smoothl1
+epoch:22; metric:emoval; train:0.8896; eval:0.5199; lr:0.000180; reg_loss:smoothl1
+epoch:23; metric:emoval; train:0.8958; eval:0.5321; lr:0.000180; reg_loss:smoothl1
+epoch:24; metric:emoval; train:0.8940; eval:0.5496; lr:0.000180; reg_loss:smoothl1
+epoch:25; metric:emoval; train:0.8979; eval:0.5531; lr:0.000180; reg_loss:smoothl1
+epoch:26; metric:emoval; train:0.8900; eval:0.5643; lr:0.000180; reg_loss:smoothl1
+epoch:27; metric:emoval; train:0.8978; eval:0.5017; lr:0.000180; reg_loss:smoothl1
+epoch:28; metric:emoval; train:0.8951; eval:0.5371; lr:0.000180; reg_loss:smoothl1
+epoch:29; metric:emoval; train:0.8940; eval:0.5491; lr:0.000180; reg_loss:smoothl1
+epoch:30; metric:emoval; train:0.9029; eval:0.5238; lr:0.000180; reg_loss:smoothl1
+epoch:31; metric:emoval; train:0.9049; eval:0.5460; lr:0.000180; reg_loss:smoothl1
+epoch:32; metric:emoval; train:0.9012; eval:0.5511; lr:0.000180; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.9085; eval:0.5437; lr:0.000180; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.9082; eval:0.4919; lr:0.000180; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.9032; eval:0.5413; lr:0.000090; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.9266; eval:0.5592; lr:0.000090; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.9230; eval:0.5295; lr:0.000090; reg_loss:mse
+epoch:38; metric:emoval; train:0.9166; eval:0.5525; lr:0.000090; reg_loss:mse
+epoch:39; metric:emoval; train:0.9315; eval:0.5659; lr:0.000090; reg_loss:mse
+epoch:40; metric:emoval; train:0.9332; eval:0.5523; lr:0.000090; reg_loss:mse
+epoch:41; metric:emoval; train:0.9337; eval:0.5472; lr:0.000090; reg_loss:mse
+epoch:42; metric:emoval; train:0.9332; eval:0.5555; lr:0.000090; reg_loss:mse
+epoch:43; metric:emoval; train:0.9372; eval:0.5466; lr:0.000090; reg_loss:mse
+epoch:44; metric:emoval; train:0.9365; eval:0.5317; lr:0.000090; reg_loss:mse
+epoch:45; metric:emoval; train:0.9319; eval:0.5297; lr:0.000090; reg_loss:mse
+epoch:46; metric:emoval; train:0.9375; eval:0.5571; lr:0.000090; reg_loss:mse
+epoch:47; metric:emoval; train:0.9407; eval:0.5207; lr:0.000090; reg_loss:mse
+epoch:48; metric:emoval; train:0.9431; eval:0.5387; lr:0.000045; reg_loss:mse
+epoch:49; metric:emoval; train:0.9523; eval:0.5328; lr:0.000045; reg_loss:mse
+epoch:50; metric:emoval; train:0.9512; eval:0.5567; lr:0.000045; reg_loss:mse
+epoch:51; metric:emoval; train:0.9528; eval:0.5584; lr:0.000045; reg_loss:mse
+epoch:52; metric:emoval; train:0.9544; eval:0.5672; lr:0.000045; reg_loss:mse
+epoch:53; metric:emoval; train:0.9564; eval:0.5584; lr:0.000045; reg_loss:mse
+epoch:54; metric:emoval; train:0.9523; eval:0.5579; lr:0.000045; reg_loss:mse
+epoch:55; metric:emoval; train:0.9561; eval:0.5523; lr:0.000045; reg_loss:mse
+epoch:56; metric:emoval; train:0.9555; eval:0.5531; lr:0.000045; reg_loss:mse
+epoch:57; metric:emoval; train:0.9573; eval:0.5576; lr:0.000045; reg_loss:mse
+epoch:58; metric:emoval; train:0.9523; eval:0.5569; lr:0.000045; reg_loss:mse
+epoch:59; metric:emoval; train:0.9613; eval:0.5603; lr:0.000045; reg_loss:mse
+epoch:60; metric:emoval; train:0.9578; eval:0.5710; lr:0.000045; reg_loss:mse
+epoch:61; metric:emoval; train:0.9558; eval:0.5509; lr:0.000045; reg_loss:mse
+epoch:62; metric:emoval; train:0.9599; eval:0.5344; lr:0.000045; reg_loss:mse
+epoch:63; metric:emoval; train:0.9596; eval:0.5551; lr:0.000045; reg_loss:mse
+epoch:64; metric:emoval; train:0.9570; eval:0.5686; lr:0.000045; reg_loss:mse
+epoch:65; metric:emoval; train:0.9587; eval:0.5751; lr:0.000045; reg_loss:mse
+epoch:66; metric:emoval; train:0.9577; eval:0.5507; lr:0.000045; reg_loss:mse
+epoch:67; metric:emoval; train:0.9610; eval:0.5520; lr:0.000045; reg_loss:mse
+epoch:68; metric:emoval; train:0.9580; eval:0.5597; lr:0.000045; reg_loss:mse
+epoch:69; metric:emoval; train:0.9579; eval:0.5487; lr:0.000045; reg_loss:mse
+epoch:70; metric:emoval; train:0.9607; eval:0.5611; lr:0.000045; reg_loss:mse
+epoch:71; metric:emoval; train:0.9616; eval:0.5261; lr:0.000045; reg_loss:mse
+epoch:72; metric:emoval; train:0.9613; eval:0.5563; lr:0.000045; reg_loss:mse
+
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+epoch:73; metric:emoval; train:0.9590; eval:0.5524; lr:0.000045; reg_loss:mse
+epoch:74; metric:emoval; train:0.9641; eval:0.5449; lr:0.000023; reg_loss:mse
+epoch:75; metric:emoval; train:0.9621; eval:0.5633; lr:0.000023; reg_loss:mse
+epoch:76; metric:emoval; train:0.9654; eval:0.5558; lr:0.000023; reg_loss:mse
+epoch:77; metric:emoval; train:0.9685; eval:0.5654; lr:0.000023; reg_loss:mse
+epoch:78; metric:emoval; train:0.9625; eval:0.5668; lr:0.000023; reg_loss:mse
+epoch:79; metric:emoval; train:0.9653; eval:0.5572; lr:0.000023; reg_loss:mse
+epoch:80; metric:emoval; train:0.9690; eval:0.5540; lr:0.000023; reg_loss:mse
+epoch:81; metric:emoval; train:0.9665; eval:0.5560; lr:0.000023; reg_loss:mse
+epoch:82; metric:emoval; train:0.9664; eval:0.5635; lr:0.000023; reg_loss:mse
+epoch:83; metric:emoval; train:0.9638; eval:0.5749; lr:0.000011; reg_loss:mse
+epoch:84; metric:emoval; train:0.9700; eval:0.5531; lr:0.000011; reg_loss:mse
+epoch:85; metric:emoval; train:0.9699; eval:0.5559; lr:0.000011; reg_loss:mse
+epoch:86; metric:emoval; train:0.9701; eval:0.5610; lr:0.000011; reg_loss:mse
+epoch:87; metric:emoval; train:0.9697; eval:0.5639; lr:0.000011; reg_loss:mse
+epoch:88; metric:emoval; train:0.9691; eval:0.5628; lr:0.000011; reg_loss:mse
+epoch:89; metric:emoval; train:0.9666; eval:0.5737; lr:0.000011; reg_loss:mse
+epoch:90; metric:emoval; train:0.9706; eval:0.5693; lr:0.000011; reg_loss:mse
+epoch:91; metric:emoval; train:0.9685; eval:0.5539; lr:0.000011; reg_loss:mse
+epoch:92; metric:emoval; train:0.9697; eval:0.5683; lr:0.000006; reg_loss:mse
+epoch:93; metric:emoval; train:0.9678; eval:0.5667; lr:0.000006; reg_loss:mse
+epoch:94; metric:emoval; train:0.9710; eval:0.5658; lr:0.000006; reg_loss:mse
+epoch:95; metric:emoval; train:0.9687; eval:0.5634; lr:0.000006; reg_loss:mse
+epoch:96; metric:emoval; train:0.9698; eval:0.5644; lr:0.000006; reg_loss:mse
+epoch:97; metric:emoval; train:0.9688; eval:0.5667; lr:0.000006; reg_loss:mse
+epoch:98; metric:emoval; train:0.9693; eval:0.5596; lr:0.000006; reg_loss:mse
+epoch:99; metric:emoval; train:0.9711; eval:0.5625; lr:0.000006; reg_loss:mse
+epoch:100; metric:emoval; train:0.9677; eval:0.5694; lr:0.000006; reg_loss:mse
+epoch:101; metric:emoval; train:0.9700; eval:0.5657; lr:0.000003; reg_loss:mse
+Early stopping at epoch 101, best epoch: 65
+Step3: saving and testing on the 5 folder
+fold:5; reg-ft epoch:1; train_mse:0.116598; eval_mse:0.681723; lr:0.000080
+fold:5; reg-ft epoch:2; train_mse:0.121247; eval_mse:0.680698; lr:0.000080
+fold:5; reg-ft epoch:3; train_mse:0.117518; eval_mse:0.679416; lr:0.000080
+fold:5; reg-ft epoch:4; train_mse:0.119580; eval_mse:0.680406; lr:0.000080
+fold:5; reg-ft epoch:5; train_mse:0.118910; eval_mse:0.680368; lr:0.000080
+fold:5; reg-ft epoch:6; train_mse:0.119147; eval_mse:0.681773; lr:0.000080
+fold:5; reg-ft epoch:7; train_mse:0.117517; eval_mse:0.680451; lr:0.000040
+fold:5; reg-ft epoch:8; train_mse:0.119793; eval_mse:0.681695; lr:0.000040
+fold:5; reg-head finetune done; updates:8; best_eval_mse:0.679416298866272
+fold:5; emotion-group calibration enabled; groups=[0, 1, 2, 3, 4, 5]; global_coef:0.950295; global_bias:-0.010711; clip:4.5
+>>>>> Finish: training on the 5-th folder, best_epoch: 65, swa_updates: 0, duration: 655.8945891857147 >>>>>
+====== Prediction and Saving =======
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ablation_v24/results/a0_base_seed8407/seed8407-trimodal/result/cv_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v14+utt+None_f1:0.7601_acc:0.7625_val:0.6149_1772019983.3241994.npz
+cv merged result: f1:0.7605_acc:0.7625_val:0.6150; samples: 3373
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ablation_v24/results/a0_base_seed8407/seed8407-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v14+utt+None_f1:0.8202_acc:0.8200_val:0.6074_1772019983.3241994.npz
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ablation_v24/results/a0_base_seed8407/seed8407-trimodal/result/test2_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v14+utt+None_f1:0.7794_acc:0.7840_val:0.6114_1772019983.3241994.npz
+save results in /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ablation_v24/results/a0_base_seed8407/seed8407-trimodal/result/test3_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v14+utt+None_f1:0.8803_acc:0.8837_val:80.3568_1772019983.3241994.npz

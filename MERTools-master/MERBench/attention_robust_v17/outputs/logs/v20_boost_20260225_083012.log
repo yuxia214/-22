@@ -1,0 +1,23 @@
+================================================================
+ V20 Boost Pipeline
+ Cases: d1 d2 d3 d4
+ Seeds: 8407
+ Total runs: 4
+ Batch: 20
+ Parallel jobs: 4
+ Taskset: 0 (CPU slots: 0-2 3-5 6-8 9-11)
+================================================================
+
+======== Phase 1: Training 4 runs (4 parallel) ========
+
+------------------------------------------------------------
+ Batch 1: jobs 1-4/4
+------------------------------------------------------------
+  [1/4] d1:8407
+  [2/4] d2:8407
+  [3/4] d3:8407
+  [4/4] d4:8407
+[START] d2_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v20_d2_seed8407_20260225_083012.log
+[START] d1_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v20_d1_seed8407_20260225_083012.log
+[START] d4_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v20_d4_seed8407_20260225_083012.log
+[START] d3_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v20_d3_seed8407_20260225_083012.log

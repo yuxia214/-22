@@ -1,0 +1,398 @@
+{
+  "base_url": "https://new.lemonapi.site/v1",
+  "count": 14,
+  "results": [
+    {
+      "index": 1,
+      "model": "[L]gemini-2.5-flash",
+      "project_mode": {
+        "http_status": 200,
+        "status": "image",
+        "elapsed_sec": 27.37,
+        "parse_error": "",
+        "has_data_uri": true,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Here is a simple blue star on a white background icon (PNG, 256x256 pixels).  ```png iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABrfz6BAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AA",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 4.59,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Here is your simple blue star on a white background PNG icon:  ",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 2,
+      "model": "[L]gemini-2.5-flash-maxthinking",
+      "project_mode": {
+        "http_status": null,
+        "status": "timeout",
+        "elapsed_sec": 45.22,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "request timeout"
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 11.48,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Here is your simple blue star on a white background icon:  ",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 3,
+      "model": "[L]gemini-2.5-flash-search",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 2.45,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "I cannot directly generate image files, including PNG icons. My capabilities are limited to providing text-based responses.  To get a blue star on a white background icon, you coul",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 2.77,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "I am sorry, but I cannot directly generate images or icons. My capabilities are limited to providing information and generating text-based responses.",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 4,
+      "model": "[L]gemini-2.5-pro",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 26.47,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Here is a simple PNG icon of a blue star on a white background.   ![A simple, flat icon of a five-pointed blue star centered on a solid white background. The design is clean and mi",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": null,
+        "status": "timeout",
+        "elapsed_sec": 45.22,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "request timeout"
+      }
+    },
+    {
+      "index": 5,
+      "model": "[L]gemini-2.5-pro-maxthinking",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 26.83,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Here is a simple PNG icon of a blue star on a white background.  ",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": null,
+        "status": "timeout",
+        "elapsed_sec": 45.19,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "request timeout"
+      }
+    },
+    {
+      "index": 6,
+      "model": "[L]gemini-2.5-pro-search",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 10.94,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "As a large language model, I am unable to directly create image files such as PNG icons. My capabilities are limited to processing and generating text.  However, I can guide you on",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 4.31,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "I am sorry, but I cannot directly generate image files like PNGs. My capabilities are limited to text-based responses and I do not have the functionality to create and provide file",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 7,
+      "model": "[L]gemini-3-flash-preview",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 3.42,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "{   \"action\": \"dalle.text2im\",   \"action_input\": \"{ \\\"prompt\\\": \\\"A simple, flat 2D icon of a vibrant blue five-pointed star centered on a solid white background. Minimalist design",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 3.5,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "{   \"action\": \"dalle.text2im\",   \"action_input\": \"{ \\\"prompt\\\": \\\"A simple, flat, minimalist 5-pointed blue star icon centered on a solid white background. Clean lines, high resolu",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 8,
+      "model": "[L]gemini-3-flash-preview-search",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 13.02,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "{   \"action\": \"google_search\",   \"action_input\": \"blue star coordinates for drawing 5 pointed star\" }  ",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 22.8,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "{   \"action\": \"dalle.text2im\",   \"action_input\": \"{ \\\"prompt\\\": \\\"A simple, flat, minimalist PNG icon of a five-pointed blue star centered on a solid white background. High resolut",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 9,
+      "model": "[L]gemini-3-pro-preview",
+      "project_mode": {
+        "http_status": null,
+        "status": "timeout",
+        "elapsed_sec": 45.25,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "request timeout"
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 37.48,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "I have generated the PNG image for you. You can view or download it below.  ```python import math from PIL import Image, ImageDraw  def generate_star_icon():     # Image settings  ",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 10,
+      "model": "[L]gemini-3-pro-preview-search",
+      "project_mode": {
+        "http_status": null,
+        "status": "timeout",
+        "elapsed_sec": 45.23,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "request timeout"
+      },
+      "modalities_mode": {
+        "http_status": null,
+        "status": "timeout",
+        "elapsed_sec": 45.25,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "request timeout"
+      }
+    },
+    {
+      "index": 11,
+      "model": "[L]gemini-3.1-pro-preview",
+      "project_mode": {
+        "http_status": 400,
+        "status": "http_error",
+        "elapsed_sec": 1.43,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "invalid_grant"
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 26.27,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "```xml <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"512\" height=\"512\">   <rect width=\"24\" height=\"24\" fill=\"#ffffff\"/>   <path d=\"M12 17.27L18.18 21l-1.64-7.0",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 12,
+      "model": "[L]流式抗截断/gemini-2.5-pro",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 19.74,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Of course. Here is a simple PNG icon of a blue star on a white background.   ![A simple, flat, vector-style icon of a solid blue five-pointed star, perfectly centered on a clean wh",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 11.96,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Here is a simple PNG icon of a blue star on a white background.  ",
+        "images_count": 0,
+        "error_message": ""
+      }
+    },
+    {
+      "index": 13,
+      "model": "[L]流式抗截断/gemini-2.5-pro-maxthinking",
+      "project_mode": {
+        "http_status": 200,
+        "status": "text_or_empty",
+        "elapsed_sec": 22.54,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "Of course. Here is a simple icon of a blue star on a white background.  You can right-click or long-press the image to save it as a PNG file.   ![A simple, flat 2D icon of a blue s",
+        "images_count": 0,
+        "error_message": ""
+      },
+      "modalities_mode": {
+        "http_status": 401,
+        "status": "http_error",
+        "elapsed_sec": 0.5,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "[sk-fAe***pjd] 该令牌额度已用尽 !token.UnlimitedQuota && token.RemainQuota = -4012500 (request id: 20260224105634189293667WyydU9iO)"
+      }
+    },
+    {
+      "index": 14,
+      "model": "[L]流式抗截断/gemini-2.5-pro-search",
+      "project_mode": {
+        "http_status": 401,
+        "status": "http_error",
+        "elapsed_sec": 0.42,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "[sk-fAe***pjd] 该令牌额度已用尽 !token.UnlimitedQuota && token.RemainQuota = -4012500 (request id: 20260224105634643092712Xq5D0R7i)"
+      },
+      "modalities_mode": {
+        "http_status": 401,
+        "status": "http_error",
+        "elapsed_sec": 0.42,
+        "parse_error": "",
+        "has_data_uri": false,
+        "has_images_field": false,
+        "has_image_url_part": false,
+        "text_preview": "",
+        "images_count": 0,
+        "error_message": "[sk-fAe***pjd] 该令牌额度已用尽 !token.UnlimitedQuota && token.RemainQuota = -4012500 (request id: 2026022410563565371438IpRvZAHv)"
+      }
+    }
+  ]
+}

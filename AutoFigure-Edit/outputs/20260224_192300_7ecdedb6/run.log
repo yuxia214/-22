@@ -1,0 +1,126 @@
+[meta] python=/root/autodl-tmp/figure/bin/python
+[meta] cmd=/root/autodl-tmp/figure/bin/python /root/autodl-tmp/AutoFigure-Edit/autofigure2.py --method_text A compact workflow diagram for data cleaning, model training, and evaluation. --output_dir /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_192300_7ecdedb6 --provider crs --api_key *** --base_url https://cdn.12ai.org/v1 --image_model gemini-3-pro-image-preview --svg_model [L]gemini-2.5-pro --sam_prompt icon,person,animal,robot --placeholder_mode label --merge_threshold 0.01 --sam_backend local
+[stdout] ============================================================
+[stdout] Paper Method 到 SVG 图标替换流程 (Label 模式增强版 + Box合并)
+[stdout] ============================================================
+[stdout] Provider: crs
+[stdout] 输出目录: /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_192300_7ecdedb6
+[stdout] 生图模型: gemini-3-pro-image-preview
+[stdout] SVG模型: [L]gemini-2.5-pro
+[stdout] SAM提示词: icon,person,animal,robot
+[stdout] 最低置信度: 0.0
+[stdout] SAM后端: local
+[stdout] 执行到步骤: 5
+[stdout] 占位符模式: label
+[stdout] 优化迭代次数: 0
+[stdout] Box合并阈值: 0.01
+[stdout] ============================================================
+[stdout] ============================================================
+[stdout] 步骤一：使用 LLM 生成学术风格图片
+[stdout] ============================================================
+[stdout] Provider: crs
+[stdout] 模型: gemini-3-pro-image-preview
+[stdout] 发送请求到: https://cdn.12ai.org/v1
+[stdout] [API重试] Bianxie 图像生成接口 第1/3次失败: Connection error.. 2.0s 后重试...
+[stdout] 图片已保存: /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_192300_7ecdedb6/figure.png
+[stdout] ============================================================
+[stdout] 步骤二：SAM3 分割 + 灰色填充+黑色边框+序号标记
+[stdout] ============================================================
+[stdout] 原图尺寸: 1408 x 768
+[stdout] 使用的 prompts: ['icon', 'person', 'animal', 'robot']
+[stdout] 警告: 未找到 bpe 文件，使用默认路径
+[stdout] 使用设备: cuda
+[stdout] 使用本地 SAM3 权重: /root/autodl-tmp/AutoFigure-Edit/sam3/权重/sam3.pt
+[stdout]   正在检测: 'icon'
+[stdout]     对象 1: (1203, 169, 1341, 294), score=0.722
+[stdout]     对象 2: (1000, 176, 1191, 502), score=0.557
+[stdout]     对象 3: (583, 294, 603, 322), score=0.628
+[stdout]   'icon' 检测到 3 个有效对象
+[stdout]   正在检测: 'person'
+[stdout]   'person' 检测到 0 个有效对象
+[stdout]   正在检测: 'animal'
+[stdout]     对象 1: (999, 176, 1189, 502), score=0.891
+[stdout]     对象 2: (76, 163, 328, 502), score=0.506
+[stdout]     对象 3: (649, 216, 835, 457), score=0.778
+[stdout]   'animal' 检测到 3 个有效对象
+[stdout]   正在检测: 'robot'
+[stdout]     对象 1: (78, 163, 327, 502), score=0.944
+[stdout]   'robot' 检测到 1 个有效对象
+[stdout] 总计检测: 7 个对象 (来自 4 个 prompts)
+[stdout]   合并重叠的boxes (阈值: 0.01)...
+[stdout]     迭代 1: 合并 box 1 和 box 3 (重叠比例: 0.99)
+[stdout]     迭代 2: 合并 box 2 和 box 4 (重叠比例: 1.00)
+[stdout]   合并完成: 7 -> 5 (合并了 2 个)
+[stdout]   合并后的boxes:
+[stdout]     <AF>01: (1203, 169, 1341, 294)
+[stdout]     <AF>02: (583, 294, 603, 322)
+[stdout]     <AF>03: (649, 216, 835, 457)
+[stdout]     <AF>04: (999, 176, 1191, 502)
+[stdout]     <AF>05: (76, 163, 328, 502)
+[stdout]   绘制 samed.png (使用 5 个boxes)...
+[stdout] 标记图片已保存: /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_192300_7ecdedb6/samed.png
+[stdout] Box 信息已保存: /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_192300_7ecdedb6/boxlib.json
+[stdout] 检测到 5 个图标
+[stdout] ============================================================
+[stdout] 步骤三：裁切 + RMBG2 去背景
+[stdout] ============================================================
+[stdout] 从 HuggingFace 加载 RMBG-2.0 模型...
+[stderr] Traceback (most recent call last):
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 657, in hf_raise_for_status
+[stderr]     response.raise_for_status()
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_models.py", line 829, in raise_for_status
+[stderr]     raise HTTPStatusError(message, request=request, response=self)
+[stderr] httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://huggingface.co/briaai/RMBG-2.0/resolve/main/config.json'
+[stderr] For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+[stderr] The above exception was the direct cause of the following exception:
+[stderr] Traceback (most recent call last):
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/utils/hub.py", line 419, in cached_files
+[stderr]     hf_hub_download(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+[stderr]     return fn(*args, **kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1032, in hf_hub_download
+[stderr]     return _hf_hub_download_to_cache_dir(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1183, in _hf_hub_download_to_cache_dir
+[stderr]     _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1812, in _raise_on_head_call_error
+[stderr]     raise head_call_error
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1699, in _get_metadata_or_catch_error
+[stderr]     metadata = get_hf_file_metadata(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+[stderr]     return fn(*args, **kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1622, in get_hf_file_metadata
+[stderr]     response = _httpx_follow_relative_redirects(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 309, in _httpx_follow_relative_redirects
+[stderr]     hf_raise_for_status(response)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 677, in hf_raise_for_status
+[stderr]     raise _format(GatedRepoError, message, response) from e
+[stderr] huggingface_hub.errors.GatedRepoError: 403 Client Error. (Request ID: Root=1-699d8aa9-1df0e48a282d1d8620a96acf;06928403-b4eb-43b5-904a-7453f4da8e8f)
+[stderr] Cannot access gated repo for url https://huggingface.co/briaai/RMBG-2.0/resolve/main/config.json.
+[stderr] Access to model briaai/RMBG-2.0 is restricted and you are not in the authorized list. Visit https://huggingface.co/briaai/RMBG-2.0 to ask for access.
+[stderr] The above exception was the direct cause of the following exception:
+[stderr] Traceback (most recent call last):
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 2734, in <module>
+[stderr]     result = method_to_svg(
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 2495, in method_to_svg
+[stderr]     icon_infos = crop_and_remove_background(
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 1507, in crop_and_remove_background
+[stderr]     remover = BriaRMBG2Remover(model_path=rmbg_model_path, output_dir=icons_dir)
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 1448, in __init__
+[stderr]     self.model = AutoModelForImageSegmentation.from_pretrained(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 319, in from_pretrained
+[stderr]     config, kwargs = AutoConfig.from_pretrained(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 1403, in from_pretrained
+[stderr]     config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/configuration_utils.py", line 572, in get_config_dict
+[stderr]     config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/configuration_utils.py", line 627, in _get_config_dict
+[stderr]     resolved_config_file = cached_file(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/utils/hub.py", line 276, in cached_file
+[stderr]     file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/transformers/utils/hub.py", line 483, in cached_files
+[stderr]     raise OSError(
+[stderr] OSError: You are trying to access a gated repo.
+[stderr] Make sure to have access to it at https://huggingface.co/briaai/RMBG-2.0.
+[stderr] 403 Client Error. (Request ID: Root=1-699d8aa9-1df0e48a282d1d8620a96acf;06928403-b4eb-43b5-904a-7453f4da8e8f)
+[stderr] Cannot access gated repo for url https://huggingface.co/briaai/RMBG-2.0/resolve/main/config.json.
+[stderr] Access to model briaai/RMBG-2.0 is restricted and you are not in the authorized list. Visit https://huggingface.co/briaai/RMBG-2.0 to ask for access.

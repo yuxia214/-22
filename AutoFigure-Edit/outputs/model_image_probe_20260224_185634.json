@@ -1,0 +1,132 @@
+{
+  "base_url": "https://new.lemonapi.site/v1",
+  "count": 14,
+  "results": [
+    {
+      "index": 1,
+      "model": "[L]gemini-2.5-flash",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 3.33,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 2,
+      "model": "[L]gemini-2.5-flash-maxthinking",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 6.73,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 3,
+      "model": "[L]gemini-2.5-flash-search",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 2.3,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 4,
+      "model": "[L]gemini-2.5-pro",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 33.67,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 5,
+      "model": "[L]gemini-2.5-pro-maxthinking",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 311.12,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 6,
+      "model": "[L]gemini-2.5-pro-search",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 20.87,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 7,
+      "model": "[L]gemini-3-flash-preview",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 3.4,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 8,
+      "model": "[L]gemini-3-flash-preview-search",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 12.09,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 9,
+      "model": "[L]gemini-3-pro-preview",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 70.01,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 10,
+      "model": "[L]gemini-3-pro-preview-search",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 88.75,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 11,
+      "model": "[L]gemini-3.1-pro-preview",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 67.28,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 12,
+      "model": "[L]流式抗截断/gemini-2.5-pro",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 15.88,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 13,
+      "model": "[L]流式抗截断/gemini-2.5-pro-maxthinking",
+      "status": "no_image",
+      "detail": "response has no parsable image payload",
+      "elapsed_sec": 12.89,
+      "width": null,
+      "height": null
+    },
+    {
+      "index": 14,
+      "model": "[L]流式抗截断/gemini-2.5-pro-search",
+      "status": "ok",
+      "detail": "image returned: 800x800",
+      "elapsed_sec": 57.98,
+      "width": 800,
+      "height": 800
+    }
+  ]
+}

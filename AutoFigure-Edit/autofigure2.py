@@ -71,8 +71,9 @@ import os
 import re
 import shutil
 import sys
+import time
 from pathlib import Path
-from typing import Optional, List, Dict, Any, Literal
+from typing import Optional, List, Dict, Any, Literal, Callable, TypeVar
 
 import requests
 import numpy as np
@@ -86,6 +87,14 @@ from transformers import AutoModelForImageSegmentation
 # Provider 配置
 # ============================================================================
 
+CRS_BASE_URL = os.environ.get("CRS_BASE_URL", "http://bruder.yukinoapi.com/v1")
+CRS_IMAGE_MODEL = os.environ.get("CRS_IMAGE_MODEL", "「Rim画图」gemini-3-pro-image-preview")
+CRS_SVG_MODEL = os.environ.get("CRS_SVG_MODEL", "[稳定1]gemini-3-pro-preview")
+CRS_DEFAULT_API_KEY = os.environ.get(
+    "CRS_API_KEY",
+    "sk-zRCw7PibMrd26IU47W0bogK5TQezqu6KfVw5fwGMyivygXyT",
+)
+
 PROVIDER_CONFIGS = {
     "openrouter": {
         "base_url": "https://openrouter.ai/api/v1",
@@ -98,9 +107,9 @@ PROVIDER_CONFIGS = {
         "default_svg_model": "gemini-3-pro-preview",
     },
     "crs": {
-        "base_url": "http://bruder.yukinoapi.com/v1",
-        "default_image_model": "「Rim画图」gemini-3-pro-image-preview",
-        "default_svg_model": "[稳定1]gemini-3-pro-preview",
+        "base_url": CRS_BASE_URL,
+        "default_image_model": CRS_IMAGE_MODEL,
+        "default_svg_model": CRS_SVG_MODEL,
     },
 }
 
@@ -115,7 +124,7 @@ PROVIDER_DEFAULT_API_ENV = {
 
 # User-requested built-in key for CRS provider.
 PROVIDER_DEFAULT_API_KEYS = {
-    "crs": "sk-HMR2NAznJcxT122qSoDie0uNgbmb6OeDJeKEkj08HtWo5h2R",
+    "crs": CRS_DEFAULT_API_KEY,
 }
 
 # SAM3 API config
@@ -127,10 +136,84 @@ SAM3_API_TIMEOUT = 300
 USE_REFERENCE_IMAGE = False
 REFERENCE_IMAGE_PATH: Optional[str] = None
 
+API_RETRY_ATTEMPTS = max(1, int(os.environ.get("AUTOFIGURE_API_RETRY_ATTEMPTS", "3")))
+API_RETRY_BACKOFF_SECONDS = max(
+    0.1,
+    float(os.environ.get("AUTOFIGURE_API_RETRY_BACKOFF_SECONDS", "2")),
+)
+RETRYABLE_ERROR_KEYWORDS = (
+    "connection error",
+    "disconnected",
+    "connection reset",
+    "remote protocol error",
+    "timed out",
+    "timeout",
+    "temporarily unavailable",
+    "502",
+    "503",
+    "504",
+)
+RETRYABLE_EXCEPTION_NAMES = {
+    "APIConnectionError",
+    "APITimeoutError",
+    "RemoteProtocolError",
+    "ConnectError",
+    "ConnectTimeout",
+    "ReadTimeout",
+    "ReadError",
+    "WriteError",
+    "ProtocolError",
+    "ConnectionError",
+    "TimeoutException",
+}
+
+T = TypeVar("T")
+
 
 # ============================================================================
 # 统一的 LLM 调用接口
 # ============================================================================
+
+def _is_retryable_exception(exc: Exception) -> bool:
+    seen: set[int] = set()
+    current: Optional[BaseException] = exc
+
+    while current is not None and id(current) not in seen:
+        seen.add(id(current))
+        if current.__class__.__name__ in RETRYABLE_EXCEPTION_NAMES:
+            return True
+
+        lowered = str(current).lower()
+        if any(keyword in lowered for keyword in RETRYABLE_ERROR_KEYWORDS):
+            return True
+
+        current = current.__cause__ if current.__cause__ is not None else current.__context__
+
+    return False
+
+
+def _run_with_retry(label: str, fn: Callable[[], T]) -> T:
+    last_exc: Optional[Exception] = None
+
+    for attempt in range(1, API_RETRY_ATTEMPTS + 1):
+        try:
+            return fn()
+        except Exception as exc:
+            last_exc = exc
+            should_retry = attempt < API_RETRY_ATTEMPTS and _is_retryable_exception(exc)
+            if not should_retry:
+                raise
+
+            wait_seconds = API_RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1))
+            print(
+                f"[API重试] {label} 第{attempt}/{API_RETRY_ATTEMPTS}次失败: {exc}. "
+                f"{wait_seconds:.1f}s 后重试..."
+            )
+            time.sleep(wait_seconds)
+
+    if last_exc is not None:
+        raise last_exc
+    raise RuntimeError(f"{label} 未执行")
 
 def call_llm_text(
     prompt: str,
@@ -235,11 +318,14 @@ def _call_bianxie_text(
 
         client = OpenAI(base_url=base_url, api_key=api_key)
 
-        completion = client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens,
-            temperature=temperature,
+        completion = _run_with_retry(
+            "Bianxie 文本接口",
+            lambda: client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=temperature,
+            ),
         )
 
         return completion.choices[0].message.content if completion and completion.choices else None
@@ -275,11 +361,14 @@ def _call_bianxie_multimodal(
                     "image_url": {"url": f"data:image/png;base64,{image_b64}"}
                 })
 
-        completion = client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": message_content}],
-            max_tokens=max_tokens,
-            temperature=temperature,
+        completion = _run_with_retry(
+            "Bianxie 多模态接口",
+            lambda: client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": message_content}],
+                max_tokens=max_tokens,
+                temperature=temperature,
+            ),
         )
 
         return completion.choices[0].message.content if completion and completion.choices else None
@@ -313,9 +402,12 @@ def _call_bianxie_image_generation(
             ]
             messages = [{"role": "user", "content": message_content}]
 
-        completion = client.chat.completions.create(
-            model=model,
-            messages=messages,
+        completion = _run_with_retry(
+            "Bianxie 图像生成接口",
+            lambda: client.chat.completions.create(
+                model=model,
+                messages=messages,
+            ),
         )
 
         content = completion.choices[0].message.content if completion and completion.choices else None
@@ -1412,7 +1504,13 @@ def crop_and_remove_background(
         print("警告: 没有检测到有效的 box")
         return []
 
-    remover = BriaRMBG2Remover(model_path=rmbg_model_path, output_dir=icons_dir)
+    remover: Optional[BriaRMBG2Remover] = None
+    use_crop_fallback = False
+    try:
+        remover = BriaRMBG2Remover(model_path=rmbg_model_path, output_dir=icons_dir)
+    except Exception as e:
+        use_crop_fallback = True
+        print(f"警告: RMBG2 初始化失败 ({e})，将跳过去背景步骤并直接使用裁切图标")
 
     icon_infos = []
     for box_info in boxes:
@@ -1427,7 +1525,16 @@ def crop_and_remove_background(
         crop_path = icons_dir / f"icon_{label_clean}.png"
         cropped.save(crop_path)
 
-        nobg_path = remover.remove_background(cropped, f"icon_{label_clean}")
+        if use_crop_fallback or remover is None:
+            nobg_path = str(crop_path)
+            print(f"  {label}: RMBG 不可用，回退为原始裁切图标 -> {nobg_path}")
+        else:
+            try:
+                nobg_path = remover.remove_background(cropped, f"icon_{label_clean}")
+                print(f"  {label}: 裁切并去背景完成 -> {nobg_path}")
+            except Exception as e:
+                nobg_path = str(crop_path)
+                print(f"  {label}: 去背景失败 ({e})，回退为原始裁切图标 -> {nobg_path}")
 
         icon_infos.append({
             "id": box_id,
@@ -1439,11 +1546,10 @@ def crop_and_remove_background(
             "nobg_path": nobg_path,
         })
 
-        print(f"  {label}: 裁切并去背景完成 -> {nobg_path}")
-
-    del remover
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    if remover is not None:
+        del remover
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     return icon_infos
 

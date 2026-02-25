@@ -41,7 +41,10 @@ DEFAULT_PROVIDER_API_ENV = {
     "crs": "CRS_API_KEY",
 }
 DEFAULT_PROVIDER_API_KEY = {
-    "crs": "sk-HMR2NAznJcxT122qSoDie0uNgbmb6OeDJeKEkj08HtWo5h2R",
+    "crs": os.environ.get(
+        "CRS_API_KEY",
+        "sk-zRCw7PibMrd26IU47W0bogK5TQezqu6KfVw5fwGMyivygXyT",
+    ),
 }
 
 SVG_EDIT_CANDIDATES = [

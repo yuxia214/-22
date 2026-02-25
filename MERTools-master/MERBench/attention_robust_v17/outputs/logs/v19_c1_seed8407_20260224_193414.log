@@ -1,0 +1,5 @@
+run_tag=c1_seed8407
+case_id=c1
+model=attention_robust_v2
+seed=8407 gpu=0 batch=20 epochs=130
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c1_seed8407/seed8407

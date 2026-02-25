@@ -1,0 +1,109 @@
+{
+  "tune_set": "test1",
+  "eval_sets": [
+    "test1",
+    "test2",
+    "test3"
+  ],
+  "tune_metrics": {
+    "f1": 0.8396276577302851,
+    "acc": 0.8394160583941606,
+    "mse": 0.596179187297821,
+    "combined": 0.6905828609058299
+  },
+  "models": [
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c1_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c2_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c3_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c4_seed8407"
+  ],
+  "weights_cls": [
+    0.0,
+    0.6564110051936065,
+    0.02366698851319123,
+    0.3199220062932023
+  ],
+  "weights_reg": [
+    0.0,
+    0.3060822948021586,
+    0.2593280625748742,
+    0.4345896426229673
+  ],
+  "selected_sparse": [
+    3,
+    1,
+    2
+  ],
+  "metrics_test1": {
+    "f1": 0.8396276577302851,
+    "acc": 0.8394160583941606,
+    "mse": 0.596179187297821,
+    "combined": 0.6905828609058299
+  },
+  "active_indices_test1": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test1": [
+    0.0,
+    0.6564110051936065,
+    0.02366698851319123,
+    0.3199220062932023
+  ],
+  "active_w_reg_test1": [
+    0.0,
+    0.3060822948021586,
+    0.2593280625748742,
+    0.4345896426229673
+  ],
+  "metrics_test2": {
+    "f1": 0.7744217440361307,
+    "acc": 0.779126213592233,
+    "mse": 0.5936862826347351,
+    "combined": 0.626000173377447
+  },
+  "active_indices_test2": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test2": [
+    0.0,
+    0.6564110051936065,
+    0.02366698851319123,
+    0.3199220062932023
+  ],
+  "active_w_reg_test2": [
+    0.0,
+    0.3060822948021586,
+    0.2593280625748742,
+    0.4345896426229673
+  ],
+  "metrics_test3": {
+    "f1": 0.8859384152353107,
+    "acc": 0.8872901678657075,
+    "mse": 80.84066009521484,
+    "combined": -19.3242266085684
+  },
+  "active_indices_test3": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test3": [
+    0.0,
+    0.6564110051936065,
+    0.02366698851319123,
+    0.3199220062932023
+  ],
+  "active_w_reg_test3": [
+    0.0,
+    0.3060822948021586,
+    0.2593280625748742,
+    0.4345896426229673
+  ]
+}

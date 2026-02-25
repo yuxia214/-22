@@ -1,0 +1,108 @@
+{
+  "tune_set": "test1",
+  "eval_sets": [
+    "test1",
+    "test2",
+    "test3"
+  ],
+  "tune_metrics": {
+    "f1": 0.842841104317245,
+    "acc": 0.8418491484184915,
+    "mse": 0.6341053247451782,
+    "combined": 0.6843147731309505
+  },
+  "models": [
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/d1_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/d2_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/d3_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/d4_seed8407"
+  ],
+  "weights_cls": [
+    0.2216862119052963,
+    0.11236103702165964,
+    0.6112813120823584,
+    0.0546714389906857
+  ],
+  "weights_reg": [
+    0.29307949098266944,
+    0.24081317111740874,
+    0.36248750607928854,
+    0.10361983182063327
+  ],
+  "selected_sparse": [
+    2,
+    0
+  ],
+  "metrics_test1": {
+    "f1": 0.842841104317245,
+    "acc": 0.8418491484184915,
+    "mse": 0.6341053247451782,
+    "combined": 0.6843147731309505
+  },
+  "active_indices_test1": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test1": [
+    0.2216862119052963,
+    0.11236103702165964,
+    0.6112813120823584,
+    0.0546714389906857
+  ],
+  "active_w_reg_test1": [
+    0.2930794909826695,
+    0.24081317111740877,
+    0.3624875060792886,
+    0.10361983182063328
+  ],
+  "metrics_test2": {
+    "f1": 0.7659721313518489,
+    "acc": 0.7694174757281553,
+    "mse": 0.6020075082778931,
+    "combined": 0.6154702542823757
+  },
+  "active_indices_test2": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test2": [
+    0.2216862119052963,
+    0.11236103702165964,
+    0.6112813120823584,
+    0.0546714389906857
+  ],
+  "active_w_reg_test2": [
+    0.2930794909826695,
+    0.24081317111740877,
+    0.3624875060792886,
+    0.10361983182063328
+  ],
+  "metrics_test3": {
+    "f1": 0.8819226577641603,
+    "acc": 0.8812949640287769,
+    "mse": 81.21448516845703,
+    "combined": -19.421698634350097
+  },
+  "active_indices_test3": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test3": [
+    0.2216862119052963,
+    0.11236103702165964,
+    0.6112813120823584,
+    0.0546714389906857
+  ],
+  "active_w_reg_test3": [
+    0.2930794909826695,
+    0.24081317111740877,
+    0.3624875060792886,
+    0.10361983182063328
+  ]
+}

@@ -1,0 +1,26 @@
+================================================================
+ V22 Boost Pipeline
+ Cases: g1 g2 g3 g4
+ Seeds: 8407
+ Total runs: 4
+ Batch: 20
+ Parallel jobs: 4
+ Taskset: 0 (CPU slots: 0-2 3-5 6-8 9-11)
+================================================================
+
+======== Phase 1: Training 4 runs (4 parallel) ========
+
+------------------------------------------------------------
+ Batch 1: jobs 1-4/4
+------------------------------------------------------------
+  [1/4] g1:8407
+  [2/4] g2:8407
+  [3/4] g3:8407
+  [4/4] g4:8407
+[START] g2_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v22_g2_seed8407_20260225_125418.log
+[START] g1_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v22_g1_seed8407_20260225_125418.log
+[START] g4_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v22_g4_seed8407_20260225_125418.log
+[START] g3_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v22_g3_seed8407_20260225_125418.log
+[DONE] g1_seed8407
+[DONE] g2_seed8407
+[DONE] g3_seed8407

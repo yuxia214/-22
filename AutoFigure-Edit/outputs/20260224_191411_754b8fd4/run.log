@@ -1,0 +1,84 @@
+[meta] python=/root/autodl-tmp/figure/bin/python
+[meta] cmd=/root/autodl-tmp/figure/bin/python /root/autodl-tmp/AutoFigure-Edit/autofigure2.py --method_text 研究提出的深度学习神经网络框架，通过数据增强与参数微调机制，将大规模视觉-语言预训练模型迁移至运动员面部表情识别中。该框架的系统数据流程为数据处理-特征提取-分类预测。具体而言，原始图像先经过包含几何变换、遮挡模拟及混合正则化的数据处理工程，以增强样本的多样性与模型识别的鲁棒性。数据增强处理后的图像张量送入预训练的CLIP ViT-L/14视觉骨干网络中。为了在保留预训练模型通用视觉知识使其适应学习识别面部表情，研究冻结了CLIP的所有原始权重，仅在Transformer层中并联注入可训练的低秩适配（LoRA）模块，实现了小参数训练高效适配，同时该方式还可以应用于不同的体育场景实现模型的迅速泛化。 --output_dir /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_191411_754b8fd4 --provider crs --api_key *** --sam_prompt icon,person,animal,robot --placeholder_mode label --merge_threshold 0.01 --sam_backend roboflow --optimize_iterations 0
+[stdout] ============================================================
+[stdout] Paper Method 到 SVG 图标替换流程 (Label 模式增强版 + Box合并)
+[stdout] ============================================================
+[stdout] Provider: crs
+[stdout] 输出目录: /root/autodl-tmp/AutoFigure-Edit/outputs/20260224_191411_754b8fd4
+[stdout] 生图模型: gemini-3-pro-image-preview
+[stdout] SVG模型: [L]gemini-2.5-pro
+[stdout] SAM提示词: icon,person,animal,robot
+[stdout] 最低置信度: 0.0
+[stdout] SAM后端: roboflow
+[stdout] 执行到步骤: 5
+[stdout] 占位符模式: label
+[stdout] 优化迭代次数: 0
+[stdout] Box合并阈值: 0.01
+[stdout] ============================================================
+[stdout] ============================================================
+[stdout] 步骤一：使用 LLM 生成学术风格图片
+[stdout] ============================================================
+[stdout] Provider: crs
+[stdout] 模型: gemini-3-pro-image-preview
+[stdout] 发送请求到: https://cdn.12ai.org/v1
+[stdout] [Bianxie] 图像生成 API 调用失败: Connection error.
+[stderr] Traceback (most recent call last):
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+[stderr]     yield
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+[stderr]     resp = self._pool.handle_request(req)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+[stderr]     raise exc from None
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+[stderr]     response = connection.handle_request(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+[stderr]     return self._connection.handle_request(request)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+[stderr]     raise exc
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+[stderr]     ) = self._receive_response_headers(**kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+[stderr]     event = self._receive_event(timeout=timeout)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+[stderr]     raise RemoteProtocolError(msg)
+[stderr] httpcore.RemoteProtocolError: Server disconnected without sending a response.
+[stderr] The above exception was the direct cause of the following exception:
+[stderr] Traceback (most recent call last):
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/openai/_base_client.py", line 1005, in request
+[stderr]     response = self._client.send(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+[stderr]     response = self._send_handling_auth(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+[stderr]     response = self._send_handling_redirects(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+[stderr]     response = self._send_single_request(request)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+[stderr]     response = transport.handle_request(request)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+[stderr]     with map_httpcore_exceptions():
+[stderr]   File "/root/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 153, in __exit__
+[stderr]     self.gen.throw(typ, value, traceback)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+[stderr]     raise mapped_exc(message) from exc
+[stderr] httpx.RemoteProtocolError: Server disconnected without sending a response.
+[stderr] The above exception was the direct cause of the following exception:
+[stderr] Traceback (most recent call last):
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 2650, in <module>
+[stderr]     result = method_to_svg(
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 2348, in method_to_svg
+[stderr]     generate_figure_from_method(
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 623, in generate_figure_from_method
+[stderr]     img = call_llm_image_generation(
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 225, in call_llm_image_generation
+[stderr]     return _call_bianxie_image_generation(prompt, api_key, model, base_url, reference_image)
+[stderr]   File "/root/autodl-tmp/AutoFigure-Edit/autofigure2.py", line 324, in _call_bianxie_image_generation
+[stderr]     completion = client.chat.completions.create(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+[stderr]     return func(*args, **kwargs)
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 1204, in create
+[stderr]     return self._post(
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/openai/_base_client.py", line 1297, in post
+[stderr]     return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+[stderr]   File "/root/autodl-tmp/figure/lib/python3.10/site-packages/openai/_base_client.py", line 1037, in request
+[stderr]     raise APIConnectionError(request=request) from err
+[stderr] openai.APIConnectionError: Connection error.

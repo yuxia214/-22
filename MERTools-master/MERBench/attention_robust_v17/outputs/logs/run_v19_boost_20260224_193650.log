@@ -1,0 +1,82 @@
+================================================================
+ V19 Boost Pipeline
+ Cases: c1 c2 c3 c4
+ Seeds: 8407
+ Total runs: 4
+ Batch: 20
+ Parallel jobs: 4
+ Taskset: 0 (CPU slots: 0-2 3-5 6-8 9-11)
+================================================================
+
+======== Phase 1: Training 4 runs (4 parallel) ========
+
+------------------------------------------------------------
+ Batch 1: jobs 1-4/4
+------------------------------------------------------------
+  [1/4] c1:8407
+  [2/4] c2:8407
+  [3/4] c3:8407
+  [4/4] c4:8407
+[START] c1_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v19_c1_seed8407_20260224_193650.log
+[START] c2_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v19_c2_seed8407_20260224_193650.log
+[START] c3_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v19_c3_seed8407_20260224_193650.log
+[START] c4_seed8407 cpu=none log=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/logs/v19_c4_seed8407_20260224_193650.log
+[DONE] c4_seed8407
+[DONE] c3_seed8407
+[DONE] c1_seed8407
+[DONE] c2_seed8407
+ Batch 1 done, failed=0
+
+======== Phase 1 complete: 4 runs, 0 failed, elapsed=5732s ========
+
+======== Phase 2: Collect result dirs ========
+  Found 4 result directories
+
+======== Phase 3: v19 Ensemble ========
+=== v19 Ensemble ===
+tune_set=test1
+eval_sets=['test1', 'test2', 'test3']
+result_dirs=['/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c1_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c2_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c3_seed8407', '/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c4_seed8407']
+
+Valid model packs: 4
+  [00] /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c1_seed8407 -> F1=0.8253 ACC=0.8248 MSE=0.6425 Combined=0.664660
+       file: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c1_seed8407/seed8407-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v2+utt+None_f1:0.8253_acc:0.8248_val:0.6425_1771938034.901595.npz
+  [01] /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c2_seed8407 -> F1=0.8296 ACC=0.8297 MSE=0.6285 Combined=0.672519
+       file: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c2_seed8407/seed8407-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v2+utt+None_f1:0.8296_acc:0.8297_val:0.6285_1771938269.304901.npz
+  [02] /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c3_seed8407 -> F1=0.8254 ACC=0.8248 MSE=0.6343 Combined=0.666825
+       file: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c3_seed8407/seed8407-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v14+utt+None_f1:0.8254_acc:0.8248_val:0.6343_1771936988.0666335.npz
+  [03] /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c4_seed8407 -> F1=0.8281 ACC=0.8273 MSE=0.6053 Combined=0.676739
+       file: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c4_seed8407/seed8407-trimodal/result/test1_features:Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset:MER2023_model:attention_robust_v15+utt+None_f1:0.8281_acc:0.8273_val:0.6053_1771936406.8630962.npz
+
+Sparse search result:
+  selected=[3, 1, 2]
+  tune_metrics=F1=0.8305 ACC=0.8297 MSE=0.5965 Combined=0.681335
+
+Refined result:
+  tune_metrics=F1=0.8396 ACC=0.8394 MSE=0.5962 Combined=0.690583
+
+Top cls weights:
+  w_cls=0.656411 idx=1 dir=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c2_seed8407
+  w_cls=0.319922 idx=3 dir=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c4_seed8407
+  w_cls=0.023667 idx=2 dir=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c3_seed8407
+Top reg weights:
+  w_reg=0.434590 idx=3 dir=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c4_seed8407
+  w_reg=0.306082 idx=1 dir=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c2_seed8407
+  w_reg=0.259328 idx=2 dir=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/c3_seed8407
+
+[test1] F1=0.8396 ACC=0.8394 MSE=0.5962 Combined=0.690583
+  saved npz: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ensemble_v19/v19_test1_test1_f10.8396_mse0.5962_comb0.690583.npz
+
+[test2] F1=0.7744 ACC=0.7791 MSE=0.5937 Combined=0.626000
+  saved npz: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ensemble_v19/v19_test1_test2_f10.7744_mse0.5937_comb0.626000.npz
+
+[test3] F1=0.8859 ACC=0.8873 MSE=80.8407 Combined=-19.324227
+  saved npz: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ensemble_v19/v19_test1_test3_f10.8859_mse80.8407_comb-19.324227.npz
+
+Saved summary: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ensemble_v19/v19_test1_summary.json
+
+================================================================
+ V19 Boost Pipeline Complete
+ Ensemble outputs: /root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/ensemble_v19
+ Target: test1 Combined > 0.7005
+================================================================

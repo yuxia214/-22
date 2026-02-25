@@ -62,7 +62,7 @@ load_export_from_bashrc "CRS_BASE_URL"
 load_export_from_bashrc "CRS_SVG_MODEL"
 : "${ROBOFLOW_API_KEY:=Vxe4NqybbwczubYJyMP4}"
 export ROBOFLOW_API_KEY
-: "${CRS_API_KEY:=sk-HMR2NAznJcxT122qSoDie0uNgbmb6OeDJeKEkj08HtWo5h2R}"
+: "${CRS_API_KEY:=sk-zRCw7PibMrd26IU47W0bogK5TQezqu6KfVw5fwGMyivygXyT}"
 export CRS_API_KEY
 export CRS_BASE_URL="${CRS_BASE_URL:-http://bruder.yukinoapi.com/v1}"
 export CRS_SVG_MODEL="${CRS_SVG_MODEL:-[稳定1]gemini-3-pro-preview}"

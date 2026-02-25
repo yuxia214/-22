@@ -34,6 +34,7 @@ python -u main-robust.py --model='attention_robust_v2' --feat_type='utt' --datas
 import os
 import time
 import argparse
+import copy
 import numpy as np
 
 import torch
@@ -501,6 +502,60 @@ def apply_fold_prior_centers_if_needed(args, model, train_loader, fold_idx):
     counts_str = ",".join([str(int(x)) for x in counts.tolist()])
     centers_str = ",".join([f"{x:.3f}" for x in centers.tolist()])
     print(f'fold:{fold_idx+1}; init prior centers from fold-train; counts=[{counts_str}] centers=[{centers_str}]')
+
+
+def collect_cv_predictions_from_folds(folder_save):
+    """
+    Merge each fold's eval predictions into one cv prediction set.
+    In 5-fold CV, each training sample appears once in eval; if duplicates exist
+    accidentally, average them by sample name.
+    """
+    name2bucket = {}
+    name2label = {}
+    for fold_store in folder_save:
+        names = fold_store.get('eval_names', [])
+        emo_probs = fold_store.get('eval_emoprobs', [])
+        emo_labels = fold_store.get('eval_emolabels', [])
+        val_preds = fold_store.get('eval_valpreds', [])
+        val_labels = fold_store.get('eval_vallabels', [])
+        if len(names) == 0:
+            continue
+        assert len(names) == len(emo_probs) == len(emo_labels) == len(val_preds) == len(val_labels), \
+            'eval prediction lengths mismatch when collecting cv predictions'
+        for ii, name in enumerate(names):
+            emo_prob = np.asarray(emo_probs[ii], dtype=np.float32)
+            val_pred = float(np.asarray(val_preds[ii]).reshape(-1)[0])
+            emo_label = int(np.asarray(emo_labels[ii]).reshape(-1)[0])
+            val_label = float(np.asarray(val_labels[ii]).reshape(-1)[0])
+            if name not in name2bucket:
+                name2bucket[name] = {'emo_prob_sum': emo_prob.copy(), 'val_sum': val_pred, 'count': 1}
+                name2label[name] = {'emo': emo_label, 'val': val_label}
+            else:
+                name2bucket[name]['emo_prob_sum'] += emo_prob
+                name2bucket[name]['val_sum'] += val_pred
+                name2bucket[name]['count'] += 1
+
+    if len(name2bucket) == 0:
+        return [], np.array([]), np.array([]), np.array([]), np.array([])
+
+    names_sorted = sorted(name2bucket.keys())
+    out_emo_probs, out_emo_labels = [], []
+    out_val_preds, out_val_labels = [], []
+    for name in names_sorted:
+        rec = name2bucket[name]
+        cnt = max(1, int(rec['count']))
+        out_emo_probs.append(rec['emo_prob_sum'] / cnt)
+        out_val_preds.append(rec['val_sum'] / cnt)
+        out_emo_labels.append(name2label[name]['emo'])
+        out_val_labels.append(name2label[name]['val'])
+
+    return (
+        names_sorted,
+        np.asarray(out_emo_probs, dtype=np.float32),
+        np.asarray(out_emo_labels),
+        np.asarray(out_val_preds, dtype=np.float32),
+        np.asarray(out_val_labels, dtype=np.float32),
+    )
 
 
 def train_or_eval_model(
@@ -986,6 +1041,9 @@ if __name__ == '__main__':
             inference_tta_passes=final_eval_tta_passes,
             inference_tta_train_mode=args.tta_use_train_mode,
         )
+        # Keep an uncalibrated snapshot for CV aggregation so tune_set=cv
+        # reflects true out-of-fold raw predictions instead of in-fold calibrated values.
+        best_eval_results_for_cv = copy.deepcopy(best_eval_results)
 
         calibration_coef = None
         calibration_bias = None
@@ -1045,7 +1103,7 @@ if __name__ == '__main__':
         if args.use_reg_head_finetune:
             best_store['reg_ft_updates'] = reg_ft_updates
             best_store['reg_ft_best_mse'] = -1.0 if reg_ft_best_mse is None else reg_ft_best_mse
-        func_update_storage(inputs=best_eval_results, prefix='eval', outputs=best_store)
+        func_update_storage(inputs=best_eval_results_for_cv, prefix='eval', outputs=best_store)
 
         for jj, test_loader in enumerate(test_loaders):
             test_results = train_or_eval_model(
@@ -1095,7 +1153,23 @@ if __name__ == '__main__':
     cv_result = gain_cv_results(folder_save)
     save_path = f'{save_resroot}/cv_{prefix_name}_{cv_result}_{name_time}.npz'
     print (f'save results in {save_path}')
-    np.savez_compressed(save_path, args=np.array(args, dtype=object))
+    cv_names, cv_emo_probs, cv_emo_labels, cv_val_preds, cv_val_labels = collect_cv_predictions_from_folds(folder_save)
+    cv_save_data = dict(args=np.array(args, dtype=object))
+    if len(cv_names) > 0:
+        cv_save_data['names'] = np.asarray(cv_names, dtype=object)
+        cv_save_data['emo_probs'] = cv_emo_probs
+        cv_save_data['emoprobs'] = cv_emo_probs
+        cv_save_data['emo_labels'] = cv_emo_labels
+        cv_save_data['emolabels'] = cv_emo_labels
+        cv_save_data['val_preds'] = cv_val_preds
+        cv_save_data['valpreds'] = cv_val_preds
+        cv_save_data['val_labels'] = cv_val_labels
+        cv_save_data['vallabels'] = cv_val_labels
+        _, cv_merge_result = dataloader_class.calculate_results(cv_emo_probs, cv_emo_labels, cv_val_preds, cv_val_labels)
+        print(f'cv merged result: {cv_merge_result}; samples: {len(cv_names)}')
+    else:
+        print('cv merged result unavailable (empty eval predictions)')
+    np.savez_compressed(save_path, **cv_save_data)
 
     for jj in range(len(test_loaders)):
         emo_labels, emo_probs = average_folder_for_emos(folder_save, f'test{jj+1}')

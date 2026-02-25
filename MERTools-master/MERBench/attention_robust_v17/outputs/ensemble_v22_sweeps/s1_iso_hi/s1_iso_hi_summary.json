@@ -1,0 +1,123 @@
+{
+  "tune_set": "test1",
+  "eval_sets": [
+    "test1",
+    "test2"
+  ],
+  "tune_metrics_raw": {
+    "f1": 0.8459908390663751,
+    "acc": 0.8442822384428224,
+    "mse": 0.5865055918693542,
+    "combined": 0.6993644410990365
+  },
+  "tune_metrics_search_objective": {
+    "f1": 0.8459908390663751,
+    "acc": 0.8442822384428224,
+    "mse": 0.48874956369400024,
+    "combined": 0.723803448142875
+  },
+  "tune_metrics": {
+    "f1": 0.8459908390663751,
+    "acc": 0.8442822384428224,
+    "mse": 0.48874956369400024,
+    "combined": 0.723803448142875
+  },
+  "search_tune_metrics": {
+    "f1": 0.8459908390663751,
+    "acc": 0.8442822384428224,
+    "mse": 0.48874956369400024,
+    "combined": 0.723803448142875
+  },
+  "search_objective": "calibrated",
+  "search_calibration_mode": "isotonic",
+  "models": [
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/g1_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/g2_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/g3_seed8407",
+    "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/g4_seed8407"
+  ],
+  "weights_cls": [
+    0.0091086006098491,
+    0.5226247901412429,
+    0.162928442101385,
+    0.30533816714752304
+  ],
+  "weights_reg": [
+    0.012193513001634362,
+    0.630286577687103,
+    0.04121177787393916,
+    0.3163081314373235
+  ],
+  "selected_sparse": [
+    1,
+    0,
+    3
+  ],
+  "post_reg_calibration": "isotonic",
+  "calibration_min_samples": 10,
+  "calibration_clip": 4.5,
+  "calibration_meta": {
+    "mode": "isotonic",
+    "n_knots": 76
+  },
+  "metrics_raw_test1": {
+    "f1": 0.8459908390663751,
+    "acc": 0.8442822384428224,
+    "mse": 0.5865055918693542,
+    "combined": 0.6993644410990365
+  },
+  "metrics_test1": {
+    "f1": 0.8459908390663751,
+    "acc": 0.8442822384428224,
+    "mse": 0.48874956369400024,
+    "combined": 0.723803448142875
+  },
+  "active_indices_test1": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test1": [
+    0.0091086006098491,
+    0.5226247901412429,
+    0.162928442101385,
+    0.30533816714752304
+  ],
+  "active_w_reg_test1": [
+    0.012193513001634362,
+    0.630286577687103,
+    0.04121177787393916,
+    0.3163081314373235
+  ],
+  "metrics_raw_test2": {
+    "f1": 0.7746461482933287,
+    "acc": 0.7766990291262136,
+    "mse": 0.5852116942405701,
+    "combined": 0.6283432247331862
+  },
+  "metrics_test2": {
+    "f1": 0.7746461482933287,
+    "acc": 0.7766990291262136,
+    "mse": 0.5258309245109558,
+    "combined": 0.6431884171655897
+  },
+  "active_indices_test2": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "active_w_cls_test2": [
+    0.0091086006098491,
+    0.5226247901412429,
+    0.162928442101385,
+    0.30533816714752304
+  ],
+  "active_w_reg_test2": [
+    0.012193513001634362,
+    0.630286577687103,
+    0.04121177787393916,
+    0.3163081314373235
+  ]
+}

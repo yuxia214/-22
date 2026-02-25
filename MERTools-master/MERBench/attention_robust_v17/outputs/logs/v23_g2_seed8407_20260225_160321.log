@@ -1,0 +1,165 @@
+run_tag=g2_seed8407
+case_id=g2
+model=attention_robust_v14
+seed=8407 gpu=0 batch=20 epochs=130
+save_root=/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/g2_seed8407/seed8407
+====== Params Pre-analysis =======
+args:  Namespace(audio_feature='chinese-hubert-large-UTT', batch_size=20, cls_loss_type='label_smoothing', consistency_emo_weight=0.08, consistency_val_weight=0.05, contrastive_temperature=0.07, contrastive_weight=0.1, corruption_max_rate=0.45, corruption_warmup_epochs=25, cosine_t0=30, cosine_t_mult=2, cross_kl_weight=0.001, dataset='MER2023', debug=False, double_mask_ratio=0.35, dropout=0.32, e2e_dim=None, e2e_name=None, early_stopping_patience=36, emo_loss_weight=0.95, emotion_group_calibration_min_samples=6, epochs=130, feat_scale=1, feat_type='utt', feature_noise_prob=0.18, feature_noise_std=0.012, feature_noise_warmup=10, focal_gamma=2.0, fusion_residual_scale=0.4, fusion_temperature=0.3, gate_alpha=0.5, gpu=0, grad_clip=1.0, hidden_dim=160, huber_beta=0.8, huber_beta_stage2=0.8, hyper_path=None, ignore_missing_val_threshold=-9.0, impute_loss_weight=0.1, init_prior_from_fold_train=True, kl_warmup_epochs=20, kl_weight=0.0005, l2=5e-05, label_smoothing=0.05, latent_noise_std=0.02, lr=0.00036, lr_adjust='case1', lr_factor=0.5, lr_patience=8, lr_schedule='plateau', mixup_alpha=0.4, modality_agreement_weight=0.01, modality_dropout=0.13, modality_dropout_warmup=15, model='attention_robust_v14', mt_init_log_var_cls=0.0, mt_init_log_var_reg=0.0, n_classes=None, num_attention_heads=4, num_workers=0, print_iters=100000000.0, quality_weight=0.6, recon_weight=0.012, reg_finetune_epochs=16, reg_finetune_lr=8e-05, reg_finetune_lr_patience=3, reg_finetune_min_delta=4e-05, reg_finetune_patience=5, reg_loss_type='smoothl1', reg_loss_type_stage2='mse', reg_stage2_start_epoch=36, reliability_temperature=1.0, save_iters=100000000.0, save_root='/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/outputs/results/g2_seed8407/seed8407-trimodal', savemodel=False, swa_lr=0.0002, swa_start_epoch=30, test_dataset=None, test_each_epoch=False, text_feature='Baichuan-13B-Base-UTT', train_dataset=None, tta_passes=3, tta_use_train_mode=False, use_contrastive=True, use_dynamic_kl=True, use_emotion_group_calibration=True, use_gated_fusion=True, use_gated_uncertainty=True, use_mixup=False, use_modality_dropout=True, use_proxy_attention=True, use_reg_head_finetune=True, use_swa=False, use_uncertainty_weighted_mt=True, use_vae=True, use_valence_calibration=False, use_valence_prior=True, val_loss_weight=1.46, valence_calibration_clip=4.5, valence_center_reg_weight=0.007, valence_consistency_weight=0.14, valence_prior_gate_dropout=0.05, valence_prior_hidden_dim=128, video_feature='clip-vit-large-patch14-UTT', weight_consistency_weight=0.02)
+====== Reading Data =======
+train: sample number 3373
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+  0%|          | 0/3373 [00:00<?, ?it/s]  6%|▌         | 190/3373 [00:00<00:01, 1639.80it/s] 11%|█         | 373/3373 [00:00<00:02, 1435.48it/s] 15%|█▌        | 518/3373 [00:00<00:02, 1143.31it/s] 20%|██        | 676/3373 [00:00<00:02, 1210.85it/s] 24%|██▎       | 801/3373 [00:00<00:03, 830.24it/s]  27%|██▋       | 902/3373 [00:00<00:02, 863.29it/s] 30%|██▉       | 1000/3373 [00:01<00:02, 845.66it/s] 33%|███▎      | 1105/3373 [00:01<00:02, 885.78it/s] 36%|███▌      | 1200/3373 [00:01<00:02, 884.13it/s] 38%|███▊      | 1293/3373 [00:01<00:02, 889.71it/s] 42%|████▏     | 1404/3373 [00:01<00:02, 894.18it/s] 45%|████▍     | 1505/3373 [00:01<00:02, 923.64it/s] 47%|████▋     | 1600/3373 [00:01<00:02, 722.30it/s] 50%|████▉     | 1680/3373 [00:01<00:02, 662.08it/s] 54%|█████▍    | 1834/3373 [00:02<00:01, 853.51it/s] 57%|█████▋    | 1929/3373 [00:02<00:02, 692.01it/s] 62%|██████▏   | 2077/3373 [00:02<00:01, 851.67it/s] 64%|██████▍   | 2175/3373 [00:02<00:01, 876.97it/s] 67%|██████▋   | 2272/3373 [00:02<00:01, 791.52it/s] 70%|██████▉   | 2359/3373 [00:02<00:01, 783.33it/s] 73%|███████▎  | 2467/3373 [00:02<00:01, 856.56it/s] 76%|███████▌  | 2558/3373 [00:02<00:00, 839.32it/s] 78%|███████▊  | 2646/3373 [00:03<00:00, 751.38it/s] 81%|████████  | 2725/3373 [00:03<00:00, 677.69it/s] 83%|████████▎ | 2797/3373 [00:03<00:01, 515.51it/s] 87%|████████▋ | 2944/3373 [00:03<00:00, 572.91it/s] 90%|████████▉ | 3032/3373 [00:03<00:00, 577.44it/s] 95%|█████████▍| 3197/3373 [00:03<00:00, 725.54it/s]100%|██████████| 3373/3373 [00:04<00:00, 843.15it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]  0%|          | 1/3373 [00:00<08:15,  6.81it/s]  0%|          | 4/3373 [00:00<03:22, 16.62it/s]  0%|          | 10/3373 [00:00<02:37, 21.34it/s]  8%|▊         | 257/3373 [00:00<00:05, 562.54it/s] 10%|█         | 345/3373 [00:00<00:05, 590.35it/s] 15%|█▌        | 514/3373 [00:00<00:03, 823.67it/s] 19%|█▊        | 628/3373 [00:01<00:03, 774.37it/s] 24%|██▍       | 811/3373 [00:01<00:02, 889.75it/s] 29%|██▉       | 983/3373 [00:01<00:02, 1072.21it/s] 33%|███▎      | 1100/3373 [00:01<00:02, 1009.51it/s] 36%|███▌      | 1208/3373 [00:01<00:02, 915.32it/s]  39%|███▉      | 1317/3373 [00:01<00:02, 915.36it/s] 42%|████▏     | 1415/3373 [00:01<00:02, 847.25it/s] 46%|████▌     | 1544/3373 [00:02<00:02, 913.09it/s] 49%|████▊     | 1638/3373 [00:02<00:02, 779.52it/s] 51%|█████     | 1720/3373 [00:02<00:02, 751.84it/s] 55%|█████▌    | 1857/3373 [00:02<00:01, 886.58it/s] 59%|█████▉    | 1982/3373 [00:02<00:01, 863.32it/s] 63%|██████▎   | 2123/3373 [00:02<00:01, 967.36it/s] 67%|██████▋   | 2252/3373 [00:02<00:01, 1046.95it/s] 70%|██████▉   | 2361/3373 [00:02<00:01, 1003.54it/s] 73%|███████▎  | 2475/3373 [00:03<00:00, 1029.49it/s] 77%|███████▋  | 2612/3373 [00:03<00:00, 1077.26it/s] 81%|████████  | 2722/3373 [00:03<00:00, 999.68it/s]  84%|████████▎ | 2824/3373 [00:03<00:00, 772.48it/s] 88%|████████▊ | 2958/3373 [00:03<00:00, 754.16it/s] 91%|█████████ | 3068/3373 [00:03<00:00, 615.64it/s] 97%|█████████▋| 3259/3373 [00:04<00:00, 834.02it/s]100%|██████████| 3373/3373 [00:04<00:00, 835.05it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/3373 [00:00<?, ?it/s]  0%|          | 8/3373 [00:00<01:18, 42.68it/s]  2%|▏         | 54/3373 [00:00<00:15, 216.78it/s]  9%|▉         | 307/3373 [00:00<00:02, 1073.91it/s] 13%|█▎        | 453/3373 [00:00<00:02, 1104.70it/s] 17%|█▋        | 576/3373 [00:00<00:02, 1141.75it/s] 21%|██        | 699/3373 [00:00<00:02, 1123.42it/s] 24%|██▍       | 817/3373 [00:00<00:02, 967.83it/s]  27%|██▋       | 921/3373 [00:01<00:02, 922.00it/s] 30%|███       | 1018/3373 [00:01<00:02, 894.14it/s] 33%|███▎      | 1111/3373 [00:01<00:02, 894.42it/s] 37%|███▋      | 1236/3373 [00:01<00:02, 988.64it/s] 40%|███▉      | 1338/3373 [00:01<00:02, 898.99it/s] 42%|████▏     | 1431/3373 [00:01<00:02, 840.91it/s] 45%|████▌     | 1518/3373 [00:01<00:02, 782.63it/s] 48%|████▊     | 1621/3373 [00:01<00:02, 841.88it/s] 51%|█████     | 1708/3373 [00:01<00:02, 828.25it/s] 53%|█████▎    | 1793/3373 [00:02<00:02, 730.08it/s] 57%|█████▋    | 1930/3373 [00:02<00:02, 614.63it/s] 59%|█████▉    | 1998/3373 [00:02<00:02, 627.55it/s] 66%|██████▌   | 2229/3373 [00:02<00:01, 955.83it/s] 71%|███████   | 2396/3373 [00:02<00:00, 1043.37it/s] 75%|███████▍  | 2518/3373 [00:02<00:00, 1078.63it/s] 78%|███████▊  | 2637/3373 [00:02<00:00, 1096.79it/s] 82%|████████▏ | 2751/3373 [00:03<00:00, 950.36it/s]  85%|████████▍ | 2857/3373 [00:03<00:00, 942.63it/s] 94%|█████████▎| 3162/3373 [00:03<00:00, 1468.57it/s]100%|██████████| 3373/3373 [00:03<00:00, 994.68it/s] Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test1: sample number 411
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/411 [00:00<?, ?it/s]  0%|          | 1/411 [00:00<01:44,  3.93it/s]  6%|▌         | 24/411 [00:00<00:06, 61.23it/s] 43%|████▎     | 175/411 [00:00<00:00, 381.01it/s]100%|██████████| 411/411 [00:00<00:00, 572.34it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/411 [00:00<?, ?it/s]  0%|          | 2/411 [00:00<00:32, 12.54it/s]  9%|▉         | 38/411 [00:00<00:03, 101.82it/s] 49%|████▉     | 202/411 [00:00<00:00, 511.52it/s]100%|██████████| 411/411 [00:00<00:00, 658.43it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/411 [00:00<?, ?it/s]  2%|▏         | 8/411 [00:00<00:05, 76.42it/s]  5%|▍         | 20/411 [00:00<00:04, 96.18it/s] 42%|████▏     | 174/411 [00:00<00:00, 635.21it/s] 81%|████████▏ | 334/411 [00:00<00:00, 767.03it/s]100%|██████████| 411/411 [00:00<00:00, 781.77it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test2: sample number 412
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/412 [00:00<?, ?it/s]  3%|▎         | 12/412 [00:00<00:09, 40.58it/s] 14%|█▍        | 58/412 [00:00<00:02, 132.91it/s] 95%|█████████▍| 391/412 [00:00<00:00, 892.48it/s]100%|██████████| 412/412 [00:00<00:00, 656.48it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/412 [00:00<?, ?it/s]  2%|▏         | 8/412 [00:00<00:16, 24.73it/s] 29%|██▊       | 118/412 [00:00<00:00, 331.93it/s] 43%|████▎     | 178/412 [00:00<00:00, 407.42it/s] 57%|█████▋    | 235/412 [00:00<00:00, 373.14it/s] 78%|███████▊  | 322/412 [00:00<00:00, 448.30it/s]100%|██████████| 412/412 [00:00<00:00, 474.29it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/412 [00:00<?, ?it/s]  0%|          | 1/412 [00:00<00:47,  8.58it/s]  6%|▌         | 24/412 [00:00<00:03, 118.33it/s] 35%|███▍      | 143/412 [00:00<00:00, 522.96it/s]100%|██████████| 412/412 [00:00<00:00, 954.49it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+test3: sample number 834
+audio feature root: /root/autodl-tmp/MERTools-master/MERBench/dataset/mer2023-dataset-process/features/chinese-hubert-large-UTT
+
+  0%|          | 0/834 [00:00<?, ?it/s]  0%|          | 1/834 [00:00<02:26,  5.69it/s]  6%|▋         | 53/834 [00:00<00:04, 185.79it/s] 30%|███       | 252/834 [00:00<00:00, 682.84it/s] 55%|█████▌    | 462/834 [00:00<00:00, 1087.49it/s] 70%|███████   | 587/834 [00:00<00:00, 824.00it/s]  82%|████████▏ | 687/834 [00:01<00:00, 599.38it/s]100%|██████████| 834/834 [00:01<00:00, 739.69it/s]Input feature chinese-hubert-large-UTT ===> dim is (1, 1024)
+
+  0%|          | 0/834 [00:00<?, ?it/s]  0%|          | 1/834 [00:00<01:40,  8.30it/s]  3%|▎         | 24/834 [00:00<00:07, 105.12it/s] 16%|█▌        | 134/834 [00:00<00:02, 337.21it/s] 29%|██▊       | 238/834 [00:00<00:01, 489.14it/s] 46%|████▌     | 384/834 [00:00<00:00, 704.17it/s] 55%|█████▍    | 458/834 [00:00<00:00, 542.15it/s] 65%|██████▌   | 544/834 [00:01<00:00, 610.02it/s] 75%|███████▍  | 623/834 [00:01<00:00, 628.61it/s]100%|██████████| 834/834 [00:01<00:00, 675.27it/s]Input feature Baichuan-13B-Base-UTT ===> dim is (1, 5120)
+
+  0%|          | 0/834 [00:00<?, ?it/s]  2%|▏         | 18/834 [00:00<00:05, 151.51it/s]  4%|▍         | 34/834 [00:00<00:05, 143.35it/s] 35%|███▍      | 290/834 [00:00<00:00, 1115.24it/s] 57%|█████▋    | 475/834 [00:00<00:00, 1087.81it/s] 71%|███████   | 588/834 [00:00<00:00, 1073.70it/s]100%|██████████| 834/834 [00:00<00:00, 1160.14it/s]Input feature clip-vit-large-patch14-UTT ===> dim is (1, 768)
+train&val folder:5; test sets:3
+audio dimension: 1024; text dimension: 5120; video dimension: 768
+====== Training and Evaluation =======
+>>>>> Cross-validation: training on the 1 folder >>>>>
+Step1: build model (each folder has its own model)
+fold:1; init prior centers from fold-train; counts=[706,644,541,305,376,127] centers=[-0.069,-2.517,1.752,-2.336,-1.037,-0.388]
+fold:1; using LabelSmoothingCrossEntropy(smoothing=0.05)
+Step2: training (multiple epoches)
+epoch:1; metric:emoval; train:0.1147; eval:0.5297; lr:0.000360; reg_loss:smoothl1
+epoch:2; metric:emoval; train:0.4830; eval:0.5146; lr:0.000360; reg_loss:smoothl1
+epoch:3; metric:emoval; train:0.5427; eval:0.5675; lr:0.000360; reg_loss:smoothl1
+epoch:4; metric:emoval; train:0.6110; eval:0.5843; lr:0.000360; reg_loss:smoothl1
+epoch:5; metric:emoval; train:0.6262; eval:0.6052; lr:0.000360; reg_loss:smoothl1
+epoch:6; metric:emoval; train:0.6637; eval:0.5011; lr:0.000360; reg_loss:smoothl1
+epoch:7; metric:emoval; train:0.6718; eval:0.5596; lr:0.000360; reg_loss:smoothl1
+epoch:8; metric:emoval; train:0.6920; eval:0.5504; lr:0.000360; reg_loss:smoothl1
+epoch:9; metric:emoval; train:0.7187; eval:0.5951; lr:0.000360; reg_loss:smoothl1
+epoch:10; metric:emoval; train:0.7458; eval:0.6013; lr:0.000360; reg_loss:smoothl1
+epoch:11; metric:emoval; train:0.7294; eval:0.5555; lr:0.000360; reg_loss:smoothl1
+epoch:12; metric:emoval; train:0.7437; eval:0.5618; lr:0.000360; reg_loss:smoothl1
+epoch:13; metric:emoval; train:0.7642; eval:0.5122; lr:0.000360; reg_loss:smoothl1
+epoch:14; metric:emoval; train:0.7572; eval:0.5860; lr:0.000180; reg_loss:smoothl1
+epoch:15; metric:emoval; train:0.8302; eval:0.6002; lr:0.000180; reg_loss:smoothl1
+epoch:16; metric:emoval; train:0.8342; eval:0.5947; lr:0.000180; reg_loss:smoothl1
+epoch:17; metric:emoval; train:0.8554; eval:0.5967; lr:0.000180; reg_loss:smoothl1
+epoch:18; metric:emoval; train:0.8568; eval:0.6079; lr:0.000180; reg_loss:smoothl1
+epoch:19; metric:emoval; train:0.8552; eval:0.5588; lr:0.000180; reg_loss:smoothl1
+epoch:20; metric:emoval; train:0.8508; eval:0.5747; lr:0.000180; reg_loss:smoothl1
+epoch:21; metric:emoval; train:0.8790; eval:0.5899; lr:0.000180; reg_loss:smoothl1
+epoch:22; metric:emoval; train:0.8661; eval:0.5616; lr:0.000180; reg_loss:smoothl1
+epoch:23; metric:emoval; train:0.8719; eval:0.6144; lr:0.000180; reg_loss:smoothl1
+epoch:24; metric:emoval; train:0.8676; eval:0.5768; lr:0.000180; reg_loss:smoothl1
+epoch:25; metric:emoval; train:0.8717; eval:0.5960; lr:0.000180; reg_loss:smoothl1
+epoch:26; metric:emoval; train:0.8849; eval:0.5966; lr:0.000180; reg_loss:smoothl1
+epoch:27; metric:emoval; train:0.8789; eval:0.5942; lr:0.000180; reg_loss:smoothl1
+epoch:28; metric:emoval; train:0.8870; eval:0.6153; lr:0.000180; reg_loss:smoothl1
+epoch:29; metric:emoval; train:0.8871; eval:0.5771; lr:0.000180; reg_loss:smoothl1
+epoch:30; metric:emoval; train:0.8954; eval:0.5824; lr:0.000180; reg_loss:smoothl1
+epoch:31; metric:emoval; train:0.8847; eval:0.5532; lr:0.000180; reg_loss:smoothl1
+epoch:32; metric:emoval; train:0.8948; eval:0.5461; lr:0.000180; reg_loss:smoothl1
+epoch:33; metric:emoval; train:0.8939; eval:0.5553; lr:0.000180; reg_loss:smoothl1
+epoch:34; metric:emoval; train:0.8921; eval:0.5978; lr:0.000180; reg_loss:smoothl1
+epoch:35; metric:emoval; train:0.8987; eval:0.6263; lr:0.000180; reg_loss:smoothl1
+epoch:36; metric:emoval; train:0.9039; eval:0.5742; lr:0.000180; reg_loss:smoothl1
+epoch:37; metric:emoval; train:0.7971; eval:0.5797; lr:0.000180; reg_loss:mse
+epoch:38; metric:emoval; train:0.8465; eval:0.6034; lr:0.000180; reg_loss:mse
+epoch:39; metric:emoval; train:0.8735; eval:0.6101; lr:0.000180; reg_loss:mse
+epoch:40; metric:emoval; train:0.8901; eval:0.5968; lr:0.000180; reg_loss:mse
+epoch:41; metric:emoval; train:0.8941; eval:0.6298; lr:0.000180; reg_loss:mse
+epoch:42; metric:emoval; train:0.9049; eval:0.5477; lr:0.000180; reg_loss:mse
+epoch:43; metric:emoval; train:0.8875; eval:0.5830; lr:0.000180; reg_loss:mse
+epoch:44; metric:emoval; train:0.8963; eval:0.5872; lr:0.000180; reg_loss:mse
+epoch:45; metric:emoval; train:0.9037; eval:0.5952; lr:0.000180; reg_loss:mse
+epoch:46; metric:emoval; train:0.9071; eval:0.5942; lr:0.000180; reg_loss:mse
+epoch:47; metric:emoval; train:0.9155; eval:0.5822; lr:0.000180; reg_loss:mse
+epoch:48; metric:emoval; train:0.9221; eval:0.6077; lr:0.000180; reg_loss:mse
+epoch:49; metric:emoval; train:0.9223; eval:0.5776; lr:0.000180; reg_loss:mse
+epoch:50; metric:emoval; train:0.9116; eval:0.6207; lr:0.000090; reg_loss:mse
+epoch:51; metric:emoval; train:0.9347; eval:0.5850; lr:0.000090; reg_loss:mse
+epoch:52; metric:emoval; train:0.9474; eval:0.6075; lr:0.000090; reg_loss:mse
+epoch:53; metric:emoval; train:0.9353; eval:0.5979; lr:0.000090; reg_loss:mse
+epoch:54; metric:emoval; train:0.9403; eval:0.6399; lr:0.000090; reg_loss:mse
+epoch:55; metric:emoval; train:0.9479; eval:0.6197; lr:0.000090; reg_loss:mse
+epoch:56; metric:emoval; train:0.9513; eval:0.5994; lr:0.000090; reg_loss:mse
+epoch:57; metric:emoval; train:0.9447; eval:0.6176; lr:0.000090; reg_loss:mse
+epoch:58; metric:emoval; train:0.9479; eval:0.5970; lr:0.000090; reg_loss:mse
+epoch:59; metric:emoval; train:0.9456; eval:0.6002; lr:0.000090; reg_loss:mse
+epoch:60; metric:emoval; train:0.9415; eval:0.6114; lr:0.000090; reg_loss:mse
+epoch:61; metric:emoval; train:0.9504; eval:0.5715; lr:0.000090; reg_loss:mse
+epoch:62; metric:emoval; train:0.9474; eval:0.5941; lr:0.000090; reg_loss:mse
+epoch:63; metric:emoval; train:0.9488; eval:0.6122; lr:0.000045; reg_loss:mse
+epoch:64; metric:emoval; train:0.9561; eval:0.6157; lr:0.000045; reg_loss:mse
+epoch:65; metric:emoval; train:0.9585; eval:0.6109; lr:0.000045; reg_loss:mse
+epoch:66; metric:emoval; train:0.9633; eval:0.6109; lr:0.000045; reg_loss:mse
+epoch:67; metric:emoval; train:0.9611; eval:0.6271; lr:0.000045; reg_loss:mse
+epoch:68; metric:emoval; train:0.9602; eval:0.6047; lr:0.000045; reg_loss:mse
+epoch:69; metric:emoval; train:0.9594; eval:0.6215; lr:0.000045; reg_loss:mse
+epoch:70; metric:emoval; train:0.9637; eval:0.6001; lr:0.000045; reg_loss:mse
+epoch:71; metric:emoval; train:0.9666; eval:0.6020; lr:0.000045; reg_loss:mse
+epoch:72; metric:emoval; train:0.9629; eval:0.6048; lr:0.000023; reg_loss:mse
+epoch:73; metric:emoval; train:0.9633; eval:0.6071; lr:0.000023; reg_loss:mse
+epoch:74; metric:emoval; train:0.9684; eval:0.6088; lr:0.000023; reg_loss:mse
+epoch:75; metric:emoval; train:0.9697; eval:0.6163; lr:0.000023; reg_loss:mse
+epoch:76; metric:emoval; train:0.9680; eval:0.6184; lr:0.000023; reg_loss:mse
+epoch:77; metric:emoval; train:0.9681; eval:0.6116; lr:0.000023; reg_loss:mse
+epoch:78; metric:emoval; train:0.9665; eval:0.6110; lr:0.000023; reg_loss:mse
+epoch:79; metric:emoval; train:0.9711; eval:0.6209; lr:0.000023; reg_loss:mse
+epoch:80; metric:emoval; train:0.9676; eval:0.6172; lr:0.000023; reg_loss:mse
+epoch:81; metric:emoval; train:0.9715; eval:0.6141; lr:0.000011; reg_loss:mse
+epoch:82; metric:emoval; train:0.9684; eval:0.6083; lr:0.000011; reg_loss:mse
+epoch:83; metric:emoval; train:0.9692; eval:0.6096; lr:0.000011; reg_loss:mse
+epoch:84; metric:emoval; train:0.9708; eval:0.6109; lr:0.000011; reg_loss:mse
+epoch:85; metric:emoval; train:0.9720; eval:0.6198; lr:0.000011; reg_loss:mse
+epoch:86; metric:emoval; train:0.9721; eval:0.6046; lr:0.000011; reg_loss:mse
+epoch:87; metric:emoval; train:0.9708; eval:0.6176; lr:0.000011; reg_loss:mse
+epoch:88; metric:emoval; train:0.9723; eval:0.6109; lr:0.000011; reg_loss:mse
+epoch:89; metric:emoval; train:0.9718; eval:0.6154; lr:0.000011; reg_loss:mse
+epoch:90; metric:emoval; train:0.9729; eval:0.6117; lr:0.000006; reg_loss:mse
+Early stopping at epoch 90, best epoch: 54
+Step3: saving and testing on the 1 folder
+fold:1; reg-ft epoch:1; train_mse:0.134423; eval_mse:0.567228; lr:0.000080
+fold:1; reg-ft epoch:2; train_mse:0.134127; eval_mse:0.568597; lr:0.000080
+fold:1; reg-ft epoch:3; train_mse:0.140956; eval_mse:0.567450; lr:0.000080
+fold:1; reg-ft epoch:4; train_mse:0.133776; eval_mse:0.569589; lr:0.000080
+fold:1; reg-ft epoch:5; train_mse:0.136390; eval_mse:0.570483; lr:0.000040
+
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+/root/miniconda3/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+fold:1; reg-ft epoch:6; train_mse:0.141246; eval_mse:0.568139; lr:0.000040
+fold:1; reg-head finetune done; updates:6; best_eval_mse:0.5672277808189392
+Traceback (most recent call last):
+  File "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/launch_main_robust_seeded.py", line 70, in <module>
+    main()
+  File "/root/autodl-tmp/MERTools-master/MERBench/attention_robust_v17/launch_main_robust_seeded.py", line 66, in main
+    runpy.run_path(str(main_path), run_name="__main__")
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/MERTools-master/MERBench/main-robust-v17.py", line 1045, in <module>
+    best_eval_results_for_cv = copy.deepcopy(best_eval_results)
+NameError: name 'copy' is not defined

@@ -6,16 +6,16 @@ V17_DIR="${MERBENCH_ROOT}/attention_robust_v17"
 OUTPUT_ROOT="${V17_DIR}/outputs/ablation_v24"
 
 GPU_ID="${GPU_ID:-0}"
-CASES_STR="${CASES:-a0_base a1_no_prior a2_no_uncertainty a3_no_regft}"
+CASES_STR="${CASES:-a9_v14_g2_mseplus a10_v2_s1_bridge a11_v15_regdeep a12_v14_mse_hard}"
 SEEDS_STR="${SEEDS:-8407}"
 read -r -a CASES <<< "${CASES_STR}"
 read -r -a SEEDS <<< "${SEEDS_STR}"
 
 EPOCHS="${EPOCHS:-}"
-BATCH_SIZE="${BATCH_SIZE:-32}"
+BATCH_SIZE="${BATCH_SIZE:-20}"
 NUM_WORKERS="${NUM_WORKERS:-0}"
 PARALLEL_JOBS="${PARALLEL_JOBS:-4}"
-THREADS_PER_RUN="${THREADS_PER_RUN:-2}"
+THREADS_PER_RUN="${THREADS_PER_RUN:-1}"
 USE_TASKSET="${USE_TASKSET:-0}"
 CPU_SLOTS_STR="${CPU_SLOTS:-0-2 3-5 6-8 9-11}"
 read -r -a CPU_SLOTS <<< "${CPU_SLOTS_STR}"
@@ -25,7 +25,7 @@ COUNT=0
 FAILED=0
 
 echo "================================================================"
-echo " V24 Ablation4 Pipeline"
+echo " V24 Ablation4 Pipeline (4-Way Single-Model MSE Sweep)"
 echo " Cases: ${CASES[*]}"
 echo " Seeds: ${SEEDS[*]}"
 echo " Total runs: ${TOTAL}"
@@ -185,6 +185,13 @@ for c in cases:
         rows.append((run_tag, f1, mse, comb))
 
 rows.sort(key=lambda x: (-1e9 if x[3] is None else -x[3]))
+best = rows[0] if rows else None
+if best is not None and best[3] is not None:
+    tag, f1, mse, comb = best
+    print(f"BEST_SINGLE  {tag:28s}  f1={f1:.4f}  mse={mse:.4f}  combined={comb:.6f}")
+else:
+    print("BEST_SINGLE  N/A")
+print("")
 for tag, f1, mse, comb in rows:
     if comb is None:
         print(f"{tag:28s}  N/A")

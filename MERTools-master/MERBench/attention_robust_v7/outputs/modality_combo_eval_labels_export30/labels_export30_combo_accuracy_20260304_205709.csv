@@ -1,0 +1,3 @@
+scope,samples,acc_full,acc_av,acc_at,acc_vt,delta_av_vs_full,delta_at_vs_full,delta_vt_vs_full,raw_rows,dedup_rows,missing_model_preds,true_label_conflict_clips,dataset_true_mismatch_count,dedup_rule
+overall_30videos,30,0.8,0.7,0.7333333333333333,0.7666666666666667,-0.10000000000000009,-0.06666666666666676,-0.033333333333333326,60.0,30.0,0.0,0.0,0.0,keep max confidence; tie -> latest completed_at
+split_test1,30,0.8,0.7,0.7333333333333333,0.7666666666666667,-0.10000000000000009,-0.06666666666666676,-0.033333333333333326,,,,,,
